@@ -2,9 +2,13 @@
 <Context privileged="true" reloadable="true">
 <WatchedResource>WEB-INF/web.xml</WatchedResource>
 <Manager pathname="" />
-<Resource name="jdbc/EECS" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+<Resource name="jdbc/EECS" 
+auth="Container"
 type="javax.sql.DataSource"
-driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
-url="jdbc:derby:C:\Users\Jeremy\Desktop\Digital Media\EECS 4413 - Building E-Commerce Systems\final_project\EECSProj\MyDB"/>
+username="root"
+password="admin"
+driverClassName="com.mysql.jdbc.Driver"
+url="jdbc:mysql://localhost:3306/"
+/>
 <ResourceLink global="jdbc/EECS" name="jdbc/EECS" type="javax.sql.DataSource" />
  </Context>
