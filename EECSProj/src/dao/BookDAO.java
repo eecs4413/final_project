@@ -19,33 +19,38 @@ public class BookDAO {
 		ds = DatabaseConnector.retriveDatabaseInfo();
 	}
 
-	public Map<String, BookBean> retrieve() throws SQLException {
+	public Map<String, BookBean> retrieve()  {
 		
 		String query = "select * from Book;";
 		Map<String, BookBean> rv = new HashMap<String, BookBean>();
-		Connection con = this.ds.getConnection();
-		PreparedStatement p = con.prepareStatement(query);
-		
-		ResultSet r = p.executeQuery();
-		while (r.next()) {
+		try {
+			Connection con = this.ds.getConnection();
+			PreparedStatement p = con.prepareStatement(query);
 			
-			 String bid  = r.getString("bid");
+			ResultSet r = p.executeQuery();
+			while (r.next()) {
+				
+				 String bid  = r.getString("bid");
+				
+				 String title  = r.getString("title");
+				
+				 String price =  r.getString("price");
+				
+				 String category =  r.getString("category");
+				 
+				 rv.put(bid, new BookBean(bid,title,price,category));
 			
-			 String title  = r.getString("title");
-			
-			 String price =  r.getString("price");
-			
-			 String category =  r.getString("category");
-			 
-			 rv.put(bid, new BookBean(bid,title,price,category));
-		
 
+			}
+			
+			
+			r.close();
+			p.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
-		r.close();
-		p.close();
-		con.close();
 		return rv;
 	}
 

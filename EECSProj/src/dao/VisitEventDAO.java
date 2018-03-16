@@ -19,30 +19,35 @@ public class VisitEventDAO {
 		ds = DatabaseConnector.retriveDatabaseInfo();
 	}
 
-	public Map<String, VisitEventBean > retrieve() throws SQLException {
+	public Map<String, VisitEventBean > retrieve()  {
 		
 		String query = "select * from VisitEvent;";
 		Map<String, VisitEventBean> rv = new HashMap<String, VisitEventBean>();
-		Connection con = this.ds.getConnection();
-		PreparedStatement p = con.prepareStatement(query);
-		
-		ResultSet r = p.executeQuery();
-		while (r.next()) {
+		try {
+			Connection con = this.ds.getConnection();
+			PreparedStatement p = con.prepareStatement(query);
 			
-			 String day = r.getString("day");
-			
-			 String bid = r.getString("bid");
-			
-			 String eventtype = r.getString("eventtype");
-			 
-			 rv.put(bid, new VisitEventBean(day, bid, eventtype));
+			ResultSet r = p.executeQuery();
+			while (r.next()) {
+				
+				 String day = r.getString("day");
+				
+				 String bid = r.getString("bid");
+				
+				 String eventtype = r.getString("eventtype");
+				 
+				 rv.put(bid, new VisitEventBean(day, bid, eventtype));
 
+			}
+			
+			
+			r.close();
+			p.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
-		r.close();
-		p.close();
-		con.close();
 		return rv;
 	}
 

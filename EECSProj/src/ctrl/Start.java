@@ -1,7 +1,6 @@
 package ctrl;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,14 +38,7 @@ public class Start extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		AddressDAO dao = new AddressDAO();
-		
-		try {
 			dao.retrieve();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

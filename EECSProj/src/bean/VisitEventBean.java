@@ -16,6 +16,10 @@ public class VisitEventBean {
 	@XmlElement
 	private String eventtype;
 
+	public VisitEventBean() {
+
+	}
+
 	public VisitEventBean(String day, String bid, String eventtype) {
 		super();
 		this.day = day;

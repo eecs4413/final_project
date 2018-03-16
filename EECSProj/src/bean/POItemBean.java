@@ -14,6 +14,9 @@ public class POItemBean {
 	private String bid;
 	@XmlElement
 	private String price;
+	public POItemBean() {
+		
+	}
 	public POItemBean(String id, String bid, String price) {
 		super();
 		this.id = id;
