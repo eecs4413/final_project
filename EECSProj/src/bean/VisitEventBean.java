@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "VisitEvent")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class VisitEvent {
+public class VisitEventBean {
 
 	@XmlElement
 	private String day;
@@ -16,7 +16,7 @@ public class VisitEvent {
 	@XmlElement
 	private String eventtype;
 
-	public VisitEvent(String day, String bid, String eventtype) {
+	public VisitEventBean(String day, String bid, String eventtype) {
 		super();
 		this.day = day;
 		this.bid = bid;

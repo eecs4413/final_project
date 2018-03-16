@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Address")
 @XmlAccessorType(XmlAccessType.FIELD)
 
-public class Address {
+public class AddressBean {
 
 	@XmlElement
 	private String id;
@@ -22,7 +22,7 @@ public class Address {
 	private String zip;
 	@XmlElement
 	private String phone;
-	public Address(String id, String street, String province, String country, String zip, String phone) {
+	public AddressBean(String id, String street, String province, String country, String zip, String phone) {
 		super();
 		this.id = id;
 		this.street = street;

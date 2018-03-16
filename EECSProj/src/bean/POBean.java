@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "PO")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PO {
+public class POBean {
 	@XmlElement
 	private String id;
 	@XmlElement
@@ -17,8 +17,8 @@ public class PO {
 	@XmlElement
 	private String status;
 	@XmlElement
-	private Address address;
-	public PO(String id, String lname, String fname, String status, Address address) {
+	private String address;
+	public POBean(String id, String lname, String fname, String status, String address) {
 		super();
 		this.id = id;
 		this.lname = lname;
@@ -50,10 +50,10 @@ public class PO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 	
