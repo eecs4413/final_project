@@ -58,5 +58,7 @@ public class Store {
 	public Map<String, VisitEventBean> retrieveVisitEvent() {
 		return visitEventDAO.retrieve();
 	}
+	
+	
 
 }

@@ -15,6 +15,16 @@ public class StoreWSRest {
 	}
 
 	void getOrdersByPartNumber(String partNumber) {
+		
+		// acess information for the purchaseOrderbean
+		
+		// fill bean
+		
+		// marsall bean to xml
+		
+		// return xml
+		
+		//
 
 	}
 
