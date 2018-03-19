@@ -16,9 +16,9 @@ public class StoreWSRest {
 
 	void getOrdersByPartNumber(String partNumber) {
 		
-		// acess information for the purchaseOrderbean
+		// acess information for the purchaseOrderbean   with Dao 
 		
-		// fill bean
+		// fill bean with dan retrive data
 		
 		// marsall bean to xml
 		
