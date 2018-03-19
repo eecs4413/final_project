@@ -1,29 +1,38 @@
 package restService;
 
-import java.util.HashMap;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
-@Path("wsr")
+import bean.PurchaseOrderBean;
+
+@Path("wsr") // this is the path of the service
 public class StoreWSRest {
 
-	HashMap<String, String> catalog;
+	PurchaseOrderBean purchaseOrderBean;
 
 	public StoreWSRest() {
-		
-		this.catalog = new HashMap<String, String>();
- // see database for a information to  create a purchase order bean
+		this.purchaseOrderBean = new PurchaseOrderBean();
+		// see database for a information to create a purchase order bean
 	}
 
-	void getOrdersByPartNumber(String partNumber) {
-		
-		// acess information for the purchaseOrderbean   with Dao 
-		
-		// fill bean with dan retrive data
-		
-		// marsall bean to xml
-		
-		// return xml
-		
+	// this is a READ method on the service
+	// http://localhost:8080/EECSProject/rest/wsr/getOrders?partNumber=b001
+	@GET
+	@Path("/getOrders/")
+	@Produces("text/xml")
+	void getOrdersByPartNumber(@DefaultValue("b001") @QueryParam("partNumber") String partNumber) {
+
+		// TODO acess information for the purchaseOrderbean with Dao
+
+		// TODO fill bean with dan retrive data
+
+		// TODO marsall bean to xml
+
+		// TODO return xml
+
 		//
 
 	}

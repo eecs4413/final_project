@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 // this class contains all of the information that will be passed as an xml in rest
 @XmlRootElement(name = "purchaseOrder")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class purchaseOrderBean {
+public class PurchaseOrderBean {
 	@XmlAttribute
 	private String orderDate;
 	@XmlElement
@@ -23,11 +23,11 @@ public class purchaseOrderBean {
 	@XmlElement
 	private ArrayList<PurchaseOrderItemBean> items;
 
-	public purchaseOrderBean() {
+	public PurchaseOrderBean() {
 		super();
 	}
 
-	public purchaseOrderBean(String orderDate, PurchaseOrderShipTo shipto, PurchaseOrderShipTo billTo, String comment,
+	public PurchaseOrderBean(String orderDate, PurchaseOrderShipTo shipto, PurchaseOrderShipTo billTo, String comment,
 			ArrayList<PurchaseOrderItemBean> items) {
 		super();
 		this.orderDate = orderDate;
