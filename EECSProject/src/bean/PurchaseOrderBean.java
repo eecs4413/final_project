@@ -9,9 +9,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 // this class contains all of the information that will be passed as an xml in rest
-@XmlRootElement(name = "purchaseOrder")
+@XmlRootElement(name="purchaseOrder")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PurchaseOrderBean {
+	
 	@XmlAttribute
 	private String orderDate;
 	@XmlElement

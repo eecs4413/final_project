@@ -28,14 +28,27 @@
   <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
+ <ns1:service name="StoreWSRest" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="getOrdersByPartNumber" qname="ns1:getOrdersByPartNumber" returnQName="ns1:getOrdersByPartNumberReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://restService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:partNumber" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:parameter name="allowedMethods" value="getOrdersByPartNumber"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="StoreWSRest"/>
+  <ns1:parameter name="className" value="restService.StoreWSRest"/>
+  <ns1:parameter name="wsdlServicePort" value="StoreWSRest"/>
+  <ns1:parameter name="schemaQualified" value="http://restService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://restService"/>
+  <ns1:parameter name="wsdlServiceElement" value="StoreWSRestService"/>
+ </ns1:service>
  <ns1:service name="Version" provider="java:RPC">
   <ns1:parameter name="allowedMethods" value="getVersion"/>
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="StoreWSSoap" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="getProductInfo" qname="ns1:getProductInfo" returnQName="ns1:getProductInfoReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://soapService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:productId" type="xsd:string"/>
-  </ns2:operation>
+  <ns1:operation name="getProductInfo" qname="ns2:getProductInfo" returnQName="ns2:getProductInfoReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://soapService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:productId" type="xsd:string"/>
+  </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getProductInfo"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="StoreWSSoap"/>

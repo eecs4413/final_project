@@ -18,7 +18,6 @@ public class BookBean {
 	private String category;
 
 	public BookBean() {
-
 	}
 
 	public BookBean(String bid, String title, String price, String category) {

@@ -33,6 +33,7 @@ public class StoreWSSoap {
 			sw.write("\n");
 
 			marshaller.marshal(catalog.get(productId), new StreamResult(sw));
+			System.out.println(sw.toString());
 			return sw.toString();
 
 		} catch (JAXBException e) {

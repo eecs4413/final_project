@@ -10,8 +10,7 @@ bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
 price INT NOT NULL,
 category ENUM('Science','Fiction','Engineering') NOT NULL,
-PRIMARY KEY(bid)
-);
+PRIMARY KEY(bid));
 #
 # Adding data for table 'Book'
 #
@@ -111,5 +110,29 @@ FOREIGN KEY(bid) REFERENCES Book(bid)
 INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12202015', 'b001', 'VIEW');
 INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12242015', 'b001', 'CART');
 INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12252015', 'b001', 'PURCHASE');
+#
+#
+
+/* Purchase orders of users
+* Order Date: DD/MM/YY
+* Shipping Address: Search throuh database for proper IDs that match
+* Billing Address: Search throuh database for proper IDs that match
+* User comment: Placed with order dates
+* Items (PurchaseOrderItemBean): Search throuh database for proper IDs that match 
+*/
+
+DROP TABLE if exists POItemType;
+CREATE TABLE POItemType (
+id INT UNSIGNED NOT NULL,
+day varchar(8) NOT NULL,
+comment varchar(100) NOT NULL,
+PRIMARY KEY(id)
+);
+#
+# Inserting data for table 'POitem'
+#
+INSERT INTO POItem (id, bid, price) VALUES (1, 'b001', '20');
+INSERT INTO POItem (id, bid, price) VALUES (2, 'b002', '201');
+INSERT INTO POItem (id, bid, price) VALUES (3, 'b003', '100');
 #
 #

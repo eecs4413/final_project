@@ -40,7 +40,6 @@ public class VisitEventDAO {
 
 			}
 			
-			
 			r.close();
 			p.close();
 			con.close();

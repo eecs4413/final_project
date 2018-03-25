@@ -1,7 +1,6 @@
-package restService;
+package debug;
 
 import java.io.StringWriter;
-import java.util.ArrayList;
 import java.util.Map;
 
 import javax.ws.rs.DefaultValue;
@@ -17,28 +16,31 @@ import javax.xml.transform.stream.StreamResult;
 import bean.POBean;
 import bean.POItemBean;
 import bean.PurchaseOrderBean;
-import bean.PurchaseOrderItemBean;
 import dao.PODAO;
 import dao.POItemDAO;
+import dao.PurchaseOrderDAO;
 
-@Path("wsr") // this is the path of the service
-public class StoreWSRest {
+@Path("fkt")
+public class RestForeignKeyDebug {
 
+	PODAO po;
 	PurchaseOrderBean purchaseOrderBean;
 	POItemDAO poItemDAO;
-	PODAO po;
+	PODAO2 po2;
 
-	public StoreWSRest() {
+	public RestForeignKeyDebug() {
+		po = new PODAO();
 		this.purchaseOrderBean = new PurchaseOrderBean();
 		poItemDAO = new POItemDAO();
-		po = new PODAO();
+		po2 = new PODAO2();
+		
 		// see database for a information to create a purchase order bean
 	}
 
 	// this is a READ method on the service
-	// http://localhost:8080/EECSProject/rest/wsr/getOrders?partNumber=b001
+	// http://localhost:8080/EECSProject/rest/fkt/test?partNumber=b001
 	@GET
-	@Path("/getOrders/")
+	@Path("/test/")
 	@Produces("text/xml")
 	public String getOrdersByPartNumber(@DefaultValue("b001") @QueryParam("partNumber") String partNumber) {
 
@@ -47,11 +49,21 @@ public class StoreWSRest {
 		//person1 (id=1) -> address1 (id=1)
 		
 		Map<String, POBean> temp = po.retrieve();
-		System.out.println("wTf!");
+		Map<String, POBean> temp2 = po2.retrieve("1");
+		
+		for(POBean item : temp2.values()) {
+			System.out.println(item.getId() + " " + item.getFname()
+			+ " " + item.getLname() + " "
+			+ item.getStatus() + " " + item.getAddress());
+		}
+		
+		
 		for(POBean item : temp.values()) {
-			System.out.println(item.getAddress());
+		//	System.out.println(item.getAddress().toString());
 			//if(item.getBid() == )
 		}
+		
+		
 		
 //		for(PurchaseOrderItemBean item : purchaseOrderBean.getItems()) {
 //			if(item.getPartNum() == partNumber) {
@@ -82,13 +94,6 @@ public class StoreWSRest {
 					System.out.println("WTF!");
 					return null;
 				}
-		
-		
-		// TODO fill bean with dan retrive data
-
-		// TODO marsall bean to xml
-
-		// TODO return xml
 
 	}
 
