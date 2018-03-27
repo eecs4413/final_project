@@ -43,6 +43,35 @@ INSERT INTO Address (id, street, province, country, zip, phone) VALUES (3, '789 
 'Canada', 'K3C 9T5' ,'416-123-9568');
 #
 #
+
+/** email : user
+*	String email, String password, String lname,
+String fname, AddressBean address, List<PurchaseOrderBean> orders  */
+
+DROP TABLE if exists Account;
+CREATE TABLE Account (
+email VARCHAR(20) NOT NULL,
+password VARCHAR(20) NOT NULL,
+lname VARCHAR(20) NOT NULL,
+fname VARCHAR(20) NOT NULL,
+address INT UNSIGNED NOT NULL,
+PO INT UNSIGNED NOT NULL,
+PRIMARY KEY(email));
+INDEX (address),
+FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE
+INDEX (PO),
+FOREIGN KEY (PO) REFERENCES PO (id) ON DELETE CASCADE
+
+
+#
+# Adding data for table 'account'
+#
+INSERT INTO Account (email, password, lname, fname, address, PO) VALUES ('paulliu@my.yorku.ca', 'ilovestarbucks', 'Liu', 'Paul', '1', '1');
+INSERT INTO Account (email, password, lname, fname, address, PO) VALUES ('dmnosale@my.yorku.ca','ilovedigitalmedia', 'Nosale', 'David-Mark', '2', '2');
+INSERT INTO Account (email, password, lname, fname, address, PO) VALUES ('michaelshortford@my.york.ca','whatsAR', 'Shortford', 'Michael', '3', '3');
+#
+
+
 /* Purchase Order
 * lname: last name
 * fname: first name
@@ -68,6 +97,15 @@ INSERT INTO PO (id, lname, fname, status, address) VALUES (2, 'Peter', 'Black', 
 INSERT INTO PO (id, lname, fname, status, address) VALUES (3, 'Andy', 'Green', 'ORDERED', '3');
 #
 #
+
+/* Purchase orders of users
+* Order Date: DD/MM/YY
+* Shipping Address: Search throuh database for proper IDs that match
+* Billing Address: Search throuh database for proper IDs that match
+* User comment: Placed with order dates
+* Items (PurchaseOrderItemBean): Search throuh database for proper IDs that match 
+*/
+
 /* Items on order
 * id : purchase order id
 * bid: unique identifier of Book
@@ -92,6 +130,7 @@ INSERT INTO POItem (id, bid, price) VALUES (2, 'b002', '201');
 INSERT INTO POItem (id, bid, price) VALUES (3, 'b003', '100');
 #
 #
+
 /* visit to website
 * day: date
 * bid: unique identifier of Book
@@ -113,26 +152,27 @@ INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12252015', 'b001', 'PURCHA
 #
 #
 
-/* Purchase orders of users
-* Order Date: DD/MM/YY
-* Shipping Address: Search throuh database for proper IDs that match
-* Billing Address: Search throuh database for proper IDs that match
-* User comment: Placed with order dates
-* Items (PurchaseOrderItemBean): Search throuh database for proper IDs that match 
+/* Address
+* id: address id
+*
 */
-
-DROP TABLE if exists POItemType;
-CREATE TABLE POItemType (
-id INT UNSIGNED NOT NULL,
-day varchar(8) NOT NULL,
-comment varchar(100) NOT NULL,
+DROP TABLE if exists ShipAddress;
+CREATE TABLE ShipAddress (
+id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+street VARCHAR(100) NOT NULL,
+province VARCHAR(20) NOT NULL,
+country VARCHAR(20) NOT NULL,
+zip VARCHAR(20) NOT NULL,
+phone VARCHAR(20),
 PRIMARY KEY(id)
 );
 #
-# Inserting data for table 'POitem'
+# Inserting data for table 'shipAddress'
 #
-INSERT INTO POItem (id, bid, price) VALUES (1, 'b001', '20');
-INSERT INTO POItem (id, bid, price) VALUES (2, 'b002', '201');
-INSERT INTO POItem (id, bid, price) VALUES (3, 'b003', '100');
-#
-#
+INSERT INTO Address (id, street, province, country, zip, phone) VALUES (1, '123 Yonge St', 'ON',
+'Canada', 'K1E 6T5' ,'647-123-4567');
+INSERT INTO Address (id, street, province, country, zip, phone) VALUES (2, '445 Avenue rd', 'ON',
+'Canada', 'M1C 6K5' ,'416-123-8569');
+INSERT INTO Address (id, street, province, country, zip, phone) VALUES (3, '789 Keele St.', 'ON',
+'Canada', 'K3C 9T5' ,'416-123-9568');
+

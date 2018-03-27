@@ -25,9 +25,10 @@ public class PurchaseOrderDAO {
 		ds = DatabaseConnector.retriveDatabaseInfo();
 	}
 
-	public Map<String, PurchaseOrderBean> retrieve(String clientID)  {
+	public Map<String, PurchaseOrderBean> retrieve()  {
 		
-		String query = "select " + clientID + "from *";
+		//PO = person info, address = shipTo, 
+		String query = "select * from POItem, Address, PO, ";
 		Map<String, PurchaseOrderBean> rv = new HashMap<String, PurchaseOrderBean>();
 		try {
 			Connection con = this.ds.getConnection();
@@ -38,7 +39,7 @@ public class PurchaseOrderDAO {
 				
 				//String orderDate, PurchaseOrderShipTo shipto, PurchaseOrderShipTo billTo, String comment,	ArrayList<PurchaseOrderItemBean> items
 				
-				 String id = r.getString("id");
+				 String id = r.getString("bid");
 				
 				 String lname = r.getString("lname");
 				
