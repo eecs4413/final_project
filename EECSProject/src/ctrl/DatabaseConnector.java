@@ -9,7 +9,7 @@ public class DatabaseConnector {
 
 	public static DataSource retriveDatabaseInfo() {
 		MysqlDataSource Mysqlds = new MysqlDataSource();
-		Mysqlds.setUrl("jdbc:mysql://localhost:3306/MYSQL");
+		Mysqlds.setUrl("jdbc:mysql://localhost:3306/Store_DB");
 		Mysqlds.setUser("root");
 		Mysqlds.setPassword("admin");
 		return Mysqlds;
