@@ -124,9 +124,9 @@ FOREIGN KEY(bid) REFERENCES Book(bid) ON DELETE CASCADE
 #
 # Inserting data for table 'POitem'
 #
-INSERT INTO POItem (id, bid, price) VALUES (1, 'b001', '20','12202015',);
-INSERT INTO POItem (id, bid, price) VALUES (2, 'b002', '201','12222015',);
-INSERT INTO POItem (id, bid, price) VALUES (3, 'b003', '100','12262015',);
+INSERT INTO POItem (id, bid, price, day) VALUES (1, 'b001', '20','12202015',);
+INSERT INTO POItem (id, bid, price, day) VALUES (2, 'b002', '201','12222015',);
+INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015',);
 #
 #
 
