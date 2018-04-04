@@ -55,14 +55,14 @@ public class VisitEventDAO {
 
 		String query = "INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('" + vbean.getDay() + "', '"
 				+ vbean.getBid() + "','" + vbean.getAid() + "', '" + vbean.getEventtype() + "');";
-		Map<String, VisitEventBean> rv = new HashMap<String, VisitEventBean>();
+		
 		try {
 			Connection con = this.ds.getConnection();
 			PreparedStatement p = con.prepareStatement(query);
 
-			ResultSet r = p.executeQuery();
+			p.executeQuery();
 
-			r.close();
+			
 			p.close();
 			con.close();
 		} catch (SQLException e) {
