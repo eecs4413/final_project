@@ -20,14 +20,14 @@ public class AccountUtil {
 			return false;
 		}else {
 			
-			acc = temp;
+			setAccount(temp);
 			return true;
 		}	
 	}
 	
 	
 	public void logout() {
-		acc = null;
+		setAccount(null);
 	}
 	
 	public boolean createAccount(String email, String password,String fname,String lname,AddressBean address) {
@@ -52,6 +52,16 @@ public class AccountUtil {
 		
 		return false;
 		
+	}
+
+
+	public static AccountBean getAccount() {
+		return acc;
+	}
+
+
+	public static void setAccount(AccountBean acc) {
+		AccountUtil.acc = acc;
 	}
 	
 

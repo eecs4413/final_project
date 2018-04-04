@@ -62,13 +62,6 @@ public class AddressDAO {
 
 
 		
-//		"+addressBean.getStreet() +"
-//		"+addressBean.getProvince()+"
-//		"+addressBean.getCountry()+"
-//		"+addressBean.getZip()+"
-//		"+addressBean.getPhone()+"
-
-		
 		String query = "INSERT INTO Address (street, province, country, zip, phone) VALUES ('"+addressBean.getStreet() +"', '"+addressBean.getProvince()+"','"+addressBean.getCountry()+"', '"+addressBean.getZip()+"' ,'"+addressBean.getPhone()+"');";
 		
 
@@ -78,7 +71,7 @@ public class AddressDAO {
 
 			PreparedStatement p = con.prepareStatement(query);
 
-			ResultSet r = p.executeQuery();
+			 p.executeQuery();
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
