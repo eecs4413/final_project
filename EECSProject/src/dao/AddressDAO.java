@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
 import bean.AddressBean;
 import ctrl.DatabaseConnector;
 
@@ -50,10 +52,56 @@ public class AddressDAO {
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rv;
+	}
+
+	
+	public int retriveAddressID(AddressBean addressBean) {
+
+
+		
+//		"+addressBean.getStreet() +"
+//		"+addressBean.getProvince()+"
+//		"+addressBean.getCountry()+"
+//		"+addressBean.getZip()+"
+//		"+addressBean.getPhone()+"
+
+		
+		String query = "INSERT INTO Address (street, province, country, zip, phone) VALUES ('"+addressBean.getStreet() +"', '"+addressBean.getProvince()+"','"+addressBean.getCountry()+"', '"+addressBean.getZip()+"' ,'"+addressBean.getPhone()+"');";
+		
+
+		Connection con;
+		try {
+			con = this.ds.getConnection();
+
+			PreparedStatement p = con.prepareStatement(query);
+
+			ResultSet r = p.executeQuery();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		Map<String, AddressBean> temp = this.retrieve();
+		
+		for (Entry<String, AddressBean> entry : temp.entrySet()) {
+			AddressBean bean =  entry.getValue() ; 
+			
+			if(bean.equals(addressBean)){
+				
+				return Integer.parseInt(bean.getId());
+				
+			}
+		
+		
+		}
+		
+		
+		
+		
+		return -50000;
 	}
 
 }

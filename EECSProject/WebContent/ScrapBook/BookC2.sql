@@ -175,3 +175,13 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
 
+
+use Store_DB;
+SELECT email from Account;
+select * from (SELECT aid , status , shipAddress ,street as ship_street, province as ship_province , country as ship_country,zip as ship_zip,phone  as ship_phone  
+FROM PO  INNER JOIN Address ON Address.id = PO.shipAddress) as T2
+               INNER JOIN
+(SELECT email, password,lname,fname,billAddress,street as bill_street, province as bill_province , country as bill_country,zip as bill_zip,phone  as bill_phone
+FROM Account INNER JOIN Address ON Account.billAddress = Address.id ) as T1
+ 
+ON T2.aid = T1.email;

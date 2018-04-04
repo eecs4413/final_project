@@ -1,11 +1,18 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import bean.AccountBean;
 import bean.BookBean;
+import bean.VisitEventBean;
+import dao.VisitEventDAO;
 
 public class CartUtil {
+	
+	private static AccountBean accountBean = null;
 
 	private static Map<BookBean, Integer> cart = new HashMap<BookBean, Integer>();
 
@@ -29,6 +36,17 @@ public class CartUtil {
 		} else {
 			cart.put(book, quantity);
 		}
+		
+		SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
+		Calendar cal = Calendar.getInstance();
+		String date = sd.format(cal.getTime());
+		
+		VisitEventDAO ve = new VisitEventDAO();
+		
+		VisitEventBean vbean = new VisitEventBean(book.getBid(),accountBean.getEmail(),date,"CART");
+		
+		
+		ve.createEvent(vbean);
 
 	}
 
@@ -50,6 +68,14 @@ public class CartUtil {
 
 	public void clearCart() {
 		cart = new HashMap<BookBean, Integer>();
+	}
+
+	public static AccountBean getAccountBean() {
+		return accountBean;
+	}
+
+	public static void setAccountBean(AccountBean accountBean) {
+		CartUtil.accountBean = accountBean;
 	}
 
 }

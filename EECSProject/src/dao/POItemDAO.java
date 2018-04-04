@@ -43,7 +43,6 @@ public class POItemDAO {
 			p.close();
 			con.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rv;

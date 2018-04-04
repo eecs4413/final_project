@@ -23,9 +23,10 @@ public class AccountDAO {
 	}
 
 	public AccountBean retrieveAccount(String email, String password) {
-		String query = "SELECT * from Account INNER JOIN Address ON Account.billAddress = Address.id Where Account.email='"+email+"' AND Account.password='"+password+"';";
-		AccountBean rv = null ;
-		
+		String query = "SELECT * from Account INNER JOIN Address ON Account.billAddress = Address.id Where Account.email='"
+				+ email + "' AND Account.password='" + password + "';";
+		AccountBean rv = null;
+
 		Connection con;
 		try {
 			con = this.ds.getConnection();
@@ -42,29 +43,28 @@ public class AccountDAO {
 				String lname = r.getString("lname");
 
 				String fname = r.getString("fname");
-				
+
 				String aid = r.getString("billAddress");
-				
-				String street =  r.getString("street");
-				
-				String province =  r.getString("province");
-				
-				String country =  r.getString("country");
+
+				String street = r.getString("street");
+
+				String province = r.getString("province");
+
+				String country = r.getString("country");
 
 				String zip = r.getString("zip");
 
 				String phone = r.getString("phone");
-				
-				rv = new AccountBean(email, password, lname, fname,new AddressBean(aid, street, province, country, zip, phone));
 
-				
+				rv = new AccountBean(e_mail, pass_word, lname, fname,
+						new AddressBean(aid, street, province, country, zip, phone));
 
 			}
 			r.close();
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		return rv;
@@ -72,11 +72,11 @@ public class AccountDAO {
 	}
 
 	public void createAccount(AccountBean temp) {
-		
+
 		AddressDAO adao = new AddressDAO();
-		
+
 		int address_ID = adao.retriveAddressID(temp.getAddress());
-		
+
 		String e_mail = temp.getEmail();
 
 		String pass_word = temp.getPassword();
@@ -84,9 +84,10 @@ public class AccountDAO {
 		String lname = temp.getLname();
 
 		String fname = temp.getFname();
-		
-		String query = "INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('"+e_mail+"', '"+pass_word+"', '"+lname+"', '+"+fname+"', '"+address_ID+"');";
-		
+
+		String query = "INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('" + e_mail + "', '"
+				+ pass_word + "', '" + lname + "', '+" + fname + "', '" + address_ID + "');";
+
 		Connection con;
 		try {
 			con = this.ds.getConnection();
@@ -96,15 +97,37 @@ public class AccountDAO {
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
 	}
 
 	public ArrayList<String> retrieveEmails() {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "SELECT email from Account;";
+
+		ArrayList<String> rv = new ArrayList<String>();
+
+		Connection con;
+		try {
+			con = this.ds.getConnection();
+
+			PreparedStatement p = con.prepareStatement(query);
+
+			ResultSet r = p.executeQuery();
+			while (r.next()) {
+
+				String e_mail = r.getString("email");
+
+				rv.add(e_mail);
+			}
+			r.close();
+			p.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rv;
 	}
 
 }

@@ -48,7 +48,7 @@ public class BookDAO {
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return rv;
