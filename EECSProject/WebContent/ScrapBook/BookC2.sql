@@ -10,13 +10,15 @@ bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
 price INT NOT NULL,
 category ENUM('Science','Fiction','Engineering') NOT NULL,
-PRIMARY KEY(bid));
+PRIMARY KEY(bid)
+);
 #
 # Adding data for table 'Book'
 #
 INSERT INTO Book (bid, title, price, category) VALUES ('b001', 'Little Prince', 20, 'Fiction');
 INSERT INTO Book (bid, title, price, category) VALUES ('b002','Physics', 201, 'Science');
 INSERT INTO Book (bid, title, price, category) VALUES ('b003','Mechanics' ,100,'Engineering');
+INSERT INTO Book (bid, title, price, category) VALUES ('b004','Circuit city' ,110,'Engineering');
 #
 /* Address
 * id: address id
@@ -43,10 +45,11 @@ INSERT INTO Address (id, street, province, country, zip, phone) VALUES (3, '789 
 'Canada', 'K3C 9T5' ,'416-123-9568');
 #
 #
-
-/** email : user
+/*
+* email : user
 *	String email, String password, String lname,
-String fname, AddressBean address, List<PurchaseOrderBean> orders  */
+* String fname, AddressBean address, List<PurchaseOrderBean> orders  
+*/
 
 DROP TABLE if exists Account;
 CREATE TABLE Account (
@@ -55,20 +58,15 @@ password VARCHAR(20) NOT NULL,
 lname VARCHAR(20) NOT NULL,
 fname VARCHAR(20) NOT NULL,
 billAddress INT UNSIGNED NOT NULL,
-PO INT UNSIGNED NOT NULL,
 PRIMARY KEY(email));
-INDEX (address),
 FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE
-INDEX (PO),
-FOREIGN KEY (PO) REFERENCES PO (id) ON DELETE CASCADE
-
-
+);
 #
 # Adding data for table 'account'
 #
-INSERT INTO Account (email, password, lname, fname, billAddress, PO) VALUES ('paulliu@my.yorku.ca', 'ilovestarbucks', 'Liu', 'Paul', '1', '1');
-INSERT INTO Account (email, password, lname, fname, billAddress, PO) VALUES ('dmnosale@my.yorku.ca','ilovedigitalmedia', 'Nosale', 'David-Mark', '2', '2');
-INSERT INTO Account (email, password, lname, fname, billAddress, PO) VALUES ('michaelshortford@my.york.ca','whatsAR', 'Shortford', 'Michael', '3', '3');
+INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('paulliu@my.yorku.ca', 'ilovestarbucks', 'Liu', 'Paul', '1');
+INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('dmnosale@my.yorku.ca','ilovedigitalmedia', 'Nosale', 'David-Mark', '2');
+INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('michaelshortford@my.york.ca','whatsAR', 'Shortford', 'Michael', '3');
 #
 
 
@@ -79,22 +77,23 @@ INSERT INTO Account (email, password, lname, fname, billAddress, PO) VALUES ('mi
 */
 DROP TABLE if exists PO;
 CREATE TABLE PO (
+aid  VARCHAR(20) NOT NULL,
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 status ENUM('ORDERED','PROCESSED','DENIED') NOT NULL,
 shipAddress INT UNSIGNED NOT NULL,
 PRIMARY KEY(id),
 INDEX (address),
-FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE
+FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE,
+FOREIGN KEY (aid) REFERENCES Account (email) ON DELETE CASCADE
 );
 #
 # Inserting data for table 'PO'
 #
-INSERT INTO PO (id, status, shipAddress) VALUES (1, 'PROCESSED', '1');
-INSERT INTO PO (id, status, shipAddress) VALUES (2, 'DENIED', '2');
-INSERT INTO PO (id, status, shipAddress) VALUES (3, 'ORDERED', '3');
+INSERT INTO PO (aid, id, status, shipAddress) VALUES ('paulliu@my.yorku.ca', 1, 'PROCESSED', '1');
+INSERT INTO PO (aid, id, status, shipAddress) VALUES ('dmnosale@my.yorku.ca', 2, 'DENIED', '2');
+INSERT INTO PO (aid, id, status, shipAddress) VALUES ('michaelshortford@my.york.ca', 3, 'ORDERED', '3');
 #
 #
-
 /* Purchase orders of users
 * Order Date: DD/MM/YY
 * Shipping Address: Search throuh database for proper IDs that match
@@ -115,6 +114,7 @@ id INT UNSIGNED NOT NULL,
 bid VARCHAR(20) NOT NULL,
 price INT UNSIGNED NOT NULL,
 day varchar(8) NOT NULL,
+comment varchar(200),
 PRIMARY KEY(id,bid),
 INDEX (id),
 FOREIGN KEY(id) REFERENCES PO(id) ON DELETE CASCADE,
@@ -138,17 +138,33 @@ INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015',);
 Inserting TABLE if exists VisitEvent;
 CREATE TABLE VisitEvent (
 day varchar(8) NOT NULL,
-bid varchar(20) not null REFERENCES Book.bid,
+bid varchar(20) not null,
+aid varchar(20) not null,
 eventtype ENUM('VIEW','CART','PURCHASE') NOT NULL,
-FOREIGN KEY(bid) REFERENCES Book(bid)
+FOREIGN KEY(bid) REFERENCES Book(bid),
+FOREIGN KEY(aid) REFERENCES Account(email),
 );
 #
 # Dumping data for table 'VisitEvent'
 #
-INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12202015', 'b001', 'VIEW');
-INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12242015', 'b001', 'CART');
-INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12252015', 'b001', 'PURCHASE');
+INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12202015', 'b001','paulliu@my.yorku.ca', 'VIEW');
+INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12242015', 'b002','paulliu@my.yorku.ca', 'CART');
+INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12252015', 'b003','paulliu@my.yorku.ca', 'PURCHASE');
 #
 #
-
-
+DROP TABLE if exists Review;
+CREATE TABLE Review (
+aid varchar(20) not null,
+bid varchar(20) not null,
+comment varchar(200)
+rating ENUM('0','1','2','3','4','5') not null,
+FOREIGN KEY(aid) REFERENCES Account(email),
+FOREIGN KEY(bid) REFERENCES Book(bid)
+);
+#
+# Inserting data for table 'Review'
+#
+INSERT INTO Review (aid, bid, comment, rating)  VALUES ('paulliu@my.yorku.ca', 'b001', 'This book is rad', '4');
+INSERT INTO Review (aid, bid, comment, rating)  VALUES ('dmnosale@my.yorku.ca', 'b002', 'This book is bad', '2');
+INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b003', 'This book is good', '5');
+INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
