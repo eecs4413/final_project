@@ -1,3 +1,4 @@
+Use Store_DB;
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
 * price: unit price WHEN ordered
@@ -53,13 +54,13 @@ INSERT INTO Address (id, street, province, country, zip, phone) VALUES (3, '789 
 
 DROP TABLE if exists Account;
 CREATE TABLE Account (
-email VARCHAR(20) NOT NULL,
+email VARCHAR(40) NOT NULL,
 password VARCHAR(20) NOT NULL,
 lname VARCHAR(20) NOT NULL,
 fname VARCHAR(20) NOT NULL,
 billAddress INT UNSIGNED NOT NULL,
-PRIMARY KEY(email));
-FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE
+PRIMARY KEY(email),
+FOREIGN KEY (billAddress) REFERENCES Address (id) ON DELETE CASCADE
 );
 #
 # Adding data for table 'account'
@@ -77,13 +78,13 @@ INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('michae
 */
 DROP TABLE if exists PO;
 CREATE TABLE PO (
-aid  VARCHAR(20) NOT NULL,
+aid  VARCHAR(40) NOT NULL,
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 status ENUM('ORDERED','PROCESSED','DENIED') NOT NULL,
 shipAddress INT UNSIGNED NOT NULL,
 PRIMARY KEY(id),
-INDEX (address),
-FOREIGN KEY (address) REFERENCES Address (id) ON DELETE CASCADE,
+INDEX (shipAddress),
+FOREIGN KEY (shipAddress) REFERENCES Address (id) ON DELETE CASCADE,
 FOREIGN KEY (aid) REFERENCES Account (email) ON DELETE CASCADE
 );
 #
@@ -118,31 +119,33 @@ comment varchar(200),
 PRIMARY KEY(id,bid),
 INDEX (id),
 FOREIGN KEY(id) REFERENCES PO(id) ON DELETE CASCADE,
-INDEX (bid),
 FOREIGN KEY(bid) REFERENCES Book(bid) ON DELETE CASCADE
 );
 #
 # Inserting data for table 'POitem'
 #
-INSERT INTO POItem (id, bid, price, day) VALUES (1, 'b001', '20','12202015',);
-INSERT INTO POItem (id, bid, price, day) VALUES (2, 'b002', '201','12222015',);
-INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015',);
+INSERT INTO POItem (id, bid, price, day) VALUES (1, 'b001', '20','12202015');
+INSERT INTO POItem (id, bid, price, day) VALUES (2, 'b002', '201','12222015');
+INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015');
 #
 #
-
 /* visit to website
 * day: date
 * bid: unique identifier of Book
 * eventtype: status of purchase
 */
-Inserting TABLE if exists VisitEvent;
+
+
+
+DROP TABLE if exists VisitEvent;
+
 CREATE TABLE VisitEvent (
 day varchar(8) NOT NULL,
 bid varchar(20) not null,
-aid varchar(20) not null,
+aid  VARCHAR(40) NOT NULL,
 eventtype ENUM('VIEW','CART','PURCHASE') NOT NULL,
 FOREIGN KEY(bid) REFERENCES Book(bid),
-FOREIGN KEY(aid) REFERENCES Account(email),
+FOREIGN KEY(aid) REFERENCES Account(email)
 );
 #
 # Dumping data for table 'VisitEvent'
@@ -152,11 +155,13 @@ INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12242015', 'b002','pa
 INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12252015', 'b003','paulliu@my.yorku.ca', 'PURCHASE');
 #
 #
+
+
 DROP TABLE if exists Review;
 CREATE TABLE Review (
-aid varchar(20) not null,
+aid varchar(40) not null,
 bid varchar(20) not null,
-comment varchar(200)
+comment varchar(200),
 rating ENUM('0','1','2','3','4','5') not null,
 FOREIGN KEY(aid) REFERENCES Account(email),
 FOREIGN KEY(bid) REFERENCES Book(bid)
@@ -168,3 +173,5 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('paulliu@my.yorku.ca', '
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('dmnosale@my.yorku.ca', 'b002', 'This book is bad', '2');
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b003', 'This book is good', '5');
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
+
+
