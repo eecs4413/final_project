@@ -27,6 +27,17 @@ public class AccountBean {
 		public AccountBean() {
 		}
 		
+		
+		public AccountBean(String email, String password, String lname,
+				String fname, AddressBean address) {
+			this.email = email;
+			this.password = password;
+			this.lname = lname;
+			this.fname = fname;
+			this.address = address;
+			
+		}
+		
 		//for simplicity, account username is the email (tbd)
 		public AccountBean(String email, String password, String lname,
 				String fname, AddressBean address, List<PurchaseOrderBean> orders) {
