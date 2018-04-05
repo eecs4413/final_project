@@ -14,14 +14,17 @@ public class POItemBean {
 	private String bid;
 	@XmlElement
 	private String price;
+	@XmlElement
+	private String day;
 	public POItemBean() {
 		
 	}
-	public POItemBean(String id, String bid, String price) {
+	public POItemBean(String id, String bid, String price, String day) {
 		super();
 		this.id = id;
 		this.bid = bid;
 		this.price = price;
+		this.day = day;
 	}
 	public String getId() {
 		return id;
@@ -40,6 +43,12 @@ public class POItemBean {
 	}
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	public String getDay() {
+		return day;
+	}
+	public void setDay(String day) {
+		this.day = day;
 	}
 	
 }

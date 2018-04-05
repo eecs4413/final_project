@@ -11,25 +11,25 @@ public class POBean {
 	@XmlElement
 	private String id;
 	@XmlElement
-	private String lname;
-	@XmlElement
-	private String fname;
+	private String aid;
 	@XmlElement
 	private String status;
 	@XmlElement
 	private AddressBean address;
+	@XmlElement
+	private String comment;
 
 	public POBean() {
-
+		
 	}
 
-	public POBean(String id, String lname, String fname, String status, AddressBean address) {
+	public POBean(String id, String aid, String status, AddressBean address, String comment) {
 		super();
 		this.id = id;
-		this.lname = lname;
-		this.fname = fname;
+		this.aid = aid;
 		this.status = status;
 		this.address = address;
+		this.comment = comment;
 	}
 
 	public String getId() {
@@ -40,20 +40,12 @@ public class POBean {
 		this.id = id;
 	}
 
-	public String getLname() {
-		return lname;
+	public String getAid() {
+		return aid;
 	}
 
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
+	public void setAid(String aid) {
+		this.aid = aid;
 	}
 
 	public String getStatus() {
@@ -65,11 +57,20 @@ public class POBean {
 	}
 
 	public AddressBean getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(AddressBean address) {
 		this.address = address;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	
 }

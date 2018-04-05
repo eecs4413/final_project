@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.sql.DataSource;
@@ -34,7 +35,9 @@ public class POItemDAO {
 				
 				 String price = r.getString("price");
 				 
-				 rv.put(id+bid, new POItemBean(id, bid, price));
+				 String day = r.getString("day");
+				 
+				 rv.put(id+bid, new POItemBean(id, bid, price, day));
 
 			}
 			
@@ -46,6 +49,12 @@ public class POItemDAO {
 			e.printStackTrace();
 		}
 		return rv;
+	}
+	
+	public void sendItems(ArrayList<POItemBean> items) {
+		
+		
+		
 	}
 
 }

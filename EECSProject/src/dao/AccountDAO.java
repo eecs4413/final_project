@@ -89,8 +89,8 @@ public class AccountDAO {
 		try {
 			con = this.ds.getConnection();
 			PreparedStatement p = con.prepareStatement(query);
-			ResultSet r = p.executeQuery();
-			r.close();
+			  p.executeQuery();
+			
 			p.close();
 			con.close();
 		} catch (SQLException e) {

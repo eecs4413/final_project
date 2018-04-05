@@ -11,8 +11,8 @@ public class AccountUtil {
 	private static AccountBean acc = null;
 	private static AccountDAO acc_dao = new AccountDAO();
 	
+	// Checks for  to see if account exists if it does , set account details as the account 
 	public boolean login(String email , String password) {
-		
 		
 		AccountBean temp = acc_dao.retrieveAccount(email, password);
 		
