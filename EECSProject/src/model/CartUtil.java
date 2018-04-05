@@ -10,24 +10,50 @@ import bean.BookBean;
 import bean.VisitEventBean;
 import dao.VisitEventDAO;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CartUtil.
+ */
 public class CartUtil {
 	
+	/** The account bean. */
 	private static AccountBean accountBean = null;
 
+	/** The cart. */
 	private static Map<BookBean, Integer> cart = new HashMap<BookBean, Integer>();
 
+	/**
+	 * Instantiates a new cart utility.
+	 */
 	public CartUtil() {
 
 	}
 
+	/**
+	 * Instantiates a new cart utility from another cart.
+	 *
+	 * @param other the other cart
+	 */
 	public CartUtil(CartUtil other) {
 		cart = other.getCart();
+		accountBean = other.getAccount();
 	}
 
+	/**
+	 * Gets the cart.
+	 *
+	 * @return the cart
+	 */
 	private Map<BookBean, Integer> getCart() {
 		return cart;
 	}
 
+	/**
+	 * Adds the item.
+	 *
+	 * @param book the book
+	 * @param quantity the quantity
+	 */
 	public void addItem(BookBean book, int quantity) {
 
 		if (cart.containsKey(book)) {
@@ -50,6 +76,12 @@ public class CartUtil {
 
 	}
 
+	/**
+	 * Removes the item deletes item from cart if quantity is negative
+	 *
+	 * @param book the book
+	 * @param quantity the quantity
+	 */
 	public void removeItem(BookBean book, int quantity) {
 
 		if (cart.containsKey(book)) {
@@ -62,20 +94,38 @@ public class CartUtil {
 		}
 	}
 
+	/**
+	 * Deletes the item from cart.
+	 *
+	 * @param book the book
+	 */
 	public void removeItem(BookBean book) {
 		cart.remove(book);
 	}
 
+	/**
+	 * Clear cart.
+	 */
 	public void clearCart() {
 		cart = new HashMap<BookBean, Integer>();
 	}
 
-	public static AccountBean getAccountBean() {
+	/**
+	 * Gets the account bean.
+	 *
+	 * @return the account bean
+	 */
+	public static AccountBean getAccount() {
 		return accountBean;
 	}
 
-	public static void setAccountBean(AccountBean accountBean) {
-		CartUtil.accountBean = accountBean;
+	/**
+	 * Sets the account bean.
+	 *
+	 * @param account the new account 
+	 */
+	public static void setAccount(AccountBean account) {
+		CartUtil.accountBean = account;
 	}
 
 }

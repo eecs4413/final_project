@@ -14,13 +14,26 @@ import bean.POItemBean;
 import dao.AddressDAO;
 import dao.PODAO;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PurchaseUtil.
+ */
 public class PurchaseUtil {
 
+	/** The account. */
 	private static AccountBean account = null;
+
+	/** The cart. */
 	private Map<BookBean, Integer> cart = null;
 
+	/** The pobean. */
 	private static POBean pobean = new POBean();
 
+	/**
+	 * Gets the PO items.
+	 *
+	 * @return the PO items
+	 */
 	private ArrayList<POItemBean> getPOItems() {
 
 		ArrayList<POItemBean> poi = new ArrayList<POItemBean>();
@@ -40,29 +53,39 @@ public class PurchaseUtil {
 
 	}
 
+	/**
+	 * Processes the order if credit card is valid
+	 *
+	 * @param Cred
+	 *            the credit card
+	 * @param addbean
+	 *            the Address information
+	 */
 	public void checkout(CreditCard Cred, AddressBean addbean) {
 
 		PurchaseUtil.validateCreditCard(Cred);
-
+		// get address id
 		AddressDAO addressDAO = new AddressDAO();
 		int x = addressDAO.retriveAddressID(addbean);
-
+		// fill the bean
 		addbean.setId(x + "");
 		pobean.setAddress(addbean);
 		pobean.setAid(getAccount().getEmail());
-
 		// status is set just before bean is sent in to database;
 		PODAO podao = new PODAO();
 		podao.sendPO(pobean);
-		
-		
-		// TODO store po items
+
 	}
 
-	
-
+	/**
+	 * Validate credit card if billing address name = credit card name.
+	 *
+	 * @param cred
+	 *            the credit card
+	 * @return true, if  processed
+	 * @return false, if  declined
+	 */
 	private static boolean validateCreditCard(CreditCard cred) {
-		// simple if billing address name = credit card name
 		if (cred.getLname().equals(account.getLname()) && cred.getFname().equals(account.getFname())) {
 			pobean.setStatus("PROCESSED");
 			return true;
@@ -71,26 +94,59 @@ public class PurchaseUtil {
 		return false;
 	}
 
+	/**
+	 * Gets the account.
+	 *
+	 * @return the account
+	 */
 	public AccountBean getAccount() {
 		return account;
 	}
 
+	/**
+	 * Sets the account.
+	 *
+	 * @param account
+	 *            the new account
+	 */
 	public void setAccount(AccountBean account) {
 		PurchaseUtil.account = account;
 	}
 
+	/**
+	 * Gets the comment.
+	 *
+	 * @return the comment
+	 */
 	public String getComment() {
 		return pobean.getComment();
 	}
 
+	/**
+	 * Sets the comment.
+	 *
+	 * @param comment
+	 *            the new comment
+	 */
 	public void setComment(String comment) {
 		pobean.setComment(comment);
 	}
 
+	/**
+	 * Gets the cart.
+	 *
+	 * @return the cart
+	 */
 	public Map<BookBean, Integer> getCart() {
 		return cart;
 	}
 
+	/**
+	 * Sets the cart.
+	 *
+	 * @param cart
+	 *            the cart
+	 */
 	public void setCart(Map<BookBean, Integer> cart) {
 		this.cart = cart;
 	}
