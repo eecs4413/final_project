@@ -14,7 +14,8 @@ import bean.POItemBean;
 import dao.AddressDAO;
 import dao.PODAO;
 
-// TODO: Auto-generated Javadoc
+//TODO CREATE A PURCHASE EVENT UNDER THE DAO
+
 /**
  * The Class PurchaseUtil.
  */

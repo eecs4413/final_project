@@ -49,7 +49,7 @@ public class CartUtil {
 	}
 
 	/**
-	 * Adds the item.
+	 * Adds the item and registers a cart visit event.
 	 *
 	 * @param book the book
 	 * @param quantity the quantity
