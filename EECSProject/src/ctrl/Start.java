@@ -13,7 +13,7 @@ import dao.AddressDAO;
 /**
  * Servlet implementation class Start
  */
-@WebServlet({ "/Start", "/Startup" })
+@WebServlet({ "/Start", "/Startup", "/Start/*" })
 public class Start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,6 +40,27 @@ public class Start extends HttpServlet {
 		AddressDAO  addressDAO = new AddressDAO();
 		System.out.println(addressDAO.retrieve().toString());
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String path = request.getPathInfo();
+		String target = "/Home.jspx";
+		
+		if (request.getSession().getAttribute("cart") == null) {
+			request.getSession().setAttribute("cart", 0);
+		}
+		
+		if ( path != null && path.equals("/Login") ) {
+			// forward to login page.
+			target = "/Login.jspx";
+		}  else if ( path != null && path.equals("/Register") ) {
+			// Forward to Register Page.
+			target = "/Register.jspx";
+		}  else if ( path != null && path.equals("/Cart") ) {
+			target = "/Cart.jspx";
+		} else if ( path != null && path.equals("/Home") ) {
+			// forward to home page
+			target = "/Home.jspx";
+		}
+		request.getRequestDispatcher(target).forward(request, response);
 	}
 
 	/**

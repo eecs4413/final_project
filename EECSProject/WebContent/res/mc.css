@@ -1,0 +1,136 @@
+* {
+	box-sizing: border-box;
+	color: #333438;
+	/*color: #9FA8AB; */
+	font-family: "Verdana", sans-serif;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+
+.wrapper {
+	padding: 0px 160px;
+	/* margin-top: 10px; */
+}
+
+.menu {
+	/* padding: 10px 0; */
+	/* background-color: grey; */
+	/* height: 100px; */
+	margin-bottom: 10px;
+}
+
+.logo {
+	display: inline;
+	font-size: 50px;
+}
+
+.logoForm {
+	display: inline;
+	width 80%;
+}
+
+button.homeBtn {
+    background: none;
+    border: #CDA46F 1px solid;
+}
+
+.searchButton {
+	font-size: 12px;
+	padding: 5px;
+	float: right;
+}
+
+
+.searchBar {
+    width: 90%;
+    border: 2px solid white;
+    font-size: 12px;
+    background-color: white;
+    -webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+.searchBox {
+	max-width: 1080px;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+.siteLogo {
+	text-decoration: none;
+	display: inline;
+}
+
+.menuItems {
+	padding: 0;
+	/* background-color: grey; */
+	padding: 10px 10px 10px 15px;
+}
+
+.menuItem {
+	display: inline;
+	padding-right: 15px;
+	float: right;
+	padding-top:20px;
+	font-size: 15px;
+}
+
+.menuItem a {
+	text-decoration: none;
+}
+
+.loginFields, .loginHead, .fields, .loginBtn, .registerBtn {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.loginHead, .fields {
+	width: 300px;
+	max-width: 320px;
+	padding: 10px 20px;
+}
+
+.loginFields {
+	border: 5px solid black;
+	width: 350px;
+	padding-top: 5px;
+}
+	
+.fields {
+	border: 1px solid black;
+	text-align: left;
+}
+
+input:focus {
+	outline: none;
+	-webkit-animation: bodd 2s infinite;
+}
+
+.submitButton {
+	text-align: left;
+	font-weight: 900;
+    font-size: 15px;
+    background: none;
+    text-align: center;
+    border: none;
+}
+
+.siteheading {
+	text-decoration: none;
+    font-weight: 600;
+}
+
+.searchButton {
+	width: 9%;
+	float: right;
+	background: none;
+	border:none;
+	padding: 3px;
+	color: white;
+	background-color: black;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" session="true" />
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Register</title>
+<link rel="StyleSheet"
+	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
+	title="StyleSheet" media="screen, print" />
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<form action="" method="post" onsubmit="validateRegister()"
+				id="registerForm">
+				<div class="loginFields">
+					<a class="siteheading"
+						href="${pageContext.request.contextPath}/Start">Pages</a>
+					<div class="errMsg"></div>
+					<input name="fname" type="text" class="fields" id="fname"
+						placeholder="First Name" /> 
+					<input name="lname" type="text" class="fields" id="lname" 
+						placeholder="Last Name" /> 
+					<input name="email" type="text" class="fields" id="email"
+						placeholder="Email Address" />
+					<input name="password" type="password" class="fields" id="password"
+						placeholder="Password" /> 
+					<input name="repassword" type="password" class="fields" id="repassword"
+						placeholder="Re-enter your Password" />
+					<button id="register_login" name="register_login" class="submitButton"
+						action="submit">REGISTER</button>
+					<p>Already have an account? <a href="${pageContext.request.contextPath}/Start/Login">Login here.</a>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+	</html>
+</jsp:root>
