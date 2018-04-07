@@ -27,7 +27,7 @@
 						placeholder="User Name" /> 
 					<input name="password" type="password" class="fields" id="password" 
 						placeholder="Password" />
-					<button id="login" name="login" class="submitButton" action="submit">LOGIN</button>
+					<button id="login" name="login" class="submitButton" action="submit" value="1">LOGIN</button>
 					<p>
 						<a href="${pageContext.request.contextPath}/Login/Reset">Forgot
 							Password.</a>

@@ -34,7 +34,7 @@
 					<input name="repassword" type="password" class="fields" id="repassword"
 						placeholder="Re-enter your Password" />
 					<button id="register_login" name="register_login" class="submitButton"
-						action="submit">REGISTER</button>
+						action="submit" value="1">REGISTER</button>
 					<p>Already have an account? <a href="${pageContext.request.contextPath}/Login">Login here.</a>
 					</p>
 				</div>

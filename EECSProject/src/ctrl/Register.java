@@ -27,6 +27,22 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = "/Register.jspx";
+		
+		String fname , lname , email , password ;
+		
+		
+		
+		
+		
+		
+		if(request.getParameter("register_login") != null) {
+			fname = request.getParameter("fname");
+			lname = request.getParameter("lname");
+			email = request.getParameter("email");
+			password = request.getParameter("password");
+		}
+		
+		
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 

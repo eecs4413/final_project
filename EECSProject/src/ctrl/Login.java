@@ -45,14 +45,16 @@ public class Login extends HttpServlet {
 		String username ;
 		String password;
 		
-		System.out.println( request.getRequestURL());
+		//System.out.println( request.getParameter("login"));
 		
-		if(request.getAttribute("login") != null) {
+		if(request.getParameter("login") != null) {
 			
-			username = (String) request.getAttribute("username");
-			password = (String) request.getAttribute("password");
+			username = request.getParameter("username");
+			password = request.getParameter("password");
 			
 			AccountBean account = AccountUtil.login(username, password);
+			System.out.println(account);
+			
 			
 			if (account == null){
 					request.setAttribute("ERROR", "account does not exsist");

@@ -27,6 +27,8 @@ public class Cart extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = "/Cart.jspx";
+		
+		
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
