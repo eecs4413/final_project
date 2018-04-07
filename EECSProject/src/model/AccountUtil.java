@@ -2,13 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
-import com.sun.org.glassfish.gmbal.ParameterNames;
 
 import bean.AccountBean;
 import bean.AddressBean;
 import dao.AccountDAO;
 
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class AccountUtil takes care of validating , creating and logging of accounts .
  */
@@ -21,23 +21,16 @@ public class AccountUtil {
 	private static AccountDAO acc_dao = new AccountDAO();
 	
 	
+	
 	/**
-	 * Logins in to an account. It sets the account of the class with the account information if found
+	 * Login.
 	 *
-	 * @param email the email of the account
-	 * @param password the password of the account
-	 * @return true, if successful
+	 * @param email the email
+	 * @param password the password
+	 * @return the account bean
 	 */
-	public  static boolean login(String email , String password) {
-		
-		AccountBean temp = acc_dao.retrieveAccount(email, password);
-		
-		if (temp == null) {
-			return false;
-		}else {
-			setAccount(temp);
-			return true;
-		}	
+	public  static AccountBean login(String email , String password) {
+		return acc_dao.retrieveAccount(email, password);
 	}
 	
 	
@@ -57,7 +50,7 @@ public class AccountUtil {
 	 * @param lname the last name of the account
 	 * @param address the address bean of the account
 	 * @return true, if successful created account
-	 * @return false, if account exists already
+	 * false, if account exists already
 	 */
 	public static boolean createAccount(String email, String password,String fname,String lname,AddressBean address) {
 		

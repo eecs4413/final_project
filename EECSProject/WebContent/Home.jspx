@@ -19,16 +19,16 @@
 		<div class="menu">
 			<ul class="menuItems">
 				<li class="logo">				
-					<a class="siteheading"  href="${pageContext.request.contextPath}/Start/Home">Pages</a>
+					<a class="siteheading"  href="${pageContext.request.contextPath}/Home">Pages</a>
 				</li>
 					<li class="menuItem">
-						<a href="${pageContext.request.contextPath}/Start/Login">Log In</a>
+						<a href="${pageContext.request.contextPath}/Login">Log In</a>
 					</li>
 					<li class="menuItem">
-						<a href="${pageContext.request.contextPath}/Start/Register">Register</a>
+						<a href="${pageContext.request.contextPath}/Register">Register</a>
 					</li>
 				<li class="menuItem">
-					<a class="menuItemLink" href="${pageContext.request.contextPath}/Start/Cart">Cart (${sessionScope['cart']})</a>
+					<a class="menuItemLink" href="${pageContext.request.contextPath}/Cart">Cart (${sessionScope['cart']})</a>
 				</li>
 			</ul>
 		</div>

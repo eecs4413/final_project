@@ -21,7 +21,7 @@
 				id="registerForm">
 				<div class="loginFields">
 					<a class="siteheading"
-						href="${pageContext.request.contextPath}/Start">Pages</a>
+						href="${pageContext.request.contextPath}/Home">Pages</a>
 					<div class="errMsg"></div>
 					<input name="fname" type="text" class="fields" id="fname"
 						placeholder="First Name" /> 
@@ -35,7 +35,7 @@
 						placeholder="Re-enter your Password" />
 					<button id="register_login" name="register_login" class="submitButton"
 						action="submit">REGISTER</button>
-					<p>Already have an account? <a href="${pageContext.request.contextPath}/Start/Login">Login here.</a>
+					<p>Already have an account? <a href="${pageContext.request.contextPath}/Login">Login here.</a>
 					</p>
 				</div>
 			</form>

@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.AddressDAO;
+import bean.AccountBean;
+import model.AccountUtil;
 
 /**
- * Servlet implementation class Start
+ * Servlet implementation class Login
  */
-@WebServlet({ "/Home","/Home/*" })
-public class Start extends HttpServlet {
+@WebServlet({"/Login","/Login/*" })
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Start() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,9 +37,34 @@ public class Start extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
-		String target = "/Home.jspx";
+	
+		
+		String target = "/Login.jspx";
+		
+		String username ;
+		String password;
+		
+		System.out.println( request.getRequestURL());
+		
+		if(request.getAttribute("login") != null) {
+			
+			username = (String) request.getAttribute("username");
+			password = (String) request.getAttribute("password");
+			
+			AccountBean account = AccountUtil.login(username, password);
+			
+			if (account == null){
+					request.setAttribute("ERROR", "account does not exsist");
+					System.out.println("account does not exsist");
+			}else {
+				request.getSession().setAttribute("account", account );
+			}	System.out.println("Logged in");
+		}
+		
+		
+		
+		
 		request.getRequestDispatcher(target).forward(request, response);
 		
 	}
