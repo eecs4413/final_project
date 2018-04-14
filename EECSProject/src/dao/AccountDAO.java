@@ -61,7 +61,7 @@ public class AccountDAO {
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-		
+
 			e.printStackTrace();
 		}
 		return rv;
@@ -72,29 +72,33 @@ public class AccountDAO {
 
 		AddressDAO adao = new AddressDAO();
 
-		int address_ID = adao.retriveAddressID(temp.getAddress());
+		int address_ID = adao.getID(temp.getAddress());
 
-		String e_mail = temp.getEmail();
+		if (address_ID < 0) {
 
-		String pass_word = temp.getPassword();
+			address_ID = adao.makeID(temp.getAddress());
 
-		String lname = temp.getLname();
+		}
 
-		String fname = temp.getFname();
-
-		String query = "INSERT INTO Account (email, password, lname, fname, billAddress) VALUES ('" + e_mail + "', '"
-				+ pass_word + "', '" + lname + "', '+" + fname + "', '" + address_ID + "');";
+		String query = "INSERT INTO Account (email, password, lname, fname, billAddress) VALUES (?, ?,?,?,?);";
 
 		Connection con;
 		try {
 			con = this.ds.getConnection();
 			PreparedStatement p = con.prepareStatement(query);
-			  p.executeQuery();
-			
+
+			p.setString(1, temp.getEmail());
+			p.setString(2, temp.getPassword());
+			p.setString(3, temp.getLname());
+			p.setString(4, temp.getFname());
+			p.setInt(5, address_ID);
+
+			p.executeUpdate();
+
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
 

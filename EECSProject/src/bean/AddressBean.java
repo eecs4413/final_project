@@ -36,6 +36,17 @@ public class AddressBean {
 		this.zip = zip;
 		this.phone = phone;
 	}
+	
+	public AddressBean( String street, String province, String country, String zip, String phone) {
+		super();
+		
+		this.street = street;
+		this.province = province;
+		this.country = country;
+		this.zip = zip;
+		this.phone = phone;
+	}
+
 
 	public String getId() {
 		return id;
@@ -87,6 +98,10 @@ public class AddressBean {
 
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 * This does not compare id of the address 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -100,11 +115,6 @@ public class AddressBean {
 			if (other.country != null)
 				return false;
 		} else if (!country.equals(other.country))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
 			return false;
 		if (phone == null) {
 			if (other.phone != null)

@@ -65,16 +65,20 @@ public class PODAO {
 		if (pobean.getStatus().equals("PROCESSED")) {
 			pobean.setStatus("ORDERED");
 		}
-		String query = "INSERT INTO PO (aid, id, status, shipAddress) VALUES ('" + pobean.getAid() + "', "
-				+ pobean.getId() + ", '" + pobean.getStatus() + "', " + pobean.getAddress().getId() + ");";
-
+		String query = "INSERT INTO PO (aid, id, status, shipAddress) VALUES (?,?,?,?);";
 		Connection con;
 		try {
 			con = this.ds.getConnection();
 
 			PreparedStatement p = con.prepareStatement(query);
+			
+			p.setString(1, pobean.getAid());
+			p.setString(2, pobean.getId());
+			p.setString(3, pobean.getStatus());
+			p.setString(4, pobean.getAddress().getId());
+			
 
-			p.executeQuery();
+			p.executeUpdate();
 
 			p.close();
 			con.close();

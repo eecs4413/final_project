@@ -32,11 +32,10 @@ public class VisitEventDAO {
 			while (r.next()) {
 
 				String day = r.getString("day");
-
 				String bid = r.getString("bid");
 				String aid = r.getString("aid");
-
 				String eventtype = r.getString("eventtype");
+				
 				rv.put(bid, new VisitEventBean(bid, aid, day, eventtype));
 
 			}
@@ -53,16 +52,19 @@ public class VisitEventDAO {
 
 	public void createEvent(VisitEventBean vbean) {
 
-		String query = "INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('" + vbean.getDay() + "', '"
-				+ vbean.getBid() + "','" + vbean.getAid() + "', '" + vbean.getEventtype() + "');";
-		
+		String query = "INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES (?,?,?,?);";
+
 		try {
 			Connection con = this.ds.getConnection();
 			PreparedStatement p = con.prepareStatement(query);
 
-			p.executeQuery();
+			p.setString(1, vbean.getDay());
+			p.setString(2, vbean.getBid());
+			p.setString(3, vbean.getAid());
+			p.setString(4, vbean.getEventtype());
 
-			
+			p.executeUpdate();
+
 			p.close();
 			con.close();
 		} catch (SQLException e) {

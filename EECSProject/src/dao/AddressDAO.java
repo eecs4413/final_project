@@ -57,11 +57,9 @@ public class AddressDAO {
 		return rv;
 	}
 
-	public int retriveAddressID(AddressBean addressBean) {
+	public int makeID(AddressBean addressBean) {
 
-		String query = "INSERT INTO Address (street, province, country, zip, phone) VALUES ('" + addressBean.getStreet()
-				+ "', '" + addressBean.getProvince() + "','" + addressBean.getCountry() + "', '" + addressBean.getZip()
-				+ "' ,'" + addressBean.getPhone() + "');";
+		String query = "INSERT INTO Address ( street, province, country, zip, phone) VALUES (?,?,?,?,?);";
 
 		Connection con;
 		try {
@@ -69,7 +67,13 @@ public class AddressDAO {
 
 			PreparedStatement p = con.prepareStatement(query);
 
-			p.executeQuery();
+			p.setString(1, addressBean.getStreet());
+			p.setString(2, addressBean.getProvince());
+			p.setString(3, addressBean.getCountry());
+			p.setString(4, addressBean.getZip());
+			p.setString(5, addressBean.getPhone());
+
+			p.executeUpdate();
 
 			p.close();
 			con.close();
@@ -91,6 +95,23 @@ public class AddressDAO {
 		}
 
 		return -50000;
+	}
+	
+	public int getID(AddressBean addressBean) {
+		Map<String, AddressBean> temp = this.retrieve();
+
+		for (Entry<String, AddressBean> entry : temp.entrySet()) {
+			AddressBean bean = entry.getValue();
+
+			if (bean.equals(addressBean)) {
+
+				return Integer.parseInt(bean.getId());
+			}
+
+		}
+
+		return -50000;
+		
 	}
 
 }

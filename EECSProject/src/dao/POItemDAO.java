@@ -58,16 +58,19 @@ public class POItemDAO {
 	public void sendItems(ArrayList<POItemBean> items) {
 
 		for (POItemBean item : items) {
-			String query = "INSERT INTO POItem (id, bid, price, day) VALUES (" + item.getId() + ", '" + item.getBid()
-					+ "', '" + item.getPrice() + "','" + item.getDay() + "');";
+			String query = "INSERT INTO POItem (id, bid, price, day) VALUES (?,?,?,?);";
 
 			Connection con;
 			try {
 				con = this.ds.getConnection();
 
 				PreparedStatement p = con.prepareStatement(query);
+				p.setString(1, item.getId());
+				p.setString(2, item.getBid());
+				p.setString(3, item.getPrice());
+				p.setString(4, item.getDay());
 
-				p.executeQuery();
+				p.executeUpdate();
 
 				p.close();
 				con.close();

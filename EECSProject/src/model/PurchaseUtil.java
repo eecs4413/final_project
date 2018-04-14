@@ -67,7 +67,7 @@ public class PurchaseUtil {
 		PurchaseUtil.validateCreditCard(Cred);
 		// get address id
 		AddressDAO addressDAO = new AddressDAO();
-		int x = addressDAO.retriveAddressID(addbean);
+		int x = addressDAO.getID(addbean);
 		// fill the bean
 		addbean.setId(x + "");
 		pobean.setAddress(addbean);

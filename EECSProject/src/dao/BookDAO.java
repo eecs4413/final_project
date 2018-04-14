@@ -11,7 +11,6 @@ import ctrl.DatabaseConnector;
 
 import javax.sql.DataSource;
 
-
 public class BookDAO {
 	private DataSource ds;
 
@@ -19,36 +18,36 @@ public class BookDAO {
 		ds = DatabaseConnector.retriveDatabaseInfo();
 	}
 
-	public Map<String, BookBean> retrieve()  {
-		
+	public Map<String, BookBean> retrieve() {
+
 		String query = "select * from Book;";
 		Map<String, BookBean> rv = new HashMap<String, BookBean>();
 		try {
 			Connection con = this.ds.getConnection();
 			PreparedStatement p = con.prepareStatement(query);
-			
+
 			ResultSet r = p.executeQuery();
 			while (r.next()) {
-				
-				 String bid  = r.getString("bid");
-				
-				 String title  = r.getString("title");
-				
-				 String price =  r.getString("price");
-				
-				 String category =  r.getString("category");
-				 
-				 rv.put(bid, new BookBean(bid,title,price,category));
-			
+
+				String bid = r.getString("bid");
+
+				String title = r.getString("title");
+				// TODO update database chart to reflect this
+				String author = r.getString("author");
+
+				String price = r.getString("price");
+
+				String category = r.getString("category");
+
+				rv.put(bid, new BookBean(bid, title, author, price, category));
 
 			}
-			
-			
+
 			r.close();
 			p.close();
 			con.close();
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
 		return rv;
