@@ -51,6 +51,11 @@ public class Start extends HttpServlet {
 		if (request.getSession().getAttribute("cart") == null) {
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
+		
+		if(request.getParameter("signOut") != null) {
+			request.getSession().setAttribute("logged_in", false);
+			request.getRequestDispatcher("/Home.jspx").forward(request, response);
+		}
 
 		// TODO add a value attribute to the search button to listen
 

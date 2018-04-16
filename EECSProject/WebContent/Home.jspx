@@ -12,8 +12,9 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>Insert title here</title>
-<link rel="StyleSheet" href="${pageContext.request.contextPath}/res/mc.css"
-	type="text/css" title="StyleSheet" media="screen, print" />
+<link rel="StyleSheet"
+	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
+	title="StyleSheet" media="screen, print" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
@@ -22,15 +23,30 @@
 		<div class="container">
 			<div class="header_top">
 				<div class="top_right">
+					<c:if test="${not sessionScope['logged_in']}">
+						<form action="" method="post">
+							<ul>
+								<li><a href="${pageContext.request.contextPath}/Login">Login</a>
+								</li> |
+								<li class="reg"><a
+									href="${pageContext.request.contextPath}/Register">Register</a></li>
+							</ul>
+						</form>
+					</c:if>
+					<c:if test="${sessionScope['logged_in']}">
+						<form method="post">
+							<button name="signOut" id="signOut" class="signOutButton"
+								action="submit" href="${pageContext.request.contextPath}/Home">Sign Out</button>
+						</form>
+					</c:if>
+					<!--
 					<ul>
-						<li>
-							<a href="${pageContext.request.contextPath}/Login">Login</a>
-						</li>
-						|
-						<li class="reg">
-							<a href="${pageContext.request.contextPath}/Register">Register</a>
-						</li>
+						<li><a href="${pageContext.request.contextPath}/Login">Login</a>
+						</li> |
+						<li class="reg"><a
+							href="${pageContext.request.contextPath}/Register">Register</a></li>
 					</ul>
+					-->
 				</div>
 			</div>
 		</div>
@@ -38,7 +54,7 @@
 	<div class="header_bg">
 		<div class="container">
 			<div class="header">
-				<div  class="head-t">
+				<div class="head-t">
 					<div class="logo">
 						<a href="${pageContext.request.contextPath}/Home">PAGES</a>
 					</div>
@@ -49,23 +65,37 @@
 							</div>
 						</div>
 						<div class="search">
-						<form action="" method="post" class="searchBox">
-							<input type="text" class="searchBar" id="searchBar"
-							placeholder="Search..." name="Search"  />
-							<button class="searchButton" id="searchButton" name="searchButton" action="submit">Search</button>
-						</form>
-					<!--<form>
+							<form action="" method="post" class="searchBox">
+								<input type="text" class="searchBar" id="searchBar"
+									placeholder="Search..." name="Search" />
+								<button class="searchButton" id="searchButton"
+									name="searchButton" action="submit">Search</button>
+							</form>
+							<!--<form>
 							<input type="text" placeholder="Search..."></input>
 							<input type="submit" value=""></input>
 						</form>-->
 						</div>
 					</div>
 				</div>
+				<!--
 				<div class="menu">
  					<a href="${pageContext.request.contextPath}/Home">Home</a>
  					<a href="#news">News</a>
   					<a href="#Books">Books</a>
   					<a href="#about">About</a>
+				</div>
+				-->
+				<div class="menu">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#news">About</a></li>
+						<li class="dropdown"><a href="javascript:void(0)"
+							class="dropbtn">Books</a>
+							<div class="dropdown-content">
+								<a href="#">Science</a> <a href="#">Engineering</a> <a href="#">Fiction</a>
+							</div></li>
+					</ul>
 				</div>
 			</div>
 		</div>
