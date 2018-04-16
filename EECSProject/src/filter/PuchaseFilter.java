@@ -9,20 +9,20 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Servlet Filter implementation class PuchaseFilter
  */
-@WebFilter(dispatcherTypes = {DispatcherType.REQUEST }
-					, urlPatterns = { "/Purchase" })
+@WebFilter(dispatcherTypes = { DispatcherType.REQUEST }, urlPatterns = { "/Purchase" })
 public class PuchaseFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public PuchaseFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public PuchaseFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -34,12 +34,39 @@ public class PuchaseFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		// place your code here
+		HttpServletRequest sc = (HttpServletRequest) request;
 
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
+		String target = null;
+
+		if (sc.getSession().getAttribute("purchase_tries") == null) {
+			sc.getSession().setAttribute("purchase_tries", 0);
+		}
+
+		int counter = (int) sc.getSession().getAttribute("purchase_tries");
+
+		counter++;
+
+		sc.getSession().setAttribute("purchase_tries", counter);
+
+		if (sc.getServletContext().getAttribute("account") != null) {
+			request.setAttribute("fowardAfter", "/Purchase.jspx");
+			target = "/Login.jspx";
+		}
+
+		if (((counter - 1) % 3) == 0) {
+			target = "/Errorpage.jspx";
+		}
+
+		if (target != null) {
+			request.getRequestDispatcher(target).forward(request, response);
+		} else {
+			// pass the request along the filter chain
+			chain.doFilter(request, response);
+		}
+
 	}
 
 	/**

@@ -18,9 +18,10 @@ public class SearchUtil {
 		get_books();
 		
 		
-		searchResults.put("by_aurthor", searchAurthor(searchString));
-		searchResults.put("by_category", searchCategory(searchString));
 		searchResults.put("by_title", searchTitle(searchString));
+		//searchResults.put("by_aurthor", searchAurthor(searchString));
+		//searchResults.put("by_category", searchCategory(searchString));
+		
 
 		return searchResults;
 
@@ -37,13 +38,18 @@ public class SearchUtil {
 				library.add(entry.getValue());
 			}
 		}
-		
+		System.out.println("there are book in the library dao " + library.size());
 	}
 
 	public static ArrayList<BookBean> searchAurthor(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
+		
+		
+		
 
 		for (BookBean addressBean : library) {
+			
+			
 			if (addressBean.getAurthor().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 			}
@@ -56,9 +62,12 @@ public class SearchUtil {
 	public static ArrayList<BookBean> searchTitle(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 		
-	
+		System.out.println("YOu typed :" + searchString);
 
 		for (BookBean addressBean : library) {
+			
+			System.out.println("YOu compared to  : " + addressBean.getTitle() );
+			System.out.println("Rsult :" + addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase()));
 			if (addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 				

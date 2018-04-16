@@ -7,11 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-
 import javax.sql.DataSource;
 
-import bean.AddressBean;
 import bean.POItemBean;
 import ctrl.DatabaseConnector;
 

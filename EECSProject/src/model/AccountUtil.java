@@ -73,7 +73,7 @@ public class AccountUtil {
 	 */
 	public static boolean Exists(String email) {
 		ArrayList<String> emails = acc_dao.retrieveEmails();
-
+		
 		return emails.contains(email);
 		
 	}

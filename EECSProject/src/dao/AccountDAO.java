@@ -57,6 +57,9 @@ public class AccountDAO {
 						new AddressBean(aid, street, province, country, zip, phone));
 
 			}
+			if(rv == null) {
+				System.out.println("dao did not get anything");
+			}
 			r.close();
 			p.close();
 			con.close();

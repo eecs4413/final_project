@@ -62,21 +62,19 @@ public class Login extends HttpServlet {
 				request.setAttribute("ERROR", "account does not exsist");
 				request.setAttribute(ERROR_MESSAGE, "loginErr");
 				System.out.println("account does not exsist");
-				//target = "/Login.jspx";
-				request.getRequestDispatcher("/Login.jspx").forward(request, response);
-				return;
+				target = "/Login.jspx";
+				
 			} else {
 				request.getSession().setAttribute("account", account);
 				request.getSession().setAttribute("logged_in", true);
 				System.out.println("Logged in");
-				//target = "/Home.jspx";
-				request.getRequestDispatcher("/Home.jspx").forward(request, response);
+				target = "/Home.jspx";
 			}
 		}
 		
 		if(request.getParameter("signOut") != null) {
 			request.getSession().setAttribute("logged_in", false);
-			request.getRequestDispatcher("/Home.jspx").forward(request, response);
+			target = "/Home.jspx";
 		}
 		
 		request.getRequestDispatcher(target).forward(request, response);
