@@ -1,86 +1,183 @@
+.top_bg {
+    background: #252525;
+}
+
 * {
-	box-sizing: border-box;
-	color: #333438;
-	/*color: #9FA8AB; */
-	font-family: "Verdana", sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-	padding: 0;
-	margin: 0;
-	font-size: 12px;
+div {
+    display: block;
 }
 
-.wrapper {
-	padding: 0px 160px;
-	/* margin-top: 10px; */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.menu {
-	/* padding: 10px 0; */
-	/* background-color: grey; */
-	/* height: 100px; */
-	margin-bottom: 10px;
+.header_top {
+    padding: 15px 0 25px;
+}
+
+element.style {
+}
+
+.top_right {
+    float: right;
+    color: #ffffff;
+    margin-top: -5px;
+}
+
+.top_right ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+a {
+    color: #1B242F;
+    text-decoration: none;
+}
+
+a {
+    background: transparent;
+}
+
+.top_right ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+element.style {
+}
+
+.top_right ul li a {
+    text-align: center;
+    padding: 0px 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.header_right {
+    float: right;
+    width: 40%;
+}
+
+.head-t {
+    padding: 1em 0;
 }
 
 .logo {
-	display: inline;
-	font-size: 50px;
+    float: left;
+   	margin: 0.45em 0;
+    font-size: 50px;
+    padding-left: 10px;
 }
 
-.logoForm {
-	display: inline;
-	width 80%;
+.rgt-bottom {
+    margin-bottom: 2em;
 }
 
-button.homeBtn {
+.cart {
+    float: right;
+    padding-right: 10px;
+    width: 20%;
+    /*margin: 5px 0;*/
+    padding-left: 50px;
+}
+
+.cart a {
+    vertical-align: middle;
+    font-size: 0.85em;
+    font-weight: 300;
+    text-decoration: none;
+    float: right;
+}
+
+.search {
+	position: relative;
+    background: #f3f4f5;
+    border: 1px solid #D8D8D8;
+    /*width: 340px;*/
+    margin-right: 10px;
+}
+
+.search form {
+    width: 100%;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.search input[type="text"] {
+    margin: 0px 0;
+    font-family: 'Open Sans', sans-serif;
+    padding: 8px 16px;
+    outline: none;
+    color: #5a5a5a;
     background: none;
-    border: #CDA46F 1px solid;
+    border: none;
+    width: 85.33333%;
+    line-height: 1.5em;
+    position: relative;
+    font-size: 0.8725em;
+    -webkit-appearance: none;
+    text-transform: capitalize;
 }
 
-.searchButton {
-	font-size: 12px;
-	padding: 5px;
-	float: right;
+.search button[type="submit"] {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSl56RW86NlOQgiYTK5_BJ31YKcxxQe9sXZMH8xIqGCNOCT1Uw') no-repeat 0px 1px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    height: 24px;
+    top: 6px;
+}
+
+.reg {
+	padding-left: 10px;
+}
+
+.menu {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
 
-.searchBar {
-    width: 90%;
-    border: 2px solid white;
-    font-size: 12px;
-    background-color: white;
-    -webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
-
-.searchBox {
-	max-width: 1080px;
-	margin: 0 auto;
-	border: 1px solid black;
-}
-
-.siteLogo {
-	text-decoration: none;
-	display: inline;
-}
-
-.menuItems {
-	padding: 0;
-	/* background-color: grey; */
-	padding: 10px 10px 10px 15px;
-}
-
-.menuItem {
-	display: inline;
-	padding-right: 15px;
-	float: right;
-	padding-top:20px;
-	font-size: 15px;
-}
-
-.menuItem a {
-	text-decoration: none;
+.wrapper {
+	padding-top: 20px;	
 }
 
 .loginFields, .loginHead, .fields, .loginBtn, .registerBtn {
@@ -98,7 +195,7 @@ button.homeBtn {
 .loginFields {
 	border: 5px solid black;
 	width: 350px;
-	padding-top: 5px;
+	padding-top: 10px;
 }
 	
 .fields {
@@ -117,20 +214,10 @@ input:focus {
     font-size: 15px;
     background: none;
     text-align: center;
-    border: none;
+    border: 1px solid black;
 }
 
 .siteheading {
 	text-decoration: none;
     font-weight: 600;
-}
-
-.searchButton {
-	width: 9%;
-	float: right;
-	background: none;
-	border:none;
-	padding: 3px;
-	color: white;
-	background-color: black;
 }

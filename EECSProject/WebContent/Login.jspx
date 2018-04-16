@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsp/jstl/fmt" version="2.0">
 	<jsp:directive.page contentType="text/html; charset=UTF-8"
 		pageEncoding="UTF-8" session="true" />
 	<jsp:output doctype-root-element="html"
@@ -9,31 +11,91 @@
 		omit-xml-declaration="true" />
 	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Login</title>
+<title>Insert title here</title>
 <link rel="StyleSheet"
 	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
 	title="StyleSheet" media="screen, print" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top">
+				<div class="top_right">
+					<ul>
+						<li><a href="${pageContext.request.contextPath}/Login">Login</a>
+						</li> |
+						<li class="reg"><a
+							href="${pageContext.request.contextPath}/Register">Register</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header_bg">
+		<div class="container">
+			<div class="header">
+				<div class="head-t">
+					<div class="logo">
+						<a href="${pageContext.request.contextPath}/Home">PAGES</a>
+					</div>
+					<div class="header_right">
+						<div class="rgt-bottom">
+							<div class="cart">
+								<a href="${pageContext.request.contextPath}/Cart">Cart(0)</a>
+							</div>
+						</div>
+						<div class="search">
+							<form action="" method="post" class="searchBox">
+								<input type="text" class="searchBar" id="searchBar"
+									placeholder="Search..." name="Search" />
+								<button class="searchButton" id="searchButton"
+									name="searchButton" action="submit">Search</button>
+							</form>
+							<!--<form>
+							<input type="text" placeholder="Search..."></input>
+							<input type="submit" value=""></input>
+						</form>-->
+						</div>
+					</div>
+				</div>
+				<div class="menu">
+					<a href="${pageContext.request.contextPath}/Home">Home</a> <a href="#news">News</a> <a href="#Books">Books</a>
+					<a href="#about">About</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="wrapper">
 		<div class="content">
 			<form action="" method="post" onsubmit="validateLogin()"
 				id="loginForm">
 				<div class="loginFields">
+				<!--
 					<a class="siteheading"
-						href="${pageContext.request.contextPath}/Login">Pages</a>
-					<div class="errMsg"></div>
+						href="${pageContext.request.contextPath}/Login">Pages</a> -->
+						
+						<c:choose>
+							<c:when test="${errorMessage eq 'loginErr'}">
+							<td><span style="color: red;"> Username or Password is incorrect! </span></td>
+						</c:when>
+						</c:choose>
+					
+					<div class="ERROR"></div>
 					<input name="username" type="text" class="fields" id="username"
-						placeholder="User Name" /> 
-					<input name="password" type="password" class="fields" id="password" 
-						placeholder="Password" />
-					<button id="login" name="login" class="submitButton" action="submit" value="1">LOGIN</button>
+						placeholder="User Name" /> <input name="password" type="password"
+						class="fields" id="password" placeholder="Password" />
+					<button id="login" name="login" class="submitButton"
+						action="submit" value="1">LOGIN</button>
 					<p>
-						<a href="${pageContext.request.contextPath}/Login/Reset">Forgot
-							Password.</a>
+						<a href="${pageContext.request.contextPath}/Login/Reset" style="color: blue">Forgot
+							Password?</a>
 					</p>
 					<p>
-						Don't have an account? <a href="${pageContext.request.contextPath}/Register">Register here.</a>
+						Don't have an account? <a
+							href="${pageContext.request.contextPath}/Register" style="color: blue">Register
+							here.</a>
 					</p>
 				</div>
 			</form>

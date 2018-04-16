@@ -17,6 +17,7 @@ import model.AccountUtil;
 @WebServlet({ "/Login", "/Login/*" })
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String ERROR_MESSAGE = "errorMessage";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -56,14 +57,18 @@ public class Login extends HttpServlet {
 
 			AccountBean account = AccountUtil.login(username, password);
 			System.out.println(account);
-
-			if (account == null) {
+			
+			if (account == null || username == "" || password == "") {
 				request.setAttribute("ERROR", "account does not exsist");
+				request.setAttribute(ERROR_MESSAGE, "loginErr");
 				System.out.println("account does not exsist");
+				//target = "/Login.jspx";
+				request.getRequestDispatcher("/Login.jspx").forward(request, response);
+				return;
 			} else {
 				request.getSession().setAttribute("account", account);
 				System.out.println("Logged in");
-				target = "/Home.jspx";
+				request.getRequestDispatcher("/Home.jspx").forward(request, response);
 			}
 		}
 
