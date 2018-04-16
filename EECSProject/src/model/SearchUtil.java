@@ -16,6 +16,8 @@ public class SearchUtil {
 
 		Map<String, ArrayList<BookBean>> searchResults = new HashMap<String, ArrayList<BookBean>>();
 		get_books();
+		
+		
 		searchResults.put("by_aurthor", searchAurthor(searchString));
 		searchResults.put("by_category", searchCategory(searchString));
 		searchResults.put("by_title", searchTitle(searchString));
@@ -35,13 +37,14 @@ public class SearchUtil {
 				library.add(entry.getValue());
 			}
 		}
+		
 	}
 
 	public static ArrayList<BookBean> searchAurthor(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getAurthor().contains(searchString)) {
+			if (addressBean.getAurthor().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 			}
 
@@ -52,10 +55,13 @@ public class SearchUtil {
 
 	public static ArrayList<BookBean> searchTitle(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
+		
+	
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getTitle().contains(searchString)) {
+			if (addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
+				
 			}
 
 		}
@@ -67,7 +73,7 @@ public class SearchUtil {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getCategory().contains(searchString)) {
+			if (addressBean.getCategory().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 			}
 

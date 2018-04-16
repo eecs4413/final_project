@@ -1,5 +1,8 @@
 package bean;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -23,6 +26,14 @@ public class VisitEventBean {
 	public VisitEventBean(String bid, String day, String eventtype) {
 		super();
 		this.day = day;
+		
+		if(day == null) {
+			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
+			Calendar cal = Calendar.getInstance();
+			this.day = sd.format(cal.getTime());
+		}
+
+		
 		this.bid = bid;
 		this.eventtype = eventtype;
 	}

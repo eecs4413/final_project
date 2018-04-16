@@ -28,6 +28,7 @@ public class BookBean {
 		this.title = title;
 		this.price = price;
 		this.category = category;
+		this.aurthor = aurthor;
 	}
 
 	/**

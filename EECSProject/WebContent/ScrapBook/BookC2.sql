@@ -1,3 +1,5 @@
+
+
 Use Store_DB;
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
@@ -9,7 +11,7 @@ DROP TABLE if exists Book;
 CREATE TABLE Book (
 bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
-aurthor VARCHAR(60) NOT NULL,
+author VARCHAR(60) NOT NULL,
 price INT NOT NULL,
 category ENUM('Science','Fiction','Engineering') NOT NULL,
 PRIMARY KEY(bid)
@@ -17,10 +19,10 @@ PRIMARY KEY(bid)
 #
 # Adding data for table 'Book'
 #
-INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
-INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b002','Physics','Bill Nye', 201, 'Science');
-INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b003','Mechanics','Lassonde' ,100,'Engineering');
-INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b004','Circuit city','Bobby Bee' ,110,'Engineering');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','Physics','Bill Nye', 201, 'Science');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','Mechanics','Lassonde' ,100,'Engineering');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','Circuit city','Bobby Bee' ,110,'Engineering');
 #
 /* Address
 * id: address id
@@ -137,15 +139,14 @@ INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015');
 */
 
 
-
+use Store_DB;
 DROP TABLE if exists VisitEvent;
 
 CREATE TABLE VisitEvent (
 day varchar(8) NOT NULL,
 bid varchar(20) not null,
 eventtype ENUM('VIEW','CART','PURCHASE') NOT NULL,
-FOREIGN KEY(bid) REFERENCES Book(bid),
-FOREIGN KEY(aid) REFERENCES Account(email)
+FOREIGN KEY(bid) REFERENCES Book(bid)
 );
 #
 # Dumping data for table 'VisitEvent'
