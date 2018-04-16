@@ -16,3 +16,31 @@ function validateLogin() {
 	}
 	return ok;
 }
+
+function doSimpleAjax(address) {
+	var request = new XMLHttpRequest();
+	var data = '';
+	/* add your code here to grab all parameters from form */
+	
+	var search = document.getElementById("searchBar").value;
+
+	data += "search=" + search;
+	
+	request.onreadystatechange = function() {
+		handler(request);
+	};
+
+	request.open("GET", (address + "?" + data), true);
+	request.onreadystatechange = function() {
+		handler(request);
+	};
+	request.send(null);
+}
+
+function handler(request) {
+	//var target = document.getElementById("ajaxResult");
+	if ((request.readyState == 4) && (request.status == 200)) {
+		var target = document.getElementById("ajaxResult");
+		target.innerHTML = request.responseText;
+	}
+}

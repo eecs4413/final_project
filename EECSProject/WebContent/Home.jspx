@@ -36,7 +36,8 @@
 					<c:if test="${sessionScope['logged_in']}">
 						<form method="post">
 							<button name="signOut" id="signOut" class="signOutButton"
-								action="submit" href="${pageContext.request.contextPath}/Home">Sign Out</button>
+								action="submit" href="${pageContext.request.contextPath}/Home">Sign
+								Out</button>
 						</form>
 					</c:if>
 					<!--
@@ -70,6 +71,15 @@
 									placeholder="Search..." name="Search" />
 								<button class="searchButton" id="searchButton"
 									name="searchButton" action="submit">Search</button>
+								<table>
+									<tr>
+										<td>
+											<button class="searchButton" id="searchButton" name="ajax" value="true"
+												onclick="doSimpleAjax('/ajax/search');return false;">
+												Search (Ajax)</button>
+										</td>
+									</tr>
+								</table>
 							</form>
 							<!--<form>
 							<input type="text" placeholder="Search..."></input>
@@ -100,6 +110,7 @@
 			</div>
 		</div>
 	</div>
+	<td id="ajaxResult"></td>
 </body>
 	</html>
 </jsp:root>
