@@ -1,6 +1,8 @@
 package ctrl;
 
 import java.io.IOException;
+import java.util.HashMap;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CartUtil;
 import model.SearchUtil;
 
 /**
@@ -40,14 +43,34 @@ public class Start extends HttpServlet {
 			throws ServletException, IOException {
 
 		String target = "/Home.jspx";
+		if (request.getSession().getAttribute("cart") == null) {
+			request.getSession().setAttribute("cart", CartUtil.getCart());
+		}
 
 		// TODO add a value attribute to the search button to listen
 
-		if (request.getParameter("searchButton") != null) {
-
+		if (request.getPathInfo().contains("/ajax/search")) {
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
-			// TODO where am i sending the results to ?
 		}
+
+		if (request.getPathInfo().contains("/ajax/addbook/")) {
+			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
+			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
+			request.getSession().setAttribute("cart", CartUtil.getCart());
+
+		}
+		if (request.getParameter("book")!= null) {
+			
+			request.setAttribute("book", SearchUtil.searchID(request.getParameter("book")));
+			target = "BookInfo.jspx";
+		}
+		
+if (request.getParameter("comment")!= null) {
+			
+			request.setAttribute("book", SearchUtil.searchID(request.getParameter("book")));
+			target = "BookInfo.jspx";
+		}
+
 		request.getRequestDispatcher(target).forward(request, response);
 
 	}

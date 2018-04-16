@@ -16,8 +16,7 @@ import dao.VisitEventDAO;
  */
 public class CartUtil {
 	
-	/** The account bean. */
-	private static AccountBean accountBean = null;
+
 
 	/** The cart. */
 	private static Map<BookBean, Integer> cart = new HashMap<BookBean, Integer>();
@@ -35,8 +34,16 @@ public class CartUtil {
 	 * @param other the other cart
 	 */
 	public CartUtil(CartUtil other) {
-		cart = other.getCart();
-		accountBean = other.getAccount();
+		cart = other.cart ;
+	}
+
+	public CartUtil(Map<BookBean, Integer> cart2, AccountBean accountBean2) {
+		cart = new HashMap<BookBean, Integer>(cart2);
+	}
+
+	public static void setCart(Map<BookBean, Integer> cart2) {
+		cart = cart2;
+		
 	}
 
 	/**
@@ -44,7 +51,7 @@ public class CartUtil {
 	 *
 	 * @return the cart
 	 */
-	private Map<BookBean, Integer> getCart() {
+	public static Map<BookBean, Integer> getCart() {
 		return cart;
 	}
 
@@ -54,7 +61,7 @@ public class CartUtil {
 	 * @param book the book
 	 * @param quantity the quantity
 	 */
-	public void addItem(BookBean book, int quantity) {
+	public static void addItem(BookBean book, int quantity ) {
 
 		if (cart.containsKey(book)) {
 			int x = cart.get(book) + quantity;
@@ -69,9 +76,7 @@ public class CartUtil {
 		
 		VisitEventDAO ve = new VisitEventDAO();
 		
-		VisitEventBean vbean = new VisitEventBean(book.getBid(),accountBean.getEmail(),date,"CART");
-		
-		
+		VisitEventBean vbean = new VisitEventBean(book.getBid(),date,"CART");
 		ve.createEvent(vbean);
 
 	}
@@ -82,7 +87,7 @@ public class CartUtil {
 	 * @param book the book
 	 * @param quantity the quantity
 	 */
-	public void removeItem(BookBean book, int quantity) {
+	public static void removeItem(BookBean book, int quantity) {
 
 		if (cart.containsKey(book)) {
 			int x = cart.get(book) - quantity;
@@ -99,7 +104,7 @@ public class CartUtil {
 	 *
 	 * @param book the book
 	 */
-	public void removeItem(BookBean book) {
+	public static void removeItem(BookBean book) {
 		cart.remove(book);
 	}
 
@@ -115,17 +120,5 @@ public class CartUtil {
 	 *
 	 * @return the account bean
 	 */
-	public static AccountBean getAccount() {
-		return accountBean;
-	}
-
-	/**
-	 * Sets the account bean.
-	 *
-	 * @param account the new account 
-	 */
-	public static void setAccount(AccountBean account) {
-		CartUtil.accountBean = account;
-	}
-
+	
 }

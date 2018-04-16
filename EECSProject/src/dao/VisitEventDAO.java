@@ -36,8 +36,8 @@ public class VisitEventDAO {
 				String aid = r.getString("aid");
 				String eventtype = r.getString("eventtype");
 				
-				rv.put(bid, new VisitEventBean(bid, aid, day, eventtype));
-
+				rv.put(bid, new VisitEventBean(bid, day, eventtype));
+// TODO remove aid from table cart
 			}
 
 			r.close();
@@ -52,7 +52,7 @@ public class VisitEventDAO {
 
 	public void createEvent(VisitEventBean vbean) {
 
-		String query = "INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES (?,?,?,?);";
+		String query = "INSERT INTO VisitEvent (day, bid, eventtype) VALUES (?,?,?);";
 
 		try {
 			Connection con = this.ds.getConnection();
@@ -60,8 +60,7 @@ public class VisitEventDAO {
 
 			p.setString(1, vbean.getDay());
 			p.setString(2, vbean.getBid());
-			p.setString(3, vbean.getAid());
-			p.setString(4, vbean.getEventtype());
+			p.setString(3, vbean.getEventtype());
 
 			p.executeUpdate();
 

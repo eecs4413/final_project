@@ -14,21 +14,16 @@ public class VisitEventBean {
 	@XmlElement
 	private String bid;
 	@XmlElement
-	private String aid;
-	@XmlElement
 	private String eventtype;
 
-	public VisitEventBean() {
-
-	}
+	
 
 
 
-	public VisitEventBean(String bid, String aid, String day, String eventtype) {
+	public VisitEventBean(String bid, String day, String eventtype) {
 		super();
 		this.day = day;
 		this.bid = bid;
-		this.aid = aid;
 		this.eventtype = eventtype;
 	}
 
@@ -50,16 +45,6 @@ public class VisitEventBean {
 
 	public String getEventtype() {
 		return eventtype;
-	}
-
-	public String getAid() {
-		return aid;
-	}
-
-
-
-	public void setAid(String aid) {
-		this.aid = aid;
 	}
 
 

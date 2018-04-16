@@ -49,6 +49,16 @@ public class AccountBean {
 			this.orders = orders;
 		}
 
+		public AccountBean(AccountBean accountBean2) {
+			this.fname = accountBean2.fname;
+			this.lname = accountBean2.lname;
+			this.email = accountBean2.email;
+			this.password = accountBean2.password;
+			this.address = accountBean2.getAddress();
+			this.orders = accountBean2.orders;
+		}
+
+
 		public String getEmail() {
 			return email;
 		}

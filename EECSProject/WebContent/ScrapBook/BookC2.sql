@@ -9,6 +9,7 @@ DROP TABLE if exists Book;
 CREATE TABLE Book (
 bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
+aurthor VARCHAR(60) NOT NULL,
 price INT NOT NULL,
 category ENUM('Science','Fiction','Engineering') NOT NULL,
 PRIMARY KEY(bid)
@@ -16,10 +17,10 @@ PRIMARY KEY(bid)
 #
 # Adding data for table 'Book'
 #
-INSERT INTO Book (bid, title, price, category) VALUES ('b001', 'Little Prince', 20, 'Fiction');
-INSERT INTO Book (bid, title, price, category) VALUES ('b002','Physics', 201, 'Science');
-INSERT INTO Book (bid, title, price, category) VALUES ('b003','Mechanics' ,100,'Engineering');
-INSERT INTO Book (bid, title, price, category) VALUES ('b004','Circuit city' ,110,'Engineering');
+INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
+INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b002','Physics','Bill Nye', 201, 'Science');
+INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b003','Mechanics','Lassonde' ,100,'Engineering');
+INSERT INTO Book (bid, title, aurthor, price, category) VALUES ('b004','Circuit city','Bobby Bee' ,110,'Engineering');
 #
 /* Address
 * id: address id
@@ -142,7 +143,6 @@ DROP TABLE if exists VisitEvent;
 CREATE TABLE VisitEvent (
 day varchar(8) NOT NULL,
 bid varchar(20) not null,
-aid  VARCHAR(40) NOT NULL,
 eventtype ENUM('VIEW','CART','PURCHASE') NOT NULL,
 FOREIGN KEY(bid) REFERENCES Book(bid),
 FOREIGN KEY(aid) REFERENCES Account(email)
@@ -150,9 +150,9 @@ FOREIGN KEY(aid) REFERENCES Account(email)
 #
 # Dumping data for table 'VisitEvent'
 #
-INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12202015', 'b001','paulliu@my.yorku.ca', 'VIEW');
-INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12242015', 'b002','paulliu@my.yorku.ca', 'CART');
-INSERT INTO VisitEvent (day, bid, aid, eventtype) VALUES ('12252015', 'b003','paulliu@my.yorku.ca', 'PURCHASE');
+INSERT INTO VisitEvent (day, bid,  eventtype) VALUES ('12202015', 'b001','VIEW');
+INSERT INTO VisitEvent (day, bid, eventtype) VALUES ('12242015', 'b002', 'CART');
+INSERT INTO VisitEvent (day, bid,  eventtype) VALUES ('12252015', 'b003', 'PURCHASE');
 #
 #
 
@@ -177,6 +177,9 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 
 
 use Store_DB;
+SELECT * from Address;
+
+
 SELECT email from Account;
 select * from (SELECT aid , status , shipAddress ,street as ship_street, province as ship_province , country as ship_country,zip as ship_zip,phone  as ship_phone  
 FROM PO  INNER JOIN Address ON Address.id = PO.shipAddress) as T2

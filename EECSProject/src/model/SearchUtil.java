@@ -41,7 +41,7 @@ public class SearchUtil {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getAurthor().equals(searchString)) {
+			if (addressBean.getAurthor().contains(searchString)) {
 				temp.add(addressBean);
 			}
 
@@ -54,7 +54,7 @@ public class SearchUtil {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getTitle().equals(searchString)) {
+			if (addressBean.getTitle().contains(searchString)) {
 				temp.add(addressBean);
 			}
 
@@ -67,12 +67,27 @@ public class SearchUtil {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 
 		for (BookBean addressBean : library) {
-			if (addressBean.getCategory().equals(searchString)) {
+			if (addressBean.getCategory().contains(searchString)) {
 				temp.add(addressBean);
 			}
 
 		}
 		return temp;
+	}
+	
+	public static BookBean searchID(String searchString) {
+		
+		get_books();
+		
+		BookBean temp = new BookBean();
+
+		for (BookBean addressBean : library) {
+			if (addressBean.getBid().equals(searchString)) {
+				return temp;
+			}
+
+		}
+		return null;
 	}
 
 }
