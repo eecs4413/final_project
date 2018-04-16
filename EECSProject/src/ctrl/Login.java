@@ -72,7 +72,6 @@ public class Login extends HttpServlet {
 				//target = "/Home.jspx";
 				request.getRequestDispatcher("/Home.jspx").forward(request, response);
 			}
-			request.getRequestDispatcher("/Home.jspx").forward(request, response);
 		}
 		
 		if(request.getParameter("signOut") != null) {
