@@ -115,6 +115,8 @@ public class CartUtil {
 		cart = new HashMap<BookBean, Integer>();
 	}
 
+
+
 	/**
 	 * Gets the account bean.
 	 *

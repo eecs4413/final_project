@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.AccountBean;
+import bean.ReviewBean;
+import dao.ReviewDAO;
 import model.CartUtil;
 import model.SearchUtil;
 
@@ -49,27 +52,48 @@ public class Start extends HttpServlet {
 
 		// TODO add a value attribute to the search button to listen
 
-		if (request.getPathInfo().contains("/ajax/search")) {
+		if (request.getRequestURI().contains("/ajax/search")) {
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 		}
 
-		if (request.getPathInfo().contains("/ajax/addbook/")) {
+		if (request.getRequestURI().contains("/ajax/addbook")) {
 			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 
 		}
-		if (request.getParameter("book")!= null) {
-			
-			request.setAttribute("book", SearchUtil.searchID(request.getParameter("book")));
+		if (request.getParameter("book") != null) {
+			String BookID = request.getParameter("book");
+
+			request.setAttribute("book", SearchUtil.searchID(BookID));
 			target = "BookInfo.jspx";
+			ReviewDAO dao = new ReviewDAO();
+			dao.retrieveReviews(BookID);
+			request.setAttribute("reviews",dao.retrieveReviews(BookID));
 		}
-		
-if (request.getParameter("comment")!= null) {
+
+		if (request.getParameter("Review") != null) {
+			if(request.getSession().getAttribute("account") == null) {
+				request.setAttribute("error", "Please log in");
+				System.out.println("LOG IN FIRST");
+			}else {
+				
+				ReviewDAO dao = new ReviewDAO();
+				target = "Home.jspx";  // gotta do something here later
+				
+				AccountBean accountBean = (AccountBean) request.getSession().getAttribute("account");
+				dao.createReview(new ReviewBean(accountBean.getEmail(), request.getParameter("book"), request.getParameter("comment"), request.getParameter("rating")));;
+				
+			}
 			
-			request.setAttribute("book", SearchUtil.searchID(request.getParameter("book")));
-			target = "BookInfo.jspx";
 		}
+
+		//	SearchUtil.searchID(request.getParameter("book"));
+		//	ReviewDAO dao = new ReviewDAO();
+		//	dao.
+		//	request.setAttribute("reviews", );
+	//		target = "BookInfo.jspx";
+	//	}
 
 		request.getRequestDispatcher(target).forward(request, response);
 
