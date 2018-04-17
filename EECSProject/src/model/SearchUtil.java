@@ -38,11 +38,7 @@ public class SearchUtil {
 				library.add(entry.getValue());
 			}
 		}
-<<<<<<< HEAD
 	
-=======
-		//System.out.println("there are book in the library dao " + library.size());
->>>>>>> branch 'master' of https://github.com/eecs4413/final_project.git
 	}
 
 	public static ArrayList<BookBean> searchAurthor(String searchString) {
@@ -66,19 +62,14 @@ public class SearchUtil {
 	public static ArrayList<BookBean> searchTitle(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 		
-<<<<<<< HEAD
-		
-=======
-		//System.out.println("YOu typed :" + searchString);
->>>>>>> branch 'master' of https://github.com/eecs4413/final_project.git
+
 
 		for (BookBean addressBean : library) {
-<<<<<<< HEAD
-=======
+
 			
-			//System.out.println("YOu compared to  : " + addressBean.getTitle() );
-			//System.out.println("Rsult :" + addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase()));
->>>>>>> branch 'master' of https://github.com/eecs4413/final_project.git
+			System.out.println("YOu compared to  : " + addressBean.getTitle() );
+			System.out.println("Rsult :" + addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase()));
+
 			if (addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 				

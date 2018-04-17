@@ -80,14 +80,7 @@ public class Login extends HttpServlet {
 		if(request.getParameter("signOut") != null) {
 			request.getSession().setAttribute("logged_in", false);
 			target = "/Home.jspx";
-		}
-		
-		if(request.getParameter("signOut") != null) {
-			request.getSession().setAttribute("logged_in", false);
-			target = "/Home.jspx";
-		}
-		
-		
+		}		
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
