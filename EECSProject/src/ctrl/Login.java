@@ -48,8 +48,7 @@ public class Login extends HttpServlet {
 
 		// System.out.println( request.getParameter("login"));
 		// TODO remember to add values to the submit button
-		
-		
+	
 		if (request.getParameter("login") != null) {
 
 			username = request.getParameter("username");
@@ -69,6 +68,12 @@ public class Login extends HttpServlet {
 				request.getSession().setAttribute("logged_in", true);
 				System.out.println("Logged in");
 				target = "/Home.jspx";
+				
+				if(request.getAttribute("fowardAfter") != null) {
+					target = (String) request.getAttribute("fowardAfter");
+					request.removeAttribute("fowardAfter");
+				}
+				
 			}
 		}
 		
@@ -76,6 +81,12 @@ public class Login extends HttpServlet {
 			request.getSession().setAttribute("logged_in", false);
 			target = "/Home.jspx";
 		}
+		
+		if(request.getParameter("signOut") != null) {
+			request.getSession().setAttribute("logged_in", false);
+			target = "/Home.jspx";
+		}
+		
 		
 		request.getRequestDispatcher(target).forward(request, response);
 	}

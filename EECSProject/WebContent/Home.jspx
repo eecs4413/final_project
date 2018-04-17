@@ -17,6 +17,9 @@
 	title="StyleSheet" media="screen, print" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script type="text/javascript" src="res/mc.js">
+;
+</script>
 </head>
 <body>
 	<div class="top_bg">
@@ -66,20 +69,21 @@
 							</div>
 						</div>
 						<div class="search">
-							<form action="" method="post" class="searchBox">
-								<input type="text" class="searchBar" id="searchBar"
-									placeholder="Search..." name="Search" />
-								<button class="searchButton" id="searchButton"
-									name="searchButton" action="submit">Search</button>
-								<table>
-									<tr>
-										<td>
-											<button class="searchButton" id="searchButton" name="ajax" value="true"
-												onclick="doSimpleAjax('/ajax/search');return false;">
-												Search (Ajax)</button>
-										</td>
-									</tr>
-								</table>
+							<form action="" method="POST" class="searchBox">
+							<table>
+								<td>
+									<input type="text" class="searchBar" id="searchBar"
+										placeholder="Search..." name="searchBar" value="${search}"></input>
+									<button class="searchButton" id="searchButton"
+										name="searchButton" action="submit">Search</button>
+								</td>
+								<td>
+									<button name="ajax" value="true" 
+								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');return false;">
+							Search (Ajax)
+						</button>
+								</td>
+							</table>
 							</form>
 							<!--<form>
 							<input type="text" placeholder="Search..."></input>
@@ -110,7 +114,10 @@
 			</div>
 		</div>
 	</div>
-	<td id="ajaxResult"></td>
+	<table>
+		<td id="ajaxResult"></td>
+		<td>${results}</td>
+	</table>
 </body>
 	</html>
 </jsp:root>

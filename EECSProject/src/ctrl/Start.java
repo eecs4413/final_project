@@ -44,7 +44,7 @@ public class Start extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println(SearchUtil.search("little"));
+		//System.out.println(SearchUtil.search("Little"));
 		String target = "/Home.jspx";
 		if (request.getSession().getAttribute("cart") == null) {
 			request.getSession().setAttribute("cart", CartUtil.getCart());
@@ -54,14 +54,42 @@ public class Start extends HttpServlet {
 			request.getSession().setAttribute("logged_in", false);
 			request.getRequestDispatcher("/Home.jspx").forward(request, response);
 		}
+		
+		/*
+		 * Testing Search button
+		 */
+		String search = request.getParameter("searchBar");
+		request.getSession().setAttribute("search", search);
+		
+		if(request.getParameter("searchButton") != null) {
+			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+			System.out.println(search);
+		}
 
+		request.getSession().setAttribute("search", search);
+		if (request.getRequestURI().indexOf("Ajax") >= 0) {
+			System.out.println("Ajax request detected!");
+			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+			System.out.println(search);
+		}
+		
+		/*
 		// TODO add a value attribute to the search button to listen
 
 		if (request.getRequestURL().toString().contains("/ajax/search")) {
+		if (request.getRequestURL().toString().contains("/ajax/search")) {
+			System.out.println("Got an AJAX request");
+		if (request.getRequestURL().toString().contains("/ajax/search")) {
+			System.out.println("Got an AJAX request");
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+			String search = request.getParameter("searchBar");
+			System.out.println(search);
 		}
+		*/
 
-		if (request.getRequestURL().toString().contains("/ajax/addbook")) {
+		
+		
+		if (request.getRequestURI().contains("/ajax/addbook")) {
 			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
 			request.getSession().setAttribute("cart", CartUtil.getCart());

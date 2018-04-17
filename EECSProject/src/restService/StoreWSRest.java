@@ -31,17 +31,10 @@ import dao.POItemDAO;
 @Path("wsr") // this is the path of the service
 public class StoreWSRest {
 
-	Map<String, BookBean> catalog;
-
-	POXMLWrapper poxmlWrapper = new POXMLWrapper();
-	POItemDAO poItemDAO;
-	PODAO po;
+	POXMLWrapper poxmlWrapper;
 
 	public StoreWSRest() {
-		poItemDAO = new POItemDAO();
-		po = new PODAO();
-		this.catalog = (new BookDAO()).retrieve();
-		// see database for a information to create a purchase order bean
+
 	}
 
 	// this is a READ method on the service
@@ -66,15 +59,14 @@ public class StoreWSRest {
 
 				items.add(new PurchaseOrderItemBean(partNumber, bean));
 			}
-			
 
 			orderBean.setItems(items);
 			orderBeans.add(orderBean);
 		}
 		StringWriter sw = new StringWriter();
-		
+
 		try {
-			POXMLWrapper poxmlWrapper = new POXMLWrapper(orderBeans);
+			poxmlWrapper = new POXMLWrapper(orderBeans);
 			System.out.println(orderBeans.size());
 
 			JAXBContext jaxbContext = JAXBContext.newInstance(POXMLWrapper.class);
@@ -82,23 +74,24 @@ public class StoreWSRest {
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
-			//SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			
-		//	Schema schema = sf.newSchema(new File( "C:\\Users\\dwell\\git\\final_project\\EECSProject\\WebContent\\po.xsd"));
-			
-			
-		//	marshaller.setSchema(schema);
+			// SchemaFactory sf =
+			// SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+
+			// Schema schema = sf.newSchema(new File(
+			// "C:\\Users\\dwell\\git\\final_project\\EECSProject\\WebContent\\po.xsd"));
+
+			// marshaller.setSchema(schema);
 			// standard IO
 			sw.write("\n");
 
 			marshaller.marshal(poxmlWrapper, new StreamResult(sw));
 
 		} catch (Exception e) {
-			//System.out.println("Change the path of the po.xsd if you have not done so already");
+			// System.out.println("Change the path of the po.xsd if you have not done so
+			// already");
 			e.printStackTrace();
 		}
-		
-		
+
 		return sw.toString();
 	}
 
@@ -114,7 +107,6 @@ public class StoreWSRest {
 		for (Entry<String, POItemBean> entry : poitems.entrySet()) {
 			if (entry.getKey().contains(pobean.getId() + ","))
 				temp.add(entry.getValue());
-
 		}
 		return temp;
 	}
@@ -131,10 +123,8 @@ public class StoreWSRest {
 			if (entry.getValue().getBid().equals(bid)) {
 				temp.add(po.get(entry.getValue().getId()));
 			}
-
 		}
-				return temp;
-
+		return temp;
 	}
 
 }

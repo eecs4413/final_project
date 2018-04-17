@@ -46,8 +46,8 @@ public class PurchaseUtil {
 			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
 			Calendar cal = Calendar.getInstance();
 			String date = sd.format(cal.getTime());
-
-			POItemBean bean = new POItemBean(pobean.getId(), entry.getKey().getBid(), price + "", date);
+// TODO get comment
+			POItemBean bean = new POItemBean(pobean.getId(), entry.getKey().getBid(), price + "", date,"");
 			poi.add(bean);
 		}
 		return poi;

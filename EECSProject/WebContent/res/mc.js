@@ -21,11 +21,11 @@ function doSimpleAjax(address) {
 	var request = new XMLHttpRequest();
 	var data = '';
 	/* add your code here to grab all parameters from form */
-	
-	var search = document.getElementById("searchBar").value;
 
-	data += "search=" + search;
-	
+	var searchBar = document.getElementById("searchBar").value;
+
+	data += "searchBar=" + searchBar;
+
 	request.onreadystatechange = function() {
 		handler(request);
 	};
