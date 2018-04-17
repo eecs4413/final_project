@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.AccountBean;
+import bean.BookBean;
 import bean.ReviewBean;
 import dao.ReviewDAO;
 import model.CartUtil;
@@ -90,7 +91,7 @@ public class Start extends HttpServlet {
 		
 		
 		if (request.getRequestURI().contains("/ajax/addbook")) {
-			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
+			CartUtil.setCart((HashMap<BookBean, Integer>) request.getSession().getAttribute("cart"));
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 

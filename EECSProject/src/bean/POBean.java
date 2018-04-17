@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import dao.PODAO;
+
 @XmlRootElement(name = "PO")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class POBean {
@@ -24,7 +26,24 @@ public class POBean {
 	private String comment;
 
 	public POBean() {
-		
+
+	}
+
+	public POBean(boolean create, String lname, String fname, String aid, String status, AddressBean address,
+			String comment) {
+		super();
+
+		this.lname = lname;
+		this.fname = fname;
+		this.aid = aid;
+		this.status = status;
+		this.address = address;
+		this.comment = comment;
+
+		if (create) {
+
+			this.id = (new PODAO()).sendPO(this) + "";
+		}
 	}
 
 	
@@ -41,8 +60,6 @@ public class POBean {
 		this.comment = comment;
 	}
 
-
-
 	/**
 	 * @return the lname
 	 */
@@ -50,16 +67,13 @@ public class POBean {
 		return lname;
 	}
 
-
-
 	/**
-	 * @param lname the lname to set
+	 * @param lname
+	 *            the lname to set
 	 */
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
-
-
 
 	/**
 	 * @return the fname
@@ -68,16 +82,13 @@ public class POBean {
 		return fname;
 	}
 
-
-
 	/**
-	 * @param fname the fname to set
+	 * @param fname
+	 *            the fname to set
 	 */
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
-
-
 
 	public String getId() {
 		return id;
@@ -119,5 +130,4 @@ public class POBean {
 		this.comment = comment;
 	}
 
-	
 }

@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+
 import javax.sql.DataSource;
 
 import bean.AddressBean;
@@ -63,12 +65,10 @@ public class PODAO {
 		return rv;
 	}
 
-	public void sendPO(POBean pobean) {
+	public int sendPO(POBean pobean) {
 
-		if (pobean.getStatus().equals("PROCESSED")) {
-			pobean.setStatus("ORDERED");
-		}
-		String query = "INSERT INTO PO (aid, id, status, shipAddress) VALUES (?,?,?,?);";
+
+		String query = "INSERT INTO PO (aid, fname, lname, status, shipAddress) VALUES (?,?,?,?,?);";
 		Connection con;
 		try {
 			con = this.ds.getConnection();
@@ -76,9 +76,10 @@ public class PODAO {
 			PreparedStatement p = con.prepareStatement(query);
 			
 			p.setString(1, pobean.getAid());
-			p.setString(2, pobean.getId());
-			p.setString(3, pobean.getStatus());
-			p.setString(4, pobean.getAddress().getId());
+			p.setString(2, pobean.getFname());
+			p.setString(3, pobean.getLname());
+			p.setString(4, pobean.getStatus());
+			p.setString(5, pobean.getAddress().getId());
 			
 
 			p.executeUpdate();
@@ -88,7 +89,22 @@ public class PODAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		int latest = -1;
+		for(Entry<String, POBean> entry :this.retrieve().entrySet()) {
+			
+			if(entry.getValue().equals(pobean)) {
+				latest = Integer.parseInt(entry.getKey());
+			}
+			
+			
+		}
+		
+		
+		return latest;
 
 	}
+
+	
 
 }

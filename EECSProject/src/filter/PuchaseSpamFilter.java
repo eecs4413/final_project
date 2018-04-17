@@ -15,12 +15,12 @@ import javax.servlet.http.HttpServletRequest;
  * Servlet Filter implementation class PuchaseFilter
  */
 @WebFilter(dispatcherTypes = { DispatcherType.REQUEST }, urlPatterns = { "/Purchase" })
-public class PuchaseFilter implements Filter {
+public class PuchaseSpamFilter implements Filter {
 
 	/**
 	 * Default constructor.
 	 */
-	public PuchaseFilter() {
+	public PuchaseSpamFilter() {
 		// TODO Auto-generated constructor stub
 	}
 

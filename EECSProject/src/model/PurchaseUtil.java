@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.ibm.wsdl.util.StringUtils;
+
 import bean.AccountBean;
 import bean.AddressBean;
 import bean.BookBean;
@@ -13,6 +15,7 @@ import bean.POBean;
 import bean.POItemBean;
 import dao.AddressDAO;
 import dao.PODAO;
+import dao.POItemDAO;
 
 //TODO CREATE A PURCHASE EVENT UNDER THE DAO
 
@@ -24,18 +27,14 @@ public class PurchaseUtil {
 	/** The account. */
 	private static AccountBean account = null;
 
-	/** The cart. */
-	private Map<BookBean, Integer> cart = null;
-
-	/** The pobean. */
-	private static POBean pobean = new POBean();
 
 	/**
 	 * Gets the PO items.
+	 * @param cart 
 	 *
 	 * @return the PO items
 	 */
-	private ArrayList<POItemBean> getPOItems() {
+	private static ArrayList<POItemBean> getPOItems(String string, Map<BookBean, Integer> cart ) {
 
 		ArrayList<POItemBean> poi = new ArrayList<POItemBean>();
 
@@ -46,8 +45,8 @@ public class PurchaseUtil {
 			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
 			Calendar cal = Calendar.getInstance();
 			String date = sd.format(cal.getTime());
-// TODO get comment
-			POItemBean bean = new POItemBean(pobean.getId(), entry.getKey().getBid(), price + "", date,"");
+			// TODO get comment
+			POItemBean bean = new POItemBean(string, entry.getKey().getBid(), price + "", date, "");
 			poi.add(bean);
 		}
 		return poi;
@@ -62,37 +61,45 @@ public class PurchaseUtil {
 	 * @param addbean
 	 *            the Address information
 	 */
-	public static void checkout(CreditCard Cred, AddressBean addbean) {
-
-		PurchaseUtil.validateCreditCard(Cred);
-		// get address id
-		AddressDAO addressDAO = new AddressDAO();
-		int x = addressDAO.getID(addbean);
-		// fill the bean
-		addbean.setId(x + "");
-		pobean.setAddress(addbean);
-		pobean.setAid(getAccount().getEmail());
-		// status is set just before bean is sent in to database;
-		PODAO podao = new PODAO();
-		podao.sendPO(pobean);
-
+	public static void checkout(POBean pob, Map<BookBean, Integer> cart ) {
+		if (pob.getStatus().equals("PROCESSED")) {
+			pob.setStatus("ORDERED");
+			PODAO podao = new PODAO();
+			podao.sendPO(pob);
+		}
+		
+		
+			(new POItemDAO()).sendItems(getPOItems(pob.getId() , cart));
+		
+		
 	}
 
 	/**
-	 * Validate credit card if billing address name = credit card name.
+	 * Validate credit card if is not expired and has a valid num format.
 	 *
 	 * @param cred
 	 *            the credit card
-	 * @return true, if  processed
-	 * @return false, if  declined
+	 * @return true, if processed
+	 * @return false, if declined
 	 */
-	public static boolean validateCreditCard(CreditCard cred) {
-		if (cred.getLname().equals(account.getLname()) && cred.getFname().equals(account.getFname())) {
-			pobean.setStatus("PROCESSED");
-			return true;
+	public static POBean Process(CreditCard cred, AddressBean addbean, String comment) {
+		
+		POBean pobean = new POBean(false, account.getLname(), account.getFname(), account.getEmail(),
+				"DECLINED", addbean, comment);
+
+		try {
+			Integer.parseInt(cred.getCrednum());
+			if (cred.getCrednum().length() <= 16 && cred.getCrednum().length() >= 14) {
+				pobean.setStatus("PROCESSED");
+			}
+		} catch (Exception e) {
+
 		}
-		pobean.setStatus("DECLINED");
-		return false;
+
+		PODAO podao = new PODAO();
+		pobean.setId(podao.sendPO(pobean)+"");
+
+		return pobean;
 	}
 
 	/**
@@ -114,42 +121,6 @@ public class PurchaseUtil {
 		PurchaseUtil.account = account;
 	}
 
-	/**
-	 * Gets the comment.
-	 *
-	 * @return the comment
-	 */
-	public String getComment() {
-		return pobean.getComment();
-	}
-
-	/**
-	 * Sets the comment.
-	 *
-	 * @param comment
-	 *            the new comment
-	 */
-	public void setComment(String comment) {
-		pobean.setComment(comment);
-	}
-
-	/**
-	 * Gets the cart.
-	 *
-	 * @return the cart
-	 */
-	public Map<BookBean, Integer> getCart() {
-		return cart;
-	}
-
-	/**
-	 * Sets the cart.
-	 *
-	 * @param cart
-	 *            the cart
-	 */
-	public void setCart(Map<BookBean, Integer> cart) {
-		this.cart = cart;
-	}
-
+	
+	
 }

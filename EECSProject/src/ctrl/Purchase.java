@@ -1,6 +1,9 @@
 package ctrl;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Map;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.AccountBean;
 import bean.AddressBean;
+import bean.BookBean;
+import bean.POBean;
+import bean.PurchaseOrderItemBean;
 import dao.AddressDAO;
 import model.CreditCard;
 import model.PurchaseUtil;
@@ -43,15 +49,61 @@ public class Purchase extends HttpServlet {
 		String target = "/Purchase.jspx";
 		
 		if(request.getParameter("processOrderButton") != null) {
-			CreditCard cred = new CreditCard(request.getParameter("fname"),request.getParameter("lname"),request.getParameter("creditcard"));
 			
-			
-			
-			PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
-			 (new AddressDAO()).makeID(new AddressBean(request.getParameter("street"), request.getParameter("city"), request.getParameter("province"), request.getParameter("zip"), request.getParameter("phone")));
-			PurchaseUtil.validateCreditCard(cred);
-			target = "/ConfirmOrder.jspx";
+				
+				// Retrieve attributes from the request
+				String street, province, country, zip, phone , city,fname,lname,crednum , expMonth , expYear , comment;
+
+				
+				street = request.getParameter("street");
+				city = request.getParameter("city");
+				province = request.getParameter("province");
+				country = request.getParameter("country");
+				zip = request.getParameter("zip");
+				phone = request.getParameter("phone");
+				fname = request.getParameter("fname");
+				lname = request.getParameter("lname");
+				crednum = request.getParameter("crednum");
+				expMonth = request.getParameter("expMonth");
+				expYear = request.getParameter("expYear");
+				comment = request.getParameter("comment");
+				
+
+				
+				
+				if (  street == null || street.equals("")
+					|| province == null || province.equals("")
+					|| country == null || country.equals("")
+					|| zip == null || zip.equals("")
+					|| phone == null || phone.equals("")
+					|| fname == null || fname.equals("")
+					|| lname == null || lname.equals("")
+					|| crednum == null || crednum.equals("")) {
+					target = "/Purchase.jspx";
+				}else {
+					PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
+					AddressBean billto = new AddressBean(null, street, province, country, city, zip, phone);
+					CreditCard cred = new CreditCard(crednum,expMonth, expYear);
+					
+					POBean poBean = PurchaseUtil.Process(cred, billto, comment) ;
+					request.getSession().setAttribute("poBean", poBean);
+					
+					 if(poBean.getStatus().equals("PROCESSED")) {
+						 target = "/ConfirmOrder.jspx";
+					 }else {
+						 target = "/Purchase.jspx"; 
+					 }
+					
+				}
 		}
+		
+		
+		if(request.getParameter("ConfirmOrder" )!=null){
+			
+			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("poBean" ) ,(Map<BookBean, Integer>)request.getSession().getAttribute("cart"));
+			 target = "/Home";
+		}
+				
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 
