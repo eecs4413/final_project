@@ -38,8 +38,10 @@ public class POItemDAO {
 				String price = r.getString("price");
 
 				String day = r.getString("day");
+				
+				String comment = r.getString("comment");
 
-				rv.put(id + bid, new POItemBean(id, bid, price, day));
+				rv.put(id +","+ bid, new POItemBean(id, bid, price, day, comment));
 
 			}
 

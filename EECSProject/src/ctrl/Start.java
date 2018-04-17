@@ -57,11 +57,11 @@ public class Start extends HttpServlet {
 
 		// TODO add a value attribute to the search button to listen
 
-		if (request.getRequestURI().contains("/ajax/search")) {
+		if (request.getRequestURL().toString().contains("/ajax/search")) {
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 		}
 
-		if (request.getRequestURI().contains("/ajax/addbook")) {
+		if (request.getRequestURL().toString().contains("/ajax/addbook")) {
 			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
 			request.getSession().setAttribute("cart", CartUtil.getCart());

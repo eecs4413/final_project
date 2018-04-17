@@ -11,6 +11,10 @@ public class POBean {
 	@XmlElement
 	private String id;
 	@XmlElement
+	private String lname;
+	@XmlElement
+	private String fname;
+	@XmlElement
 	private String aid;
 	@XmlElement
 	private String status;
@@ -23,14 +27,57 @@ public class POBean {
 		
 	}
 
-	public POBean(String id, String aid, String status, AddressBean address, String comment) {
+	
+
+	public POBean(String id, String lname, String fname, String aid, String status, AddressBean address,
+			String comment) {
 		super();
 		this.id = id;
+		this.lname = lname;
+		this.fname = fname;
 		this.aid = aid;
 		this.status = status;
 		this.address = address;
 		this.comment = comment;
 	}
+
+
+
+	/**
+	 * @return the lname
+	 */
+	public String getLname() {
+		return lname;
+	}
+
+
+
+	/**
+	 * @param lname the lname to set
+	 */
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+
+
+
+	/**
+	 * @return the fname
+	 */
+	public String getFname() {
+		return fname;
+	}
+
+
+
+	/**
+	 * @param fname the fname to set
+	 */
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+
 
 	public String getId() {
 		return id;

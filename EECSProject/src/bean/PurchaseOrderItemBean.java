@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import model.SearchUtil;
+
 @XmlRootElement(name = "billTo")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PurchaseOrderItemBean {
@@ -16,7 +18,7 @@ public class PurchaseOrderItemBean {
 	@XmlElement
 	private int quantity;
 	@XmlElement
-	private float USPrice;
+	private float CAPrice;
 	@XmlElement
 	private String shipDate;
 	@XmlElement
@@ -25,14 +27,28 @@ public class PurchaseOrderItemBean {
 	public PurchaseOrderItemBean() {
 		super();
 	}
+	
+	public PurchaseOrderItemBean(String partNum,  POItemBean poItemBean) {
+		super();
 
-	public PurchaseOrderItemBean(String partNum, String productName, int quantity, float uSPrice, String shipDate,
+		BookBean bookBean = SearchUtil.searchID(partNum);
+		
+		this.quantity = (int) (Float.parseFloat(poItemBean.getPrice()) / Float.parseFloat(bookBean.getPrice()));
+		this.productName = bookBean.getTitle() + " by " + bookBean.getAurthor();
+		this.partNum = partNum;
+		this.CAPrice = Float.parseFloat(bookBean.getPrice());
+		this.comment = poItemBean.getComment();
+		this.shipDate = poItemBean.getDay();
+	}
+	
+
+	public PurchaseOrderItemBean(String partNum, String productName, int quantity, float CAPrice, String shipDate,
 			String comment) {
 		super();
 		this.partNum = partNum;
 		this.productName = productName;
 		this.quantity = quantity;
-		USPrice = uSPrice;
+		this.CAPrice = CAPrice;
 		this.shipDate = shipDate;
 		this.comment = comment;
 	}
@@ -62,11 +78,11 @@ public class PurchaseOrderItemBean {
 	}
 
 	public float getUSPrice() {
-		return USPrice;
+		return CAPrice;
 	}
 
 	public void setUSPrice(float uSPrice) {
-		USPrice = uSPrice;
+		CAPrice = uSPrice;
 	}
 
 	public String getShipDate() {

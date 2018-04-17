@@ -18,21 +18,33 @@ public class PurchaseOrderShipTo {
 	@XmlElement
 	private String city;
 	@XmlElement
-	private String state;
+	private String province;
 	@XmlElement
 	private String zip;
 
+	
+	
 	public PurchaseOrderShipTo() {
-
+		super();
 	}
 
-	public PurchaseOrderShipTo(String country, String name, String street, String city, String state, String zip) {
+	public PurchaseOrderShipTo( AddressBean addressBean, POBean po) {
+		super();
+		this.country = addressBean.getCountry();
+		this.name = po.getFname() +" "+po.getLname();
+		this.street = addressBean.getStreet();
+		this.city = addressBean.getCity();
+		this.province = addressBean.getProvince();
+		this.zip = addressBean.getZip();
+	}
+
+	public PurchaseOrderShipTo(String country, String name, String street, String city, String province, String zip) {
 		super();
 		this.country = country;
 		this.name = name;
 		this.street = street;
 		this.city = city;
-		this.state = state;
+		this.province = province;
 		this.zip = zip;
 	}
 
@@ -68,12 +80,12 @@ public class PurchaseOrderShipTo {
 		this.city = city;
 	}
 
-	public String getState() {
-		return state;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 	public String getZip() {
@@ -83,5 +95,4 @@ public class PurchaseOrderShipTo {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-
 }

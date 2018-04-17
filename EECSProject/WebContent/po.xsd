@@ -13,24 +13,25 @@
 
   <xsd:complexType name="PurchaseOrderType">
     <xsd:sequence>
-      <xsd:element name="shipTo" type="USAddress"/>
-      <xsd:element name="billTo" type="USAddress"/>
+      <xsd:element name="shipTo" type="CAAddress"/>
+      <xsd:element name="billTo" type="CAAddress"/>
       <xsd:element ref="comment" minOccurs="0"/>
       <xsd:element name="items"  type="Items"/>
     </xsd:sequence>
     <xsd:attribute name="orderDate" type="xsd:date"/>
   </xsd:complexType>
 
-  <xsd:complexType name="USAddress">
+  <xsd:complexType name="CAAddress">
     <xsd:sequence>
       <xsd:element name="name"   type="xsd:string"/>
       <xsd:element name="street" type="xsd:string"/>
+	  <xsd:element name="province" type="xsd:string"/>
+	  <xsd:element name="country" type="xsd:string"/>
       <xsd:element name="city"   type="xsd:string"/>
-      <xsd:element name="state"  type="xsd:string"/>
       <xsd:element name="zip"    type="xsd:decimal"/>
     </xsd:sequence>
     <xsd:attribute name="country" type="xsd:NMTOKEN"
-                   fixed="US"/>
+                   fixed="CA"/>
   </xsd:complexType>
 
   <xsd:complexType name="Items">

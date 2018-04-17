@@ -18,6 +18,9 @@ public class AddressBean {
 	private String province;
 	@XmlElement
 	private String country;
+	//TODO add this to table chart
+	@XmlElement
+	private String city;
 	@XmlElement
 	private String zip;
 	@XmlElement
@@ -27,13 +30,14 @@ public class AddressBean {
 
 	}
 
-	public AddressBean(String id, String street, String province, String country, String zip, String phone) {
+	public AddressBean(String id, String street, String province, String country,String city, String zip, String phone) {
 		super();
 		this.id = id;
 		this.street = street;
 		this.province = province;
 		this.country = country;
 		this.zip = zip;
+		this.city = city;
 		this.phone = phone;
 	}
 	
@@ -80,6 +84,20 @@ public class AddressBean {
 		this.country = country;
 	}
 
+	/**
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city the city to set
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 	public String getZip() {
 		return zip;
 	}
@@ -96,11 +114,24 @@ public class AddressBean {
 		this.phone = phone;
 	}
 
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((city == null) ? 0 : city.hashCode());
+		result = prime * result + ((country == null) ? 0 : country.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((province == null) ? 0 : province.hashCode());
+		result = prime * result + ((street == null) ? 0 : street.hashCode());
+		result = prime * result + ((zip == null) ? 0 : zip.hashCode());
+		return result;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
-	 * This does not compare id of the address 
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -111,6 +142,11 @@ public class AddressBean {
 		if (getClass() != obj.getClass())
 			return false;
 		AddressBean other = (AddressBean) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
 		if (country == null) {
 			if (other.country != null)
 				return false;
@@ -138,6 +174,9 @@ public class AddressBean {
 			return false;
 		return true;
 	}
-	
+
+
+
+
 
 }

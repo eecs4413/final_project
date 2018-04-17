@@ -15,12 +15,15 @@ public class POItemBean {
 	@XmlElement
 	private String price;
 	@XmlElement
+	private String comment;
+	@XmlElement
 	private String day;
 	public POItemBean() {
 		
 	}
-	public POItemBean(String id, String bid, String price, String day) {
+	public POItemBean(String id, String bid, String price, String day,String comment) {
 		super();
+		this.comment = comment;
 		this.id = id;
 		this.bid = bid;
 		this.price = price;
@@ -49,6 +52,18 @@ public class POItemBean {
 	}
 	public void setDay(String day) {
 		this.day = day;
+	}
+	/**
+	 * @return the comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+	/**
+	 * @param comment the comment to set
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 	
 }

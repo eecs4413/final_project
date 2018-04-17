@@ -62,7 +62,7 @@ public class PurchaseUtil {
 	 * @param addbean
 	 *            the Address information
 	 */
-	public void checkout(CreditCard Cred, AddressBean addbean) {
+	public static void checkout(CreditCard Cred, AddressBean addbean) {
 
 		PurchaseUtil.validateCreditCard(Cred);
 		// get address id
@@ -86,7 +86,7 @@ public class PurchaseUtil {
 	 * @return true, if  processed
 	 * @return false, if  declined
 	 */
-	private static boolean validateCreditCard(CreditCard cred) {
+	public static boolean validateCreditCard(CreditCard cred) {
 		if (cred.getLname().equals(account.getLname()) && cred.getFname().equals(account.getFname())) {
 			pobean.setStatus("PROCESSED");
 			return true;
@@ -100,7 +100,7 @@ public class PurchaseUtil {
 	 *
 	 * @return the account
 	 */
-	public AccountBean getAccount() {
+	public static AccountBean getAccount() {
 		return account;
 	}
 
@@ -110,7 +110,7 @@ public class PurchaseUtil {
 	 * @param account
 	 *            the new account
 	 */
-	public void setAccount(AccountBean account) {
+	public static void setAccount(AccountBean account) {
 		PurchaseUtil.account = account;
 	}
 

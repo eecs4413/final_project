@@ -18,21 +18,31 @@ public class PurchaseOrderBillTo {
 	@XmlElement
 	private String city;
 	@XmlElement
-	private String state;
+	private String province;
 	@XmlElement
 	private String zip;
 
 	public PurchaseOrderBillTo() {
 
 	}
+	
+	public PurchaseOrderBillTo(AccountBean accountBean) {
+		super();
+		this.country = accountBean.getAddress().getCountry();
+		this.name = accountBean.getFname() +" "+ accountBean.getLname();
+		this.street = accountBean.getAddress().getStreet();
+		this.city = accountBean.getAddress().getCity();
+		this.province = accountBean.getAddress().getProvince();
+		this.zip = accountBean.getAddress().getZip();
+	}
 
-	public PurchaseOrderBillTo(String country, String name, String street, String city, String state, String zip) {
+	public PurchaseOrderBillTo(String country, String name, String street, String city, String province, String zip) {
 		super();
 		this.country = country;
 		this.name = name;
 		this.street = street;
 		this.city = city;
-		this.state = state;
+		this.province = province;
 		this.zip = zip;
 	}
 
@@ -68,12 +78,12 @@ public class PurchaseOrderBillTo {
 		this.city = city;
 	}
 
-	public String getState() {
-		return state;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 	public String getZip() {

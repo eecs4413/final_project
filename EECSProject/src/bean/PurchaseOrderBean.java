@@ -1,6 +1,7 @@
 package bean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -16,23 +17,23 @@ public class PurchaseOrderBean {
 	@XmlAttribute
 	private String orderDate;
 	@XmlElement
-	private PurchaseOrderShipTo shipto;
+	private PurchaseOrderShipTo shipTo;
 	@XmlElement
-	private PurchaseOrderShipTo billTo;
+	private PurchaseOrderBillTo billTo;
 	@XmlElement
 	private String comment;
 	@XmlElement
-	private ArrayList<PurchaseOrderItemBean> items;
+	private List<PurchaseOrderItemBean> items;
 
 	public PurchaseOrderBean() {
 		super();
 	}
 
-	public PurchaseOrderBean(String orderDate, PurchaseOrderShipTo shipto, PurchaseOrderShipTo billTo, String comment,
-			ArrayList<PurchaseOrderItemBean> items) {
+	public PurchaseOrderBean(String orderDate, PurchaseOrderShipTo shipto, PurchaseOrderBillTo billTo, String comment,
+			List<PurchaseOrderItemBean> items) {
 		super();
 		this.orderDate = orderDate;
-		this.shipto = shipto;
+		this.shipTo = shipto;
 		this.billTo = billTo;
 		this.comment = comment;
 		this.items = items;
@@ -47,19 +48,19 @@ public class PurchaseOrderBean {
 	}
 
 	public PurchaseOrderShipTo getShipto() {
-		return shipto;
+		return shipTo;
 	}
 
 	public void setShipto(PurchaseOrderShipTo shipto) {
-		this.shipto = shipto;
+		this.shipTo = shipto;
 	}
 
-	public PurchaseOrderShipTo getBillTo() {
+	public PurchaseOrderBillTo getBillTo() {
 		return billTo;
 	}
 
-	public void setBillTo(PurchaseOrderShipTo billTo) {
-		this.billTo = billTo;
+	public void setBillTo(PurchaseOrderBillTo purchaseOrderBillTo) {
+		this.billTo = purchaseOrderBillTo;
 	}
 
 	public String getComment() {
@@ -70,12 +71,13 @@ public class PurchaseOrderBean {
 		this.comment = comment;
 	}
 
-	public ArrayList<PurchaseOrderItemBean> getItems() {
+	public List<PurchaseOrderItemBean> getItems() {
 		return items;
 	}
 
-	public void setItems(ArrayList<PurchaseOrderItemBean> items) {
+	public void setItems(List<PurchaseOrderItemBean> items) {
 		this.items = items;
 	}
 
+	
 }

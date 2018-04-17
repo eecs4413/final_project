@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.AccountBean;
+import bean.AddressBean;
+import dao.AddressDAO;
+import model.CreditCard;
+import model.PurchaseUtil;
+
 /**
  * Servlet implementation class Purchase
  */
@@ -36,12 +42,17 @@ public class Purchase extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = "/Purchase.jspx";
 		
-		if(request.getSession().getAttribute("account") == null) {
-			request.setAttribute("fowardAfter", target);
-			target = "/Purchase.jspx";
+		if(request.getParameter("processOrderButton") != null) {
+			CreditCard cred = new CreditCard(request.getParameter("fname"),request.getParameter("lname"),request.getParameter("creditcard"));
+			
+			
+			
+			PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
+			 (new AddressDAO()).makeID(new AddressBean(request.getParameter("street"), request.getParameter("city"), request.getParameter("province"), request.getParameter("zip"), request.getParameter("phone")));
+			PurchaseUtil.validateCreditCard(cred);
+			target = "/ConfirmOrder.jspx";
 		}
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher(target).forward(request, response);
 	}
 
 	/**

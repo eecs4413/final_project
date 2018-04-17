@@ -1,6 +1,8 @@
-
-
+drop database Store_DB;
+create database Store_DB;
 Use Store_DB;
+
+
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
 * price: unit price WHEN ordered
@@ -34,6 +36,7 @@ id INT UNSIGNED NOT NULL AUTO_INCREMENT,
 street VARCHAR(100) NOT NULL,
 province VARCHAR(20) NOT NULL,
 country VARCHAR(20) NOT NULL,
+city VARCHAR(20) NOT NULL,
 zip VARCHAR(20) NOT NULL,
 phone VARCHAR(20),
 PRIMARY KEY(id)
@@ -41,12 +44,12 @@ PRIMARY KEY(id)
 #
 # Inserting data for table 'address'
 #
-INSERT INTO Address (id, street, province, country, zip, phone) VALUES (1, '123 Yonge St', 'ON',
-'Canada', 'K1E 6T5' ,'647-123-4567');
-INSERT INTO Address (id, street, province, country, zip, phone) VALUES (2, '445 Avenue rd', 'ON',
-'Canada', 'M1C 6K5' ,'416-123-8569');
-INSERT INTO Address (id, street, province, country, zip, phone) VALUES (3, '789 Keele St.', 'ON',
-'Canada', 'K3C 9T5' ,'416-123-9568');
+INSERT INTO Address (id, street, province, country, city, zip, phone) VALUES (1, '123 Yonge St', 'ON',
+'Canada', 'Toronto', 'K1E 6T5' ,'647-123-4567');
+INSERT INTO Address (id, street, province, country, city, zip, phone) VALUES (2, '445 Avenue rd', 'ON',
+'Canada', 'Toronto', 'M1C 6K5' ,'416-123-8569');
+INSERT INTO Address (id, street, province, country, city, zip, phone) VALUES (3, '789 Keele St.', 'ON',
+'Canada', 'Toronto', 'K3C 9T5' ,'416-123-9568');
 #
 #
 /*
@@ -83,6 +86,8 @@ DROP TABLE if exists PO;
 CREATE TABLE PO (
 aid  VARCHAR(40) NOT NULL,
 id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+lname VARCHAR(20) NOT NULL,
+fname VARCHAR(20) NOT NULL,
 status ENUM('ORDERED','PROCESSED','DENIED') NOT NULL,
 shipAddress INT UNSIGNED NOT NULL,
 comment varchar(200),
@@ -94,9 +99,9 @@ FOREIGN KEY (aid) REFERENCES Account (email) ON DELETE CASCADE
 #
 # Inserting data for table 'PO'
 #
-INSERT INTO PO (aid, id, status, shipAddress) VALUES ('paulliu@my.yorku.ca', 1, 'PROCESSED', '1');
-INSERT INTO PO (aid, id, status, shipAddress) VALUES ('dmnosale@my.yorku.ca', 2, 'DENIED', '2');
-INSERT INTO PO (aid, id, status, shipAddress) VALUES ('michaelshortford@my.york.ca', 3, 'ORDERED', '3');
+INSERT INTO PO (aid, id, fname, lname, status, shipAddress) VALUES ('paulliu@my.yorku.ca', 1, 'John', 'White', 'PROCESSED', '1');
+INSERT INTO PO (aid, id, fname, lname, status, shipAddress) VALUES ('dmnosale@my.yorku.ca', 2, 'Peter', 'Black' ,'DENIED', '2');
+INSERT INTO PO (aid, id, fname, lname, status, shipAddress) VALUES ('michaelshortford@my.york.ca',3, 'Andy', 'Green' , 'ORDERED', '3');
 #
 #
 /* Purchase orders of users
@@ -118,6 +123,7 @@ CREATE TABLE POItem (
 id INT UNSIGNED NOT NULL,
 bid VARCHAR(20) NOT NULL,
 price INT UNSIGNED NOT NULL,
+comment varchar(200),
 day varchar(8) NOT NULL,
 PRIMARY KEY(id,bid),
 INDEX (id),
@@ -139,7 +145,7 @@ INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015');
 */
 
 
-use Store_DB;
+
 DROP TABLE if exists VisitEvent;
 
 CREATE TABLE VisitEvent (
@@ -176,8 +182,6 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
 
-
-use Store_DB;
 SELECT * from Address;
 
 

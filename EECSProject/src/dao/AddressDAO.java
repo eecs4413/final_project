@@ -42,10 +42,12 @@ public class AddressDAO {
 				String country = r.getString("country");
 
 				String zip = r.getString("zip");
+				
+				String city = r.getString("city");
 
 				String phone = r.getString("phone");
 
-				rv.put(id, new AddressBean(id, street, province, country, zip, phone));
+				rv.put(id, new AddressBean(id, street, province, country, city , zip, phone));
 
 			}
 			r.close();

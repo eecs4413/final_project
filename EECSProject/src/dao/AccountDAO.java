@@ -48,13 +48,14 @@ public class AccountDAO {
 				String province = r.getString("province");
 
 				String country = r.getString("country");
+				String city = r.getString("city");
 
 				String zip = r.getString("zip");
 
 				String phone = r.getString("phone");
 
 				rv = new AccountBean(e_mail, pass_word, lname, fname,
-						new AddressBean(aid, street, province, country, zip, phone));
+						new AddressBean(aid, street,  province, country, city,zip, phone));
 
 			}
 			if(rv == null) {
@@ -71,6 +72,60 @@ public class AccountDAO {
 
 	}
 
+	public AccountBean retrieveAccount(String email) {
+		String query = "SELECT * from Account INNER JOIN Address ON Account.billAddress = Address.id Where Account.email='"
+				+ email + "';";
+		AccountBean rv = null;
+
+		Connection con;
+		try {
+			con = this.ds.getConnection();
+
+			PreparedStatement p = con.prepareStatement(query);
+
+			ResultSet r = p.executeQuery();
+			while (r.next()) {
+
+				String e_mail = r.getString("email");
+
+				String pass_word = r.getString("password");
+
+				String lname = r.getString("lname");
+
+				String fname = r.getString("fname");
+
+				String aid = r.getString("billAddress");
+
+				String street = r.getString("street");
+
+				String province = r.getString("province");
+
+				String country = r.getString("country");
+				String city = r.getString("city");
+
+				String zip = r.getString("zip");
+
+				String phone = r.getString("phone");
+
+				rv = new AccountBean(e_mail, pass_word, lname, fname,
+						new AddressBean(aid, street,  province, country, city,zip, phone));
+
+			}
+			if(rv == null) {
+				System.out.println("dao did not get anything");
+			}
+			r.close();
+			p.close();
+			con.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return rv;
+		
+	}
+	
+	
 	public void createAccount(AccountBean temp) {
 
 		AddressDAO adao = new AddressDAO();

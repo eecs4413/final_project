@@ -37,15 +37,20 @@ public class PODAO {
 
 				String status = r.getString("status");
 
-				String addressID = r.getString("address");
+				String shipAddress = r.getString("shipAddress");
 
 				String comment = r.getString("comment");
-
+				
+				String fname = r.getString("fname");
+				
+				String lname = r.getString("lname");
+				
 				AddressDAO addressDAO = new AddressDAO();
 
 				Map<String, AddressBean> map = addressDAO.retrieve();
+				
 
-				rv.put(id, new POBean(id, aid, status, map.get(addressID), comment));
+				rv.put(id, new POBean(id, lname, fname, aid, status, map.get(shipAddress), comment));
 
 			}
 
