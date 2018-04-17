@@ -31,14 +31,15 @@ public class Register extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String target = "/Register.jspx";
-
-		// TODO _____> validate these parameters in the javaScript
-		// TODO remember to add values to the submit button
-
-		if (request.getParameter("register_login") != null) {
-			if (request.getParameter("password").equals(request.getParameter("repassword"))) {
-				// persist attributes in session scope
-
+	if (request.getParameter("register_login") != null) {
+			if ( !request.getParameter("password").equals(request.getParameter("repassword"))
+					|| request.getParameter("fname") == null || request.getParameter("fname").equals("")
+					|| request.getParameter("lname") == null || request.getParameter("lname").equals("")
+					|| request.getParameter("email") == null || request.getParameter("email").equals("")
+					|| request.getParameter("password") == null || request.getParameter("password").equals("")
+					|| request.getParameter("repassword") == null || request.getParameter("repassword").equals("")) {
+				target = "/Register.jspx";
+			}else{
 				request.getSession().setAttribute("fname", request.getParameter("fname"));
 				request.getSession().setAttribute("lname", request.getParameter("lname"));
 				request.getSession().setAttribute("email", request.getParameter("email"));
@@ -49,21 +50,35 @@ public class Register extends HttpServlet {
 			}
 		}
 
+
 		if (request.getParameter("register_address") != null) {
 			// get these from session
 			String fname, lname, email, password;
 
 			// Retrieve attributes from the request
-			String street, province, country, zip, phone;
+			String street, province, country, zip, phone , city;
 
+			
 			street = request.getParameter("street");
+			city = request.getParameter("city");
 			province = request.getParameter("province");
 			country = request.getParameter("country");
 			zip = request.getParameter("zip");
 			phone = request.getParameter("phone");
 
+			
+			
+			if (  street == null || street.equals("")
+				|| province == null || province.equals("")
+				|| country == null || country.equals("")
+				|| zip == null || zip.equals("")
+				|| phone == null || phone.equals("")) {
+				target = "/Register_Address.jspx";
+			}else{
+			
+			
 			// create account
-			AddressBean address = new AddressBean(street, province, country, zip, phone);
+			AddressBean address = new AddressBean(null, street, province, country, city, zip, phone);
 
 			email = (String) request.getSession().getAttribute("email");
 			password = (String) request.getSession().getAttribute("password");
@@ -88,6 +103,7 @@ public class Register extends HttpServlet {
 			// redirect to login page
 
 			target = "/Login.jspx";
+			}
 
 		}
 

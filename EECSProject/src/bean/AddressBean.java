@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import dao.AddressDAO;
+
 @XmlRootElement(name = "Address")
 @XmlAccessorType(XmlAccessType.FIELD)
 
@@ -32,23 +34,26 @@ public class AddressBean {
 
 	public AddressBean(String id, String street, String province, String country,String city, String zip, String phone) {
 		super();
-		this.id = id;
+		
 		this.street = street;
 		this.province = province;
 		this.country = country;
 		this.zip = zip;
 		this.city = city;
 		this.phone = phone;
-	}
-	
-	public AddressBean( String street, String province, String country, String zip, String phone) {
-		super();
 		
-		this.street = street;
-		this.province = province;
-		this.country = country;
-		this.zip = zip;
-		this.phone = phone;
+		this.id = id;
+		
+		if(id == null) {
+			this.id = (new AddressDAO()).getID(this)+"";
+		}
+		
+		if(Integer.parseInt(this.id) < 0) {
+			this.id =  (new AddressDAO()).makeID(this)+"";
+		}
+		
+		
+		
 	}
 
 

@@ -59,7 +59,7 @@ public class AccountDAO {
 
 			}
 			if(rv == null) {
-				System.out.println("dao did not get anything");
+				
 			}
 			r.close();
 			p.close();
@@ -127,7 +127,9 @@ public class AccountDAO {
 	
 	
 	public void createAccount(AccountBean temp) {
-
+		
+		System.out.println(temp.getEmail());
+		
 		AddressDAO adao = new AddressDAO();
 
 		int address_ID = adao.getID(temp.getAddress());
@@ -156,8 +158,11 @@ public class AccountDAO {
 			p.close();
 			con.close();
 		} catch (SQLException e) {
+			if(e.getMessage().contains("Duplicate entry")) {
+				System.out.println("Account is already registered");
+			}
 
-			e.printStackTrace();
+		
 		}
 
 	}

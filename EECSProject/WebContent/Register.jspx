@@ -16,6 +16,10 @@
 <link rel="StyleSheet"
 	href="${pageContext.request.contextPath}/res/mc.css"
 	type="text/css" title="StyleSheet" media="screen, print" />
+	<script type="text/javascript"
+	src="${pageContext.request.contextPath}/res/mc.js">
+	;
+</script>
 </head>
 <body>
 	<div class="top_bg">
@@ -85,7 +89,7 @@
 	</div>
 	<div class="wrapper">
 		<div class="content">
-			<form action="" method="post" onsubmit="validateRegister()"
+			<form action="" method="post" onsubmit="validateRegisterAccount();"
 				id="registerForm">
 				<div class="loginFields">
 				<!--

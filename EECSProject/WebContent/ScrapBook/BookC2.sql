@@ -182,6 +182,9 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
 
+use  Store_DB;
+
+SELECT * from Account;
 SELECT * from Address;
 
 

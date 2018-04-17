@@ -17,6 +17,118 @@ function validateLogin() {
 	return ok;
 }
 
+function validateRegisterAccount() {
+	var ok = true;
+	var error = "";
+
+	var p = document.getElementById("fname").value;
+	if (p == null || p == "") {
+		error = error + "First Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("lname").value;
+	if (p == null || p == "") {
+		error = error + "\nLast Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("email").value;
+	if (!validateEmail(p)) {
+		error = error + "\nInvalid Email";
+		ok = false;
+	}
+
+	p = document.getElementById("password").value;
+	if (p == null || p == "") {
+		error = error + "\nPassword Cannot Be Empty";
+		ok = false;
+	}
+
+	var x = p;
+
+	p = document.getElementById("repassword").value;
+	if (p == null || p == "" || p != x) {
+		error = error + "\nPassword Missmatch";
+		ok = false;
+	}
+
+	if (!ok) {
+		alert(error);
+	}
+
+	return ok;
+}
+
+function validateEmail(email) {
+	var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+	return re.test(email);
+
+}
+
+function validateRegisterAccountAddress() {
+	var ok = true;
+	var error = "";
+
+	var p = document.getElementById("street").value;
+	if (p == null || p == "") {
+		error = error + "Street Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("city").value;
+	if (p == null || p == "") {
+		error = error + "\nCity Name Cannot Be Empty";
+		ok = false;
+	}
+	p = document.getElementById("city").value;
+	if (p == null || p == "") {
+		error = error + "\nCity Name Cannot Be Empty";
+		ok = false;
+	}
+	p = document.getElementById("province").value;
+	if (p == null || p == "") {
+		error = error + "\nProvince Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("country").value;
+	if (p == null || p == "") {
+		error = error + "\nCountry Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("zip").value;
+	if (!validateZip(p)) {
+		error = error + "\nInvalid Zip";
+		ok = false;
+	}
+	p = document.getElementById("phone").value;
+	if (!validatephone(p)) {
+		error = error + "\nInvalid Phone number";
+		ok = false;
+	}
+
+	if (!ok) {
+		alert(error);
+	}
+
+	return ok;
+}
+
+function validatephone(phone) {
+	var phoneno = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/;
+	return phoneno.test(phone);
+}
+
+function validateZip(zip) {
+	var re = /^[A-Za-z]\d[A-Za-z][ ]?\d[A-Za-z]\d$/;
+
+	return re.test(zip);
+
+}
+
 function doSimpleAjax(address) {
 	var request = new XMLHttpRequest();
 	var data = '';
@@ -38,7 +150,7 @@ function doSimpleAjax(address) {
 }
 
 function handler(request) {
-	//var target = document.getElementById("ajaxResult");
+	// var target = document.getElementById("ajaxResult");
 	if ((request.readyState == 4) && (request.status == 200)) {
 		var target = document.getElementById("ajaxResult");
 		target.innerHTML = request.responseText;

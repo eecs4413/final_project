@@ -61,7 +61,8 @@ public class AddressDAO {
 
 	public int makeID(AddressBean addressBean) {
 
-		String query = "INSERT INTO Address ( street, province, country, zip, phone) VALUES (?,?,?,?,?);";
+		
+		String query = "INSERT INTO Address ( street, province, country, city, zip, phone) VALUES (?,?,?,?,?,?);";
 
 		Connection con;
 		try {
@@ -72,8 +73,9 @@ public class AddressDAO {
 			p.setString(1, addressBean.getStreet());
 			p.setString(2, addressBean.getProvince());
 			p.setString(3, addressBean.getCountry());
-			p.setString(4, addressBean.getZip());
-			p.setString(5, addressBean.getPhone());
+			p.setString(4, addressBean.getCity());
+			p.setString(5, addressBean.getZip());
+			p.setString(6, addressBean.getPhone());
 
 			p.executeUpdate();
 
