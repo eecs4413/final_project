@@ -35,27 +35,29 @@ public class Cart extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String target = "/Purchase.jspx";
+		String target = "/Cart.jspx";
+		
+		
 
-		if (request.getRequestURI().contains("/ajax/addbook")) {
+		if (request.getParameter("addbook")!= null) {
 			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
-			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")),
+			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),
 					Integer.parseInt(request.getParameter("quantity")), request.getParameter("comment"));
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 		
 		
 
-		if (request.getRequestURI().contains("/ajax/removebook")) {
+		if (request.getParameter("removebook")!= null) {
 			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
-			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("bookid")),
+			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("removebook")),
 					Integer.parseInt(request.getParameter("quantity")));
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 		
-		if(request.getParameter("proceed") != null) {
+		
 			request.getRequestDispatcher(target).forward(request, response);
-		}
+		
 
 	
 	}

@@ -25,35 +25,54 @@ public class POItemBean {
 	public String comment;
 	@XmlElement
 	public String day;
-	
-	public BookBean bookinfo;
-	
-	public POItemBean() {
-		
-	}
-	
-	
-	
-	public POItemBean( String bid, String price, String quantity, String comment, String day) {
+	@XmlElement
+	public String title;
+	@XmlElement
+	public String author;
+	@XmlElement
+	public String category;
+
+	public POItemBean(String bid, String price, String quantity, String comment, String day, String title,
+			String author, String category) {
 		super();
-		
+
 		this.bid = bid;
 		this.price = price;
 		this.quantity = quantity;
 		this.comment = comment;
-		
-		if(day == null) {
-			
+		this.day = day;
+		this.title = title;
+		this.author = author;
+		this.category = category;
+
+		if (day == null) {
+
 			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
 			Calendar cal = Calendar.getInstance();
 			this.day = sd.format(cal.getTime());
 		}
-		
-		this.bookinfo = SearchUtil.searchID(this.bid);
-		
-		
+		System.out.println(this.title);
 	}
-	
+
+	public POItemBean(String bid, String price, String quantity, String comment, String day) {
+		super();
+
+		this.bid = bid;
+		this.price = price;
+		this.quantity = quantity;
+		this.comment = comment;
+
+		if (day == null) {
+
+			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
+			Calendar cal = Calendar.getInstance();
+			this.day = sd.format(cal.getTime());
+		}
+
+		System.out.println(this.title);
+
+	}
+
 	public POItemBean(String id, String bid, String price, String quantity, String comment, String day) {
 		super();
 		this.id = id;
@@ -61,49 +80,66 @@ public class POItemBean {
 		this.price = price;
 		this.quantity = quantity;
 		this.comment = comment;
-		
-		if(day == null) {
-			
+
+		if (day == null) {
+
 			SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
 			Calendar cal = Calendar.getInstance();
 			this.day = sd.format(cal.getTime());
 		}
-		
-		
+
+		BookBean bean = SearchUtil.searchID(this.bid);
+
+		this.title = bean.getTitle();
+		this.author = bean.getAuthor();
+		this.category = bean.getCategory();
+
+		System.out.println(this.author);
+
 	}
 
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getBid() {
 		return bid;
 	}
+
 	public void setBid(String bid) {
 		this.bid = bid;
 	}
+
 	public String getPrice() {
 		return price;
 	}
+
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	public String getDay() {
 		return day;
 	}
+
 	public void setDay(String day) {
 		this.day = day;
 	}
+
 	/**
 	 * @return the comment
 	 */
 	public String getComment() {
 		return comment;
 	}
+
 	/**
-	 * @param comment the comment to set
+	 * @param comment
+	 *            the comment to set
 	 */
 	public void setComment(String comment) {
 		this.comment = comment;
@@ -117,10 +153,11 @@ public class POItemBean {
 	}
 
 	/**
-	 * @param quantity the quantity to set
+	 * @param quantity
+	 *            the quantity to set
 	 */
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-	
+
 }

@@ -44,7 +44,7 @@ public class POItemDAO {
 				String quantity = r.getString("quantity");
 
 				rv.put(id +","+ bid, new POItemBean(bid, price, quantity, comment, day));
-
+System.out.println("used");
 			}
 
 			r.close();
