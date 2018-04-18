@@ -13,7 +13,7 @@ public class BookBean {
 	@XmlElement
 	private String title;
 	@XmlElement
-	private String aurthor;
+	private String author;
 	@XmlElement
 	private String price;
 	@XmlElement
@@ -22,27 +22,27 @@ public class BookBean {
 	public BookBean() {
 	}
 
-	public BookBean(String bid, String title,String aurthor, String price, String category) {
+	public BookBean(String bid, String title,String author, String price, String category) {
 		super();
 		this.bid = bid;
 		this.title = title;
 		this.price = price;
 		this.category = category;
-		this.aurthor = aurthor;
+		this.author = author;
 	}
 
 	/**
-	 * @return the aurthor
+	 * @return the author
 	 */
-	public String getAurthor() {
-		return aurthor;
+	public String getAuthor() {
+		return author;
 	}
 
 	/**
-	 * @param aurthor the aurthor to set
+	 * @param author the author to set
 	 */
-	public void setAurthor(String aurthor) {
-		this.aurthor = aurthor;
+	public void setauthor(String author) {
+		this.author = author;
 	}
 
 	public String getBid() {

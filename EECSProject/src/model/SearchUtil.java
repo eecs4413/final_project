@@ -2,8 +2,10 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import bean.BookBean;
 import dao.BookDAO;
@@ -12,20 +14,47 @@ public class SearchUtil {
 
 	private static ArrayList<BookBean> library = new ArrayList<BookBean>();
 
-	public static Map<String, ArrayList<BookBean>> search(String searchString) {
+//	public static Map<String, ArrayList<BookBean>> search(String searchString) {
+//
+//		Map<String, ArrayList<BookBean>> searchResults = new HashMap<String, ArrayList<BookBean>>();
+//		get_books();
+//		
+//		
+//		searchResults.put("by_title", searchTitle(searchString));
+//		searchResults.put("by_author", searchAuthor(searchString));
+//		searchResults.put("by_category", searchCategory(searchString));
+//		
+//
+//		return searchResults;
+//
+//	}
+	
+	public static Set<BookBean> search(String searchString) {
 
 		Map<String, ArrayList<BookBean>> searchResults = new HashMap<String, ArrayList<BookBean>>();
 		get_books();
 		
+		Set<BookBean> booksFromSearch = new HashSet<BookBean>();
 		
-		searchResults.put("by_title", searchTitle(searchString));
-		searchResults.put("by_aurthor", searchAurthor(searchString));
-		searchResults.put("by_category", searchCategory(searchString));
+		ArrayList<BookBean> temp = searchTitle(searchString);
+		for(int i = 0; i < temp.size(); i++) {
+			booksFromSearch.add(temp.get(i));
+		}
 		
-
-		return searchResults;
+		temp = searchAuthor(searchString);
+		for(int i = 0; i < temp.size(); i++) {
+			booksFromSearch.add(temp.get(i));
+		}
+		
+		temp = searchCategory(searchString);
+		for(int i = 0; i < temp.size(); i++) {
+			booksFromSearch.add(temp.get(i));
+		}
+		
+		return booksFromSearch;
 
 	}
+
 
 	private static void get_books() {
 
@@ -38,22 +67,16 @@ public class SearchUtil {
 				library.add(entry.getValue());
 			}
 		}
-	
+		//System.out.println("there are book in the library dao " + library.size());
 	}
 
-	public static ArrayList<BookBean> searchAurthor(String searchString) {
+	public static ArrayList<BookBean> searchAuthor(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
-		
-		
-		
 
-		for (BookBean addressBean : library) {
-			
-			
-			if (addressBean.getAurthor().toLowerCase().contains(searchString.toLowerCase())) {
+		for (BookBean addressBean : library) {					
+			if (addressBean.getAuthor().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 			}
-
 		}
 		return temp;
 
@@ -62,14 +85,12 @@ public class SearchUtil {
 	public static ArrayList<BookBean> searchTitle(String searchString) {
 		ArrayList<BookBean> temp = new ArrayList<BookBean>();
 		
-
+		//System.out.println("YOu typed :" + searchString);
 
 		for (BookBean addressBean : library) {
-
 			
-			System.out.println("YOu compared to  : " + addressBean.getTitle() );
-			System.out.println("Rsult :" + addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase()));
-
+			//System.out.println("YOu compared to  : " + addressBean.getTitle() );
+			//System.out.println("Rsult :" + addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase()));
 			if (addressBean.getTitle().toLowerCase().contains(searchString.toLowerCase())) {
 				temp.add(addressBean);
 				
@@ -97,15 +118,14 @@ public class SearchUtil {
 		get_books();
 		
 		BookBean temp = new BookBean();
-		
+
 		for (BookBean addressBean : library) {
-			
 			if (addressBean.getBid().equals(searchString)) {
-				 temp = addressBean;
+				return temp;
 			}
 
 		}
-		return temp;
+		return null;
 	}
 
 }

@@ -2,7 +2,6 @@ drop database Store_DB;
 create database Store_DB;
 Use Store_DB;
 
-
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
 * price: unit price WHEN ordered
@@ -15,7 +14,7 @@ bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
 author VARCHAR(60) NOT NULL,
 price INT NOT NULL,
-category ENUM('Science','Fiction','Engineering') NOT NULL,
+category ENUM('Science','Fiction','Engineering','Other') NOT NULL,
 PRIMARY KEY(bid)
 );
 #
@@ -25,6 +24,9 @@ INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little P
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','Physics','Bill Nye', 201, 'Science');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','Mechanics','Lassonde' ,100,'Engineering');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','Circuit city','Bobby Bee' ,110,'Engineering');
+Use Store_DB;
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b005','Engineering 101','Munaf Moktar',119,'Other');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b006','Engineering 102','Munaf Moktar',119,'Other');
 #
 /* Address
 * id: address id

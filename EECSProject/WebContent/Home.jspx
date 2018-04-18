@@ -115,8 +115,21 @@
 		</div>
 	</div>
 	<table>
-		<td id="ajaxResult"></td>
-		<td>${results}</td>
+<!-- 		<td id="ajaxResult"></td> -->
+<!-- 		<td>${results}</td> -->
+		
+		<c:forEach var="book" items="${results}">
+					<tr>
+						<td> ${book.bid}</td>
+						<td> ${book.title}</td>
+						<td> ${book.author}</td>
+						<td> ${book.price}</td>
+						<td> ${book.category}</td>
+						<td><button name="AddCart" id="addCart" class="addCart"
+								action="submit" >ADD TO CART</button> </td>
+<!-- 					String bid, String title,String author, String price, String category -->
+					</tr>
+		</c:forEach>
 	</table>
 </body>
 	</html>
