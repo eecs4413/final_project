@@ -120,7 +120,7 @@
 		
 		<c:forEach var="book" items="${results}">
 					<tr>
-						<td> ${book.bid}</td>
+						<div class="bookImg"> <td> <img src="images/${book.bid}.jpg" alt="no image"> </img> </td> </div>
 						<td> ${book.title}</td>
 						<td> ${book.author}</td>
 						<td> ${book.price}</td>

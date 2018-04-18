@@ -236,6 +236,7 @@ function handler(request) {
 	// var target = document.getElementById("ajaxResult");
 	if ((request.readyState == 4) && (request.status == 200)) {
 		var target = document.getElementById("ajaxResult");
+		//var temp = document.getElementById
 		target.innerHTML = request.responseText;
 	}
 }

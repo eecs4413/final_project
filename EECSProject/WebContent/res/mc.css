@@ -302,6 +302,10 @@ input:focus {
 	background-color: #f1f1f1
 }
 
+img {
+	width:125px;
+}
+
 .menu .dropdown:hover .dropdown-content {
     display: block;
 }
