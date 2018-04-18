@@ -40,8 +40,10 @@ public class POItemDAO {
 				String day = r.getString("day");
 				
 				String comment = r.getString("comment");
+				
+				String quantity = r.getString("quantity");
 
-				rv.put(id +","+ bid, new POItemBean(id, bid, price, day, comment));
+				rv.put(id +","+ bid, new POItemBean(bid, price, quantity, comment, day));
 
 			}
 
@@ -60,7 +62,7 @@ public class POItemDAO {
 			if (item.comment == null || item.comment.isEmpty()) {
 				
 			
-			String query = "INSERT INTO POItem (id, bid, price, day) VALUES (?,?,?,?);";
+			String query = "INSERT INTO POItem (id, bid, price, day, quantity) VALUES (?,?,?,?,?);";
 
 			Connection con;
 			try {
@@ -71,6 +73,9 @@ public class POItemDAO {
 				p.setString(2, item.getBid());
 				p.setString(3, item.getPrice());
 				p.setString(4, item.getDay());
+				p.setString(5, item.getQuantity());
+				
+				
 
 				p.executeUpdate();
 
@@ -82,7 +87,7 @@ public class POItemDAO {
 			
 			}else {
 				
-				String query = "INSERT INTO POItem (id, bid, price, day, comment) VALUES (?,?,?,?,?);";
+				String query = "INSERT INTO POItem (id, bid, price, day, quantity, comment) VALUES (?,?,?,?,?,?);";
 
 				Connection con;
 				try {
@@ -93,7 +98,8 @@ public class POItemDAO {
 					p.setString(2, item.getBid());
 					p.setString(3, item.getPrice());
 					p.setString(4, item.getDay());
-					p.setString(5, item.getComment());
+					p.setString(5, item.getQuantity());
+					p.setString(6, item.getComment());
 
 					p.executeUpdate();
 

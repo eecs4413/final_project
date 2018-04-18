@@ -125,6 +125,7 @@ CREATE TABLE POItem (
 id INT UNSIGNED NOT NULL,
 bid VARCHAR(20) NOT NULL,
 price INT UNSIGNED NOT NULL,
+quantity INT  NOT NULL,
 comment varchar(200),
 day varchar(8) NOT NULL,
 PRIMARY KEY(id,bid),
@@ -135,9 +136,9 @@ FOREIGN KEY(bid) REFERENCES Book(bid) ON DELETE CASCADE
 #
 # Inserting data for table 'POitem'
 #
-INSERT INTO POItem (id, bid, price, day) VALUES (1, 'b001', '20','12202015');
-INSERT INTO POItem (id, bid, price, day) VALUES (2, 'b002', '201','12222015');
-INSERT INTO POItem (id, bid, price, day) VALUES (3, 'b003', '100','12262015');
+INSERT INTO POItem (id, bid, price, day, quantity) VALUES (1, 'b001', '20','12202015', 2);
+INSERT INTO POItem (id, bid, price, day, quantity) VALUES (2, 'b002', '201','12222015', 1);
+INSERT INTO POItem (id, bid, price, day, quantity) VALUES (3, 'b003', '100','12262015', 1);
 #
 #
 /* visit to website
