@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" session="true" />
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>${initParam.appnames}</title>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/res/mc.js">
+	;
+</script>
+</head>
+<body>
+	<form action="" method="post" onsubmit="validatePurchaseForm();">
+
+			<FIELDSET>		
+					 
+					 
+					 <input name="fname" type="text" class="fields" id="fname" 
+						placeholder="First name" /> 
+						<input name="lname" type="text" class="fields" id="lname" 
+						placeholder="Last Name" /> 
+						<BR />
+						<input name="crednum" type="number" class="fields" id="crednum" 
+						placeholder="Credit Card Number" /> 
+						<input name="expMonth" type="number" class="fields" id="expMonth" 
+						placeholder="Expiry Month" /> 
+						<input name="expYear" type="number" class="fields" id="expYear" 
+						placeholder="Expiry Year" /> 
+						<BR />
+						<input name="comment" type="text" class="fields" id="comment" 
+						placeholder="Comment" /> 
+						<BR />
+					 <input name="street" type="text" class="fields" id="street" 
+						placeholder="Street" /> 
+					<input name="city" type="text" class="fields" id="city" 
+						placeholder="City" /> 
+					<input name="province" type="text" class="fields" id="province"
+						placeholder="Province" />
+					<input name="country" type="text" class="fields" id="country"
+						placeholder="Country" /> 
+					<input name="zip" type="text" class="fields" id="zip"
+						placeholder="Zip Code" />
+					<input name="phone" type="tel" class="fields" id="phone"
+						placeholder="Phone number (###-###-####)" />
+					
+					<button id="register_login" name="register_address" class="submitButton"
+						action="submit" value="1">Purchase Order</button>
+				 </FIELDSET>
+			</form>
+<button id="processOrderButtonProceed" name="processOrderButtonProceed" disabled="disabled"
+						action="submit" value="1">Proceed</button>
+	
+
+</body>
+	</html>
+</jsp:root>

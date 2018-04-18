@@ -1,6 +1,7 @@
 package ctrl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.POItemBean;
 import model.CartUtil;
 import model.SearchUtil;
 
@@ -33,23 +35,29 @@ public class Cart extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String target = "/Cart.jspx";
+		String target = "/Purchase.jspx";
 
 		if (request.getRequestURI().contains("/ajax/addbook")) {
-			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
+			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")),
-					Integer.parseInt(request.getParameter("quantity")));
+					Integer.parseInt(request.getParameter("quantity")), request.getParameter("comment"));
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
+		
+		
 
 		if (request.getRequestURI().contains("/ajax/removebook")) {
-			CartUtil.setCart((HashMap) request.getSession().getAttribute("cart"));
+			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
 			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("bookid")),
 					Integer.parseInt(request.getParameter("quantity")));
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
+		
+		if(request.getParameter("proceed") != null) {
+			request.getRequestDispatcher(target).forward(request, response);
+		}
 
-		request.getRequestDispatcher(target).forward(request, response);
+		
 
 	}
 

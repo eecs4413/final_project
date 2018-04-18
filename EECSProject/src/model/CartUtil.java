@@ -1,12 +1,9 @@
 package model;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.ArrayList;
 import bean.AccountBean;
 import bean.BookBean;
+import bean.POItemBean;
 import bean.VisitEventBean;
 import dao.VisitEventDAO;
 
@@ -19,7 +16,7 @@ public class CartUtil {
 
 
 	/** The cart. */
-	private static Map<BookBean, Integer> cart = new HashMap<BookBean, Integer>();
+	private static ArrayList<POItemBean>cart = new ArrayList<POItemBean>();
 
 	/**
 	 * Instantiates a new cart utility.
@@ -33,15 +30,13 @@ public class CartUtil {
 	 *
 	 * @param other the other cart
 	 */
-	public CartUtil(CartUtil other) {
-		cart = other.cart ;
+	
+
+	public CartUtil(ArrayList<POItemBean> cart2, AccountBean accountBean2) {
+		cart = new ArrayList<POItemBean>(cart2);
 	}
 
-	public CartUtil(Map<BookBean, Integer> cart2, AccountBean accountBean2) {
-		cart = new HashMap<BookBean, Integer>(cart2);
-	}
-
-	public static void setCart(Map<BookBean, Integer> cart2) {
+	public static void setCart(ArrayList<POItemBean> cart2) {
 		cart = cart2;
 		
 	}
@@ -51,7 +46,7 @@ public class CartUtil {
 	 *
 	 * @return the cart
 	 */
-	public static Map<BookBean, Integer> getCart() {
+	public static ArrayList<POItemBean> getCart() {
 		return cart;
 	}
 
@@ -61,22 +56,30 @@ public class CartUtil {
 	 * @param book the book
 	 * @param quantity the quantity
 	 */
-	public static void addItem(BookBean book, int quantity ) {
+	public static void addItem(BookBean book, int quantity , String comment ) {
+		
+		boolean incart = false;
+		
+		for(POItemBean bean : cart) {
+			
+			if(bean.getBid() == book.getBid()) {
+				incart = true;
+				int x = Integer.parseInt(bean.getQuantity()) + quantity;
+				bean.setQuantity(x+"");
+				bean.setComment(comment);
+			}
+		}
 
-		if (cart.containsKey(book)) {
-			int x = cart.get(book) + quantity;
-			cart.put(book, x);
-		} else {
-			cart.put(book, quantity);
+		if(!incart) {
+			cart.add(new POItemBean(book.getBid(), book.getPrice(), quantity+"", comment, null));
+			
 		}
 		
-		SimpleDateFormat sd = new SimpleDateFormat("ddMMyyyy");
-		Calendar cal = Calendar.getInstance();
-		String date = sd.format(cal.getTime());
+	
 		
 		VisitEventDAO ve = new VisitEventDAO();
 		
-		VisitEventBean vbean = new VisitEventBean(book.getBid(),date,"CART");
+		VisitEventBean vbean = new VisitEventBean(book.getBid(),null,"CART");
 		ve.createEvent(vbean);
 
 	}
@@ -89,38 +92,31 @@ public class CartUtil {
 	 */
 	public static void removeItem(BookBean book, int quantity) {
 
-		if (cart.containsKey(book)) {
-			int x = cart.get(book) - quantity;
-			if (x <= 0) {
-				removeItem(book);
-			} else {
-				cart.put(book, x);
+		
+for( int i = 0 ; i <cart.size(); i++) {
+			POItemBean bean = cart.get(i);
+			
+			if(bean.getBid() == book.getBid()) {
+				
+				int x = Integer.parseInt(bean.getQuantity()) - quantity;
+				
+				if(x <= 0) {
+					cart.remove(i);
+				}else {
+					bean.setQuantity(x+"");
+				}
+				
 			}
 		}
 	}
 
-	/**
-	 * Deletes the item from cart.
-	 *
-	 * @param book the book
-	 */
-	public static void removeItem(BookBean book) {
-		cart.remove(book);
-	}
+	
 
 	/**
 	 * Clear cart.
 	 */
 	public void clearCart() {
-		cart = new HashMap<BookBean, Integer>();
+		cart = new ArrayList<POItemBean>();
 	}
 
-
-
-	/**
-	 * Gets the account bean.
-	 *
-	 * @return the account bean
-	 */
-	
 }

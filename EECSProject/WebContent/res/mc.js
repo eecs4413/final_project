@@ -117,6 +117,88 @@ function validateRegisterAccountAddress() {
 	return ok;
 }
 
+function validatePurchaseForm() {
+	var ok = true;
+	var error = "";
+
+	var p = document.getElementById("street").value;
+	if (p == null || p == "") {
+		error = error + "Street Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("city").value;
+	if (p == null || p == "") {
+		error = error + "\nCity Name Cannot Be Empty";
+		ok = false;
+	}
+	p = document.getElementById("city").value;
+	if (p == null || p == "") {
+		error = error + "\nCity Name Cannot Be Empty";
+		ok = false;
+	}
+	p = document.getElementById("province").value;
+	if (p == null || p == "") {
+		error = error + "\nProvince Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("country").value;
+	if (p == null || p == "") {
+		error = error + "\nCountry Name Cannot Be Empty";
+		ok = false;
+	}
+
+	p = document.getElementById("zip").value;
+	if (p == null || p == "") {
+		error = error + "\nInvalid Zip";
+		ok = false;
+	}
+	p = document.getElementById("phone").value;
+	if (p == null || p == "") {
+		error = error + "\nInvalid Phone number";
+		ok = false;
+	}
+
+	p = document.getElementById("fname").value;
+	if (p == null || p == "") {
+		error = error + "\nFirst Name cannot be empty";
+		ok = false;
+	}
+	p = document.getElementById("lname").value;
+	if (p == null || p == "") {
+		error = error + "\nLast Name cannot be empty";
+		ok = false;
+	}
+	
+	p = document.getElementById("crednum").value;
+	if (p == null || p == "") {
+		error = error + "\nCredit Number cannot be empty";
+		ok = false;
+	}
+	
+	p = document.getElementById("expMonth").value;
+	if (p == null || p == "") {
+		error = error + "\nExpiry Month cannot be empty";
+		ok = false;
+	}
+	
+	p = document.getElementById("expYear").value;
+	if (p == null || p == "") {
+		error = error + "\nExpiry Year cannot be empty";
+		ok = false;
+	}
+	
+	if (!ok) {
+		alert(error);
+		 document.getElementById("processOrderButtonProceed").disabled = true;
+	}else{
+		 document.getElementById("processOrderButtonProceed").disabled = false;
+	}
+
+	return ok;
+}
+
 function validatephone(phone) {
 	var phoneno = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/;
 	return phoneno.test(phone);

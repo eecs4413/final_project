@@ -1,6 +1,7 @@
 package ctrl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.ServletConfig;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.AccountBean;
 import bean.BookBean;
+import bean.POItemBean;
 import bean.ReviewBean;
 import dao.ReviewDAO;
 import model.CartUtil;
@@ -45,7 +47,7 @@ public class Start extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//System.out.println(SearchUtil.search("Little"));
+
 		String target = "/Home.jspx";
 		if (request.getSession().getAttribute("cart") == null) {
 			request.getSession().setAttribute("cart", CartUtil.getCart());
@@ -91,11 +93,11 @@ public class Start extends HttpServlet {
 		
 		
 		if (request.getRequestURI().contains("/ajax/addbook")) {
-			CartUtil.setCart((HashMap<BookBean, Integer>) request.getSession().getAttribute("cart"));
-			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")), 1);
+			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
+			CartUtil.addItem(SearchUtil.searchID(request.getParameter("bookid")),1, null);
 			request.getSession().setAttribute("cart", CartUtil.getCart());
-
 		}
+		
 		if (request.getParameter("book") != null) {
 			String BookID = request.getParameter("book");
 

@@ -48,7 +48,7 @@ public class Purchase extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = "/Purchase.jspx";
 		
-		if(request.getParameter("processOrderButton") != null) {
+		if(request.getParameter("processOrderButtonProceed") != null) {
 			
 				
 				// Retrieve attributes from the request
@@ -68,34 +68,27 @@ public class Purchase extends HttpServlet {
 				expYear = request.getParameter("expYear");
 				comment = request.getParameter("comment");
 				
+				
+				PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
+				
+				AddressBean billto = new AddressBean(null, street, province, country, city, zip, phone);
+				request.getSession().setAttribute("billTo", billto);
+				
+				CreditCard cred = new CreditCard(crednum,expMonth, expYear);
+				
+				POBean poBean = PurchaseUtil.Process(cred, billto, comment) ;
+				request.getSession().setAttribute("PoBean", poBean);
 
 				
-				
-				if (  street == null || street.equals("")
-					|| province == null || province.equals("")
-					|| country == null || country.equals("")
-					|| zip == null || zip.equals("")
-					|| phone == null || phone.equals("")
-					|| fname == null || fname.equals("")
-					|| lname == null || lname.equals("")
-					|| crednum == null || crednum.equals("")) {
-					target = "/Purchase.jspx";
-				}else {
-					PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
-					AddressBean billto = new AddressBean(null, street, province, country, city, zip, phone);
-					CreditCard cred = new CreditCard(crednum,expMonth, expYear);
-					
-					POBean poBean = PurchaseUtil.Process(cred, billto, comment) ;
-					request.getSession().setAttribute("poBean", poBean);
-					
 					 if(poBean.getStatus().equals("PROCESSED")) {
 						 target = "/ConfirmOrder.jspx";
 					 }else {
-						 target = "/Purchase.jspx"; 
+						 target = "/Purchase.jspx";
+						 request.setAttribute("error", "cOuld not process");
 					 }
 					
 				}
-		}
+		
 		
 		
 		if(request.getParameter("ConfirmOrder" )!=null){
