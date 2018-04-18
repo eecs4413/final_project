@@ -8,21 +8,26 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import model.SearchUtil;
+
 @XmlRootElement(name = "PO")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class POItemBean {
 	@XmlElement
-	private String id;
+	public String id;
 	@XmlElement
-	private String bid;
+	public String bid;
 	@XmlElement
-	private String price;
+	public String price;
 	@XmlElement
-	private String quantity;
+	public String quantity;
 	@XmlElement
-	private String comment;
+	public String comment;
 	@XmlElement
-	private String day;
+	public String day;
+	
+	public BookBean bookinfo;
+	
 	public POItemBean() {
 		
 	}
@@ -43,6 +48,8 @@ public class POItemBean {
 			Calendar cal = Calendar.getInstance();
 			this.day = sd.format(cal.getTime());
 		}
+		
+		this.bookinfo = SearchUtil.searchID(this.bid);
 		
 		
 	}
