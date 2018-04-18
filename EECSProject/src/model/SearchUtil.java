@@ -31,7 +31,6 @@ public class SearchUtil {
 	
 	public static Set<BookBean> search(String searchString) {
 
-		Map<String, ArrayList<BookBean>> searchResults = new HashMap<String, ArrayList<BookBean>>();
 		get_books();
 		
 		Set<BookBean> booksFromSearch = new HashSet<BookBean>();

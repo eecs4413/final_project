@@ -219,7 +219,8 @@ function doSimpleAjax(address) {
 	var searchBar = document.getElementById("searchBar").value;
 
 	data += "searchBar=" + searchBar;
-
+	
+	console.log(data);
 	request.onreadystatechange = function() {
 		handler(request);
 	};

@@ -79,9 +79,9 @@
 								</td>
 								<td>
 									<button name="ajax" value="true" 
-								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');return false;">
+								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');">
 							Search (Ajax)
-						</button>
+									</button>
 								</td>
 							</table>
 							</form>
@@ -115,7 +115,7 @@
 		</div>
 	</div>
 	<table>
-<!-- 		<td id="ajaxResult"></td> -->
+		<td id="ajaxResult"></td>
 <!-- 		<td>${results}</td> -->
 		
 		<c:forEach var="book" items="${results}">
@@ -125,9 +125,8 @@
 						<td> ${book.author}</td>
 						<td> ${book.price}</td>
 						<td> ${book.category}</td>
-						<td><button name="AddCart" id="addCart" class="addCart"
+						<td><button name="addCart" id="addCart" class="addCart"
 								action="submit" >ADD TO CART</button> </td>
-<!-- 					String bid, String title,String author, String price, String category -->
 					</tr>
 		</c:forEach>
 	</table>
