@@ -65,7 +65,7 @@
 					<div class="header_right">
 						<div class="rgt-bottom">
 							<div class="cart">
-								<a href="${pageContext.request.contextPath}/Cart">Cart(0)</a>
+								<a href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
 							</div>
 						</div>
 						<div class="search">
@@ -74,15 +74,12 @@
 								<td>
 									<input type="text" class="searchBar" id="searchBar"
 										placeholder="Search..." name="searchBar" value="${search}"></input>
+										</td>
+										<td>
 									<button class="searchButton" id="searchButton"
 										name="searchButton" action="submit">Search</button>
-								</td>
-								<td>
-									<button name="ajax" value="true" 
-								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');">
-							Search (Ajax)
-									</button>
-								</td>
+										</td>
+								
 							</table>
 							</form>
 							<!--<form>
@@ -107,7 +104,17 @@
 						<li class="dropdown"><a href="javascript:void(0)"
 							class="dropbtn">Books</a>
 							<div class="dropdown-content">
-								<a href="#">Science</a> <a href="#">Engineering</a> <a href="#">Fiction</a>
+							<form>
+							<c:forEach var="data" items="${catagorylist}">
+							
+							<button class="searchButton" id="headerButton" name="headerButton" value="${data}" action="submit"><c:out value="${data}" /></button>
+										
+							</c:forEach>
+							
+							</form>
+							
+							
+							
 							</div></li>
 					</ul>
 				</div>
@@ -118,7 +125,9 @@
 		<td id="ajaxResult"></td>
 <!-- 		<td>${results}</td> -->
 		
+		<form action="?searchBar=${search}" method="POST">
 		<c:forEach var="book" items="${results}">
+		
 					<tr>
 						<div class="bookImg"> <td> <img src="images/${book.bid}.jpg" alt="no image"> </img> </td> </div>
 						<td> ${book.title}</td>
@@ -126,9 +135,10 @@
 						<td> ${book.price}</td>
 						<td> ${book.category}</td>
 						<td><button name="addCart" id="addCart" class="addCart"
-								action="submit" >ADD TO CART</button> </td>
+								action="submit" value="${book.bid}" >ADD TO CART</button> </td>
 					</tr>
 		</c:forEach>
+		</form>
 	</table>
 </body>
 	</html>

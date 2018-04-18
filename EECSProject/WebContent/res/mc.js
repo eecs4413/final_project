@@ -239,4 +239,6 @@ function handler(request) {
 		//var temp = document.getElementById
 		target.innerHTML = request.responseText;
 	}
+
+	
 }

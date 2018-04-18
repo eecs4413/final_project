@@ -57,7 +57,6 @@ public class CartUtil {
 	 * @param quantity the quantity
 	 */
 	public static void addItem(BookBean book, int quantity , String comment ) {
-		
 		boolean incart = false;
 		
 		for(POItemBean bean : cart) {
@@ -75,10 +74,10 @@ public class CartUtil {
 			
 		}
 		
+		//System.out.println(book.getBid());
 	
 		
 		VisitEventDAO ve = new VisitEventDAO();
-		
 		VisitEventBean vbean = new VisitEventBean(book.getBid(),null,"CART");
 		ve.createEvent(vbean);
 
