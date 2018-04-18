@@ -238,4 +238,6 @@ function handler(request) {
 		var target = document.getElementById("ajaxResult");
 		target.innerHTML = request.responseText;
 	}
+
+	
 }
