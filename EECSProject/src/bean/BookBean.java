@@ -9,15 +9,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BookBean {
 	@XmlElement
-	private String bid;
+	public String bid;
 	@XmlElement
-	private String title;
+	public String title;
 	@XmlElement
-	private String aurthor;
+	public String aurthor;
 	@XmlElement
-	private String price;
+	public String price;
 	@XmlElement
-	private String category;
+	public String category;
 
 	public BookBean() {
 	}
