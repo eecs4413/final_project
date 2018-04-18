@@ -11,25 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table>
-
-
-		<c:forEach items="${sessionScope['cart']}" var="item">
-			<TR>
-
-
-				<td><c:out value="${item.bookinfo.name}" /></td>
-				<td><c:out value="${item.bookinfo.price}" /></td>
-				<td><c:out value="${item.quantity}" /></td>
-
-
-			</TR>
-		</c:forEach>
-
-
-
-	</table>
-
+	<!-- show cart info -->
+	<button id="ConfirmOrderButton" name="ConfirmOrderButton"
+		action="submit" value="1">Search</button>
 </body>
 	</html>
 </jsp:root>

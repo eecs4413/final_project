@@ -2,6 +2,7 @@ package ctrl;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.servlet.ServletConfig;
@@ -15,6 +16,7 @@ import bean.AccountBean;
 import bean.AddressBean;
 import bean.BookBean;
 import bean.POBean;
+import bean.POItemBean;
 import bean.PurchaseOrderItemBean;
 import dao.AddressDAO;
 import model.CreditCard;
@@ -76,24 +78,25 @@ public class Purchase extends HttpServlet {
 				
 				CreditCard cred = new CreditCard(crednum,expMonth, expYear);
 				
-				POBean poBean = PurchaseUtil.Process(cred, billto, comment) ;
+				POBean poBean = PurchaseUtil.Process(cred, billto, comment ,(ArrayList<POItemBean>) request.getSession().getAttribute("cart")) ;
 				request.getSession().setAttribute("PoBean", poBean);
-
 				
-					 if(poBean.getStatus().equals("PROCESSED")) {
-						 target = "/ConfirmOrder.jspx";
-					 }else {
-						 target = "/Purchase.jspx";
-						 request.setAttribute("error", "cOuld not process");
-					 }
-					
 				}
 		
 		
 		
-		if(request.getParameter("ConfirmOrder" )!=null){
+		if(request.getParameter("ConfirmOrderButton" )!=null){
 			
-			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("poBean" ) ,(Map<BookBean, Integer>)request.getSession().getAttribute("cart"));
+			POBean poBean = (POBean) request.getSession().getAttribute("PoBean");
+			
+			 if(poBean.getStatus().equals("PROCESSED")) {
+				 target = "/ConfirmOrder.jspx";
+			 }else {
+				 target = "/Purchase.jspx";
+				 request.setAttribute("error", "Could not process");
+			 }
+			
+			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("poBean" ) ,(ArrayList<POItemBean>)request.getSession().getAttribute("cart"));
 			 target = "/Home";
 		}
 				

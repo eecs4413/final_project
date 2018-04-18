@@ -130,4 +130,10 @@ public class POBean {
 		this.comment = comment;
 	}
 
+	public void getNewID() {
+		
+			this.id = (new PODAO()).sendPO(this) + "";
+		
+	}
+
 }

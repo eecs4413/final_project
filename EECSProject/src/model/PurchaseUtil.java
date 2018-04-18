@@ -27,14 +27,14 @@ public class PurchaseUtil {
 	/** The account. */
 	private static AccountBean account = null;
 
-
 	/**
 	 * Gets the PO items.
-	 * @param cart 
+	 * 
+	 * @param cart
 	 *
 	 * @return the PO items
 	 */
-	private static ArrayList<POItemBean> getPOItems(String string, Map<BookBean, Integer> cart ) {
+	private static ArrayList<POItemBean> getPOItems(String string, Map<BookBean, Integer> cart) {
 
 		ArrayList<POItemBean> poi = new ArrayList<POItemBean>();
 
@@ -53,39 +53,30 @@ public class PurchaseUtil {
 
 	}
 
-	/**
-	 * Processes the order if credit card is valid
-	 *
-	 * @param Cred
-	 *            the credit card
-	 * @param addbean
-	 *            the Address information
-	 */
-	public static void checkout(POBean pob, Map<BookBean, Integer> cart ) {
-		if (pob.getStatus().equals("PROCESSED")) {
-			pob.setStatus("ORDERED");
-			PODAO podao = new PODAO();
-			podao.sendPO(pob);
+
+	public static void checkout(POBean pobean, ArrayList<POItemBean> cart) {
+
+		String id = "";
+
+		if (pobean.getStatus().equals("PROCESSED")) {
+			pobean.setStatus("ORDERED");
+			pobean.getNewID();
+
+			for (POItemBean bean : cart) {
+				bean.setId(pobean.getId());
+			}
+
+			(new POItemDAO()).sendItems(cart);
+
 		}
-		
-		
-			(new POItemDAO()).sendItems(getPOItems(pob.getId() , cart));
-		
-		
+
 	}
 
-	/**
-	 * Validate credit card if is not expired and has a valid num format.
-	 *
-	 * @param cred
-	 *            the credit card
-	 * @return true, if processed
-	 * @return false, if declined
-	 */
-	public static POBean Process(CreditCard cred, AddressBean addbean, String comment) {
-		
-		POBean pobean = new POBean(false, account.getLname(), account.getFname(), account.getEmail(),
-				"DECLINED", addbean, comment);
+
+	public static POBean Process(CreditCard cred, AddressBean addbean, String comment, ArrayList<POItemBean> cart) {
+
+		POBean pobean = new POBean(false, account.getLname(), account.getFname(), account.getEmail(), "DECLINED",
+				addbean, comment);
 
 		try {
 			Integer.parseInt(cred.getCrednum());
@@ -97,7 +88,13 @@ public class PurchaseUtil {
 		}
 
 		PODAO podao = new PODAO();
-		pobean.setId(podao.sendPO(pobean)+"");
+		pobean.setId(podao.sendPO(pobean) + "");
+
+		for (POItemBean bean : cart) {
+			bean.setId(pobean.getId());
+		}
+
+		(new POItemDAO()).sendItems(cart);
 
 		return pobean;
 	}
@@ -121,6 +118,4 @@ public class PurchaseUtil {
 		PurchaseUtil.account = account;
 	}
 
-	
-	
 }
