@@ -125,11 +125,10 @@
 		<td id="ajaxResult"></td>
 <!-- 		<td>${results}</td> -->
 		
-		<form action="?searchBar=${search}" method="POST">
 		<c:forEach var="book" items="${results}">
-		
+		<form action="" method="post">
 					<tr>
-						<div class="bookImg"> <td> <img src="images/${book.bid}.jpg" alt="no image"> </img> </td> </div>
+						<td> ${book.bid}</td>
 						<td> ${book.title}</td>
 						<td> ${book.author}</td>
 						<td> ${book.price}</td>
@@ -137,8 +136,8 @@
 						<td><button name="addCart" id="addCart" class="addCart"
 								action="submit" value="${book.bid}" >ADD TO CART</button> </td>
 					</tr>
-		</c:forEach>
 		</form>
+		</c:forEach>
 	</table>
 </body>
 	</html>

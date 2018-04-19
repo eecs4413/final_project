@@ -47,11 +47,18 @@
 							</div>
 						</div>
 						<div class="search">
-							<form action="" method="post" class="searchBox">
-								<input type="text" class="searchBar" id="searchBar"
-									placeholder="Search..." name="Search" />
-								<button class="searchButton" id="searchButton"
-									name="searchButton" action="submit">Search</button>
+							<form action="" method="POST" class="searchBox">
+							<table>
+								<td>
+									<input type="text" class="searchBar" id="searchBar"
+										placeholder="Search..." name="searchBar" value="${search}"></input>
+										</td>
+										<td>
+									<button class="searchButton" id="searchButton"
+										name="searchButton" action="submit">Search</button>
+										</td>
+								
+							</table>
 							</form>
 							<!--<form>
 							<input type="text" placeholder="Search..."></input>
@@ -75,7 +82,17 @@
 						<li class="dropdown"><a href="javascript:void(0)"
 							class="dropbtn">Books</a>
 							<div class="dropdown-content">
-								<a href="#">Science</a> <a href="#">Engineering</a> <a href="#">Fiction</a>
+							<form>
+							<c:forEach var="data" items="${catagorylist}">
+							
+							<button class="searchButton" id="headerButton" name="headerButton" value="${data}" action="submit"><c:out value="${data}" /></button>
+										
+							</c:forEach>
+							
+							</form>
+							
+							
+							
 							</div></li>
 					</ul>
 				</div>
@@ -102,7 +119,7 @@
 						placeholder="User Name" /> <input name="password" type="password"
 						class="fields" id="password" placeholder="Password" />
 					<button id="login" name="login" class="submitButton"
-						action="submit" value="1">LOGIN</button>
+						action="submit" value="Logged In">LOGIN</button>
 					<p>
 						<a href="${pageContext.request.contextPath}/Login/Reset" style="color: blue">Forgot
 							Password?</a>
