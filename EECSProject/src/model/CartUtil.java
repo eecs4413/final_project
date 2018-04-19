@@ -70,7 +70,8 @@ public class CartUtil {
 		}
 
 		if(!incart) {
-			cart.add(new POItemBean(book.getBid(), book.getPrice(), quantity+"", comment, null));
+			
+			cart.add(new POItemBean( book.getBid(),  book.getPrice(),  quantity+"", comment, null, book.getTitle(), book.getAuthor(), book.getCategory()));
 			
 		}
 		

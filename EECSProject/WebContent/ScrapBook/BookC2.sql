@@ -1,6 +1,7 @@
 drop database Store_DB;
 create database Store_DB;
-Use Store_DB;
+use Store_DB;
+
 
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
@@ -21,10 +22,10 @@ PRIMARY KEY(bid)
 # Adding data for table 'Book'
 #
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
+<<<<<<< HEAD
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','The Name of the Wind','Patrick Rothfuss', 13, 'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','A Game of Thrones','George R.R. Martin' ,13,'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','The Way of Kings','Brandon Sanderson' ,11,'Fantasy');
-Use Store_DB;
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b005','Engineering 101','Munaf Moktar',119,'Other');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b006','Engineering 102','Munaf Moktar',119,'Other');
 #
@@ -129,7 +130,6 @@ quantity INT  NOT NULL,
 comment varchar(200),
 day varchar(8) NOT NULL,
 PRIMARY KEY(id,bid),
-INDEX (id),
 FOREIGN KEY(id) REFERENCES PO(id) ON DELETE CASCADE,
 FOREIGN KEY(bid) REFERENCES Book(bid) ON DELETE CASCADE
 );
@@ -185,10 +185,7 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
 
-use  Store_DB;
 
-SELECT * from Account;
-SELECT * from Address;
 
 
 SELECT email from Account;

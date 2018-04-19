@@ -45,4 +45,13 @@
     <servlet-name>AdminServlet</servlet-name>
     <url-pattern>/servlet/AdminServlet</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>PurchaseRequireLogin</display-name>
+    <filter-name>PurchaseRequireLogin</filter-name>
+    <filter-class>filter.PuchaseSpamFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>PurchaseRequireLogin</filter-name>
+    <servlet-name>Purchase</servlet-name>
+  </filter-mapping>
 </web-app>

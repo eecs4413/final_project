@@ -90,18 +90,13 @@ public class PODAO {
 			e.printStackTrace();
 		}
 		
-		int latest = -1;
-		for(Entry<String, POBean> entry :this.retrieve().entrySet()) {
-			
-			if(entry.getValue().equals(pobean)) {
-				latest = Integer.parseInt(entry.getKey());
-			}
-			
-			
-		}
 		
 		
-		return latest;
+			
+		
+		
+		
+		return  this.retrieve().size();
 
 	}
 

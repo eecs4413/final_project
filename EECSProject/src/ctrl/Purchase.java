@@ -25,7 +25,7 @@ import model.PurchaseUtil;
 /**
  * Servlet implementation class Purchase
  */
-@WebServlet({ "/Purchase", "/Purchase/*" })
+@WebServlet({ "/Purchase", "/Purchase/*","/Purchase/" })
 public class Purchase extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,6 +49,8 @@ public class Purchase extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String target = "/Purchase.jspx";
+		
+		
 		
 		if(request.getParameter("processOrderButtonProceed") != null) {
 			
@@ -76,7 +78,7 @@ public class Purchase extends HttpServlet {
 				AddressBean billto = new AddressBean(null, street, province, country, city, zip, phone);
 				request.getSession().setAttribute("billTo", billto);
 				
-				CreditCard cred = new CreditCard(crednum,expMonth, expYear);
+				CreditCard cred = new CreditCard(fname, lname, crednum, expYear, expMonth);
 				
 				POBean poBean = PurchaseUtil.Process(cred, billto, comment ,(ArrayList<POItemBean>) request.getSession().getAttribute("cart")) ;
 				request.getSession().setAttribute("PoBean", poBean);
@@ -87,19 +89,19 @@ public class Purchase extends HttpServlet {
 		
 		if(request.getParameter("ConfirmOrderButton" )!=null){
 			
-			POBean poBean = (POBean) request.getSession().getAttribute("PoBean");
+			POBean poBean = (POBean) request.getSession().getAttribute("poBean");
 			
 			 if(poBean.getStatus().equals("PROCESSED")) {
-				 target = "/ConfirmOrder.jspx";
+				 target = "/ConfirmOrder";
 			 }else {
-				 target = "/Purchase.jspx";
+				 target = "/Purchase";
 				 request.setAttribute("error", "Could not process");
 			 }
 			
 			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("poBean" ) ,(ArrayList<POItemBean>)request.getSession().getAttribute("cart"));
 			 target = "/Home";
 		}
-				
+		System.out.println(target);	
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 

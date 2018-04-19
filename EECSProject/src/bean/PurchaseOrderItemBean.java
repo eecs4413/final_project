@@ -28,17 +28,17 @@ public class PurchaseOrderItemBean {
 		super();
 	}
 	
-	public PurchaseOrderItemBean(String partNum,  POItemBean poItemBean) {
+	public PurchaseOrderItemBean(String partNum,  POItemBean pOItemBean) {
 		super();
 
 		BookBean bookBean = SearchUtil.searchID(partNum);
 		
-		this.quantity = (int) (Float.parseFloat(poItemBean.getPrice()) / Float.parseFloat(bookBean.getPrice()));
+		this.quantity = (int) (Float.parseFloat(pOItemBean.getPrice()) / Float.parseFloat(bookBean.getPrice()));
 		this.productName = bookBean.getTitle() + " by " + bookBean.getAuthor();
 		this.partNum = partNum;
 		this.CAPrice = Float.parseFloat(bookBean.getPrice());
-		this.comment = poItemBean.getComment();
-		this.shipDate = poItemBean.getDay();
+		this.comment = pOItemBean.getComment();
+		this.shipDate = pOItemBean.getDay();
 	}
 	
 

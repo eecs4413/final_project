@@ -44,7 +44,7 @@ public class POItemDAO {
 				String quantity = r.getString("quantity");
 
 				rv.put(id +","+ bid, new POItemBean(bid, price, quantity, comment, day));
-
+System.out.println("used");
 			}
 
 			r.close();
@@ -60,8 +60,7 @@ public class POItemDAO {
 
 		for (POItemBean item : items) {
 			if (item.comment == null || item.comment.isEmpty()) {
-				
-			
+
 			String query = "INSERT INTO POItem (id, bid, price, day, quantity) VALUES (?,?,?,?,?);";
 
 			Connection con;

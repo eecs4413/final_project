@@ -51,11 +51,11 @@
 					<input name="phone" type="tel" class="fields" id="phone"
 						placeholder="Phone number (###-###-####)" />
 					
-					<button id="register_login" name="register_address" class="submitButton"
+					<button id="processOrderButtonProceed" name="processOrderButtonProceed" class="submitButton"
 						action="submit" value="1">Purchase Order</button>
 				 </FIELDSET>
 			</form>
-<button id="processOrderButtonProceed" name="processOrderButtonProceed" disabled="disabled"
+<button id="ConfirmOrderButton" name="ConfirmOrderButton" disabled="disabled"
 						action="submit" value="1">Proceed</button>
 	
 
