@@ -54,6 +54,7 @@ public class PuchaseSpamFilter implements Filter {
 		if (sc.getServletContext().getAttribute("account") != null) {
 			request.setAttribute("fowardAfter", "/Purchase.jspx");
 			target = "/Login.jspx";
+			System.out.println("toomany");
 		}
 
 		if (((counter - 1) % 3) == 0) {

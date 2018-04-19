@@ -69,9 +69,9 @@ public class Login extends HttpServlet {
 				System.out.println("Logged in");
 				target = "/Home.jspx";
 				
-				if(request.getAttribute("fowardAfter") != null) {
-					target = (String) request.getAttribute("fowardAfter");
-					request.removeAttribute("fowardAfter");
+				if(request.getAttribute("forwardAfter") != null) {
+					target = (String) request.getAttribute("forwardAfter");
+					request.removeAttribute("forwardAfter");
 				}
 				
 			}
@@ -80,9 +80,12 @@ public class Login extends HttpServlet {
 		if(request.getParameter("signOut") != null) {
 			request.getSession().setAttribute("logged_in", false);
 			target = "/Home.jspx";
-		}		
-		request.getRequestDispatcher(target).forward(request, response);
-	}
+		}
+		
+			request.getRequestDispatcher(target).forward(request, response);
+		}
+		
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

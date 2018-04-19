@@ -1,6 +1,7 @@
 drop database Store_DB;
 create database Store_DB;
-Use Store_DB;
+use Store_DB;
+
 
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
@@ -24,7 +25,6 @@ INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little P
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','Physics','Bill Nye', 201, 'Science');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','Mechanics','Lassonde' ,100,'Engineering');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','Circuit city','Bobby Bee' ,110,'Engineering');
-Use Store_DB;
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b005','Engineering 101','Munaf Moktar',119,'Other');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b006','Engineering 102','Munaf Moktar',119,'Other');
 #
@@ -129,7 +129,6 @@ quantity INT  NOT NULL,
 comment varchar(200),
 day varchar(8) NOT NULL,
 PRIMARY KEY(id,bid),
-INDEX (id),
 FOREIGN KEY(id) REFERENCES PO(id) ON DELETE CASCADE,
 FOREIGN KEY(bid) REFERENCES Book(bid) ON DELETE CASCADE
 );
@@ -185,10 +184,7 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.yor
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
 
-use  Store_DB;
 
-SELECT * from Account;
-SELECT * from Address;
 
 
 SELECT email from Account;

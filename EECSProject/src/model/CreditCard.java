@@ -2,18 +2,24 @@ package model;
 
 public class CreditCard {
 	
-	private String fname , lname , crednum;
+	private String fname , lname , crednum , expYear , expMonth;
 
 	public CreditCard() {
 		super();
 	}
 
-	public CreditCard(String fname, String lname, String crednum) {
+	
+
+	public CreditCard(String fname, String lname, String crednum, String expYear, String expMonth) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
 		this.crednum = crednum;
+		this.expYear = expYear;
+		this.expMonth = expMonth;
 	}
+
+
 
 	/**
 	 * @return the fname
@@ -55,6 +61,42 @@ public class CreditCard {
 	 */
 	public void setCrednum(String crednum) {
 		this.crednum = crednum;
+	}
+
+
+
+	/**
+	 * @return the expYear
+	 */
+	public String getExpYear() {
+		return expYear;
+	}
+
+
+
+	/**
+	 * @param expYear the expYear to set
+	 */
+	public void setExpYear(String expYear) {
+		this.expYear = expYear;
+	}
+
+
+
+	/**
+	 * @return the expMonth
+	 */
+	public String getExpMonth() {
+		return expMonth;
+	}
+
+
+
+	/**
+	 * @param expMonth the expMonth to set
+	 */
+	public void setExpMonth(String expMonth) {
+		this.expMonth = expMonth;
 	}
 	
 

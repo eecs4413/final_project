@@ -41,8 +41,7 @@ public class Cart extends HttpServlet {
 
 		if (request.getParameter("addbook")!= null) {
 			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
-			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),
-					Integer.parseInt(request.getParameter("quantity")), request.getParameter("comment"));
+			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),1, request.getParameter("comment"));
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 		
@@ -50,11 +49,13 @@ public class Cart extends HttpServlet {
 
 		if (request.getParameter("removebook")!= null) {
 			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
-			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("removebook")),
-					Integer.parseInt(request.getParameter("quantity")));
+			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("removebook")),1);
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 		
+		if(request.getParameter("next")!= null) {
+			target= "/Purchase.jspx";
+		}
 		
 			request.getRequestDispatcher(target).forward(request, response);
 		

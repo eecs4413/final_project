@@ -101,6 +101,7 @@ public class Start extends HttpServlet {
 
 			CartUtil.addItem(book, 1, null);
 			cart = CartUtil.getCart();
+			
 			request.getSession().setAttribute("cart", cart);
 			request.getSession().setAttribute("cartcount", cart.size());
 

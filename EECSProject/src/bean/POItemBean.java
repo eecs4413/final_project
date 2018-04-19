@@ -51,7 +51,7 @@ public class POItemBean {
 			Calendar cal = Calendar.getInstance();
 			this.day = sd.format(cal.getTime());
 		}
-		System.out.println(this.title);
+		
 	}
 
 	public POItemBean(String bid, String price, String quantity, String comment, String day) {
@@ -69,7 +69,7 @@ public class POItemBean {
 			this.day = sd.format(cal.getTime());
 		}
 
-		System.out.println(this.title);
+		
 
 	}
 
@@ -94,7 +94,7 @@ public class POItemBean {
 		this.author = bean.getAuthor();
 		this.category = bean.getCategory();
 
-		System.out.println(this.author);
+		
 
 	}
 
@@ -158,6 +158,48 @@ public class POItemBean {
 	 */
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return the author
+	 */
+	public String getAuthor() {
+		return author;
+	}
+
+	/**
+	 * @param author the author to set
+	 */
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 }

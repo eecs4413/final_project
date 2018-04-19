@@ -60,8 +60,7 @@ System.out.println("used");
 
 		for (POItemBean item : items) {
 			if (item.comment == null || item.comment.isEmpty()) {
-				
-			
+
 			String query = "INSERT INTO POItem (id, bid, price, day, quantity) VALUES (?,?,?,?,?);";
 
 			Connection con;
