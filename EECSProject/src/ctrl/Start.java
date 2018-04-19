@@ -57,7 +57,12 @@ public class Start extends HttpServlet {
 
 		if (request.getParameter("signOut") != null) {
 			request.getSession().setAttribute("logged_in", false);
-			request.getRequestDispatcher("/Home.jspx").forward(request, response);
+			target = "/Home.jspx";
+		}
+		
+		if(request.getParameter("signIn") != null) {
+			request.getSession().setAttribute("logged_in", false);
+			target = "Login.jspx";
 		}
 
 		/*

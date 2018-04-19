@@ -67,13 +67,12 @@ public class Login extends HttpServlet {
 				request.getSession().setAttribute("account", account);
 				request.getSession().setAttribute("logged_in", true);
 				System.out.println("Logged in");
-				target = "/Home.jspx";
+				target = "/Welcome.jspx";
 				
 				if(request.getAttribute("forwardAfter") != null) {
 					target = (String) request.getAttribute("forwardAfter");
 					request.removeAttribute("forwardAfter");
 				}
-				
 			}
 		}
 		
@@ -84,7 +83,6 @@ public class Login extends HttpServlet {
 		
 			request.getRequestDispatcher(target).forward(request, response);
 		}
-		
 	
 
 	/**

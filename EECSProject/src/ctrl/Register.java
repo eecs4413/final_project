@@ -102,7 +102,8 @@ public class Register extends HttpServlet {
 
 			// redirect to login page
 
-			target = "/Login.jspx";
+			//target = "/Login.jspx";
+			target = "/Registered.jspx";
 			}
 
 		}
