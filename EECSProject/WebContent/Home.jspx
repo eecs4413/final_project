@@ -121,24 +121,47 @@
 			</div>
 		</div>
 	</div>
-	<table>
-		<td id="ajaxResult"></td>
-<!-- 		<td>${results}</td> -->
+		<!-- <td id="ajaxResult"></td> -->
 		
+		<div class="filterBar"> 
+		
+		<b>FILTERS:</b>
+		<ul>
+			<li><a href="http://www.blogto.com/restaurants/">Still</a></li>
+			<li><a href="http://allrecipes.com/">need to</a></li>
+			<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
+		</ul>
+		<hr> </hr>
+		CATEGORIES
+		<ul>
+			<li><a href="http://www.blogto.com/restaurants/">Fiction</a></li>
+			<li><a href="http://allrecipes.com/">Fantasy</a></li>
+			<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">Other</a></li>
+		</ul>
+		
+		</div>
+		
+		
+		
+		
+		<form action="" method="POST">
 		<c:forEach var="book" items="${results}">
-		<form action="" method="post">
-					<tr>
-						<td> ${book.bid}</td>
-						<td> ${book.title}</td>
-						<td> ${book.author}</td>
-						<td> ${book.price}</td>
-						<td> ${book.category}</td>
-						<td><button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" >ADD TO CART</button> </td>
-					</tr>
-		</form>
+		
+					<div class="bookResult">
+			
+					 <p><img src="images/${book.bid}.jpg" alt="no image"> </img> </p>
+					 <p>${book.title} <br> </br> 
+					 by: ${book.author} <br> </br>
+					 ${book.price}
+					 ${book.category} </p>
+					 <button name="addCart" id="addCart" class="addCart"
+								action="submit" value="${book.bid}" >ADD TO CART</button>
+
+					</div>
+					
+				
 		</c:forEach>
-	</table>
+		</form>
 </body>
 	</html>
 </jsp:root>

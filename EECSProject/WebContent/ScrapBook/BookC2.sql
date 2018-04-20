@@ -22,7 +22,6 @@ PRIMARY KEY(bid)
 # Adding data for table 'Book'
 #
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
-<<<<<<< HEAD
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','The Name of the Wind','Patrick Rothfuss', 13, 'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','A Game of Thrones','George R.R. Martin' ,13,'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','The Way of Kings','Brandon Sanderson' ,11,'Fantasy');

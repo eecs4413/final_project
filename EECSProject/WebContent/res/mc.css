@@ -19,6 +19,7 @@ div {
 
 .header_top {
     padding: 15px 0 25px;
+    margin: 0 auto;
 }
 
 element.style {
@@ -302,9 +303,29 @@ input:focus {
 	background-color: #f1f1f1
 }
 
+.bookResult {
+	margin-left: 150px; /* margin for navBar */
+  grid-template-columns: auto auto auto;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  overflow: hidden;
+  height: 10%;
+}
+
 img {
 	width:125px;
+	float: left;
+	clear: left;
+	padding-right: 10px;
 }
+
+.filterBar {
+	float: left;
+	clear: left;
+	width: 150px;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
 
 .menu .dropdown:hover .dropdown-content {
     display: block;
