@@ -97,7 +97,13 @@
   					<a href="#about">About</a>
 				</div>
 				-->
-				<div class="menu">
+				
+			</div>
+		</div>
+	</div>
+		<!-- <td id="ajaxResult"></td> -->
+		
+		<div class="menu">
 					<ul>
 						<li><a href="#home">Home</a></li>
 						<li><a href="#news">About</a></li>
@@ -118,47 +124,54 @@
 							</div></li>
 					</ul>
 				</div>
+				
+				
+				
+	<c:choose>
+		<c:when test="${isSearchFilter eq true}">
+
+			<div class="filterBar">
+
+				<b>FILTERS:</b>
+				<ul>
+					<li><a href="http://www.blogto.com/restaurants/">Still</a></li>
+					<li><a href="http://allrecipes.com/">need to</a></li>
+					<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
+				</ul>
+				<hr></hr>
+				CATEGORIES <input id="" type="checkbox"> </input> <input id=""
+					type="checkbox"> </input> <input id="" type="checkbox"> </input>
+
+				<hr></hr>
+				PRICE RANGE <br> </br>
+
+				<input id="u15" type="checkbox"> Under $15 (${u15})</input> <br> </br> <input
+					id="r15_25" type="checkbox"> $15 - $25 (${r15_r25})</input> <br> </br> <input
+					id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input> <br> </br> <input
+					id="o50" type="checkbox"> Over $50 (${o50})</input> <br> </br>
+
+
 			</div>
-		</div>
-	</div>
-		<!-- <td id="ajaxResult"></td> -->
-		
-		<div class="filterBar"> 
-		
-		<b>FILTERS:</b>
-		<ul>
-			<li><a href="http://www.blogto.com/restaurants/">Still</a></li>
-			<li><a href="http://allrecipes.com/">need to</a></li>
-			<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
-		</ul>
-		<hr> </hr>
-		CATEGORIES
-		<ul>
-			<li><a href="http://www.blogto.com/restaurants/">Fiction</a></li>
-			<li><a href="http://allrecipes.com/">Fantasy</a></li>
-			<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">Other</a></li>
-		</ul>
-		
-		</div>
-		
-		
-		
-		
-		<form action="" method="POST">
+		</c:when>
+	</c:choose>
+
+
+
+	<form action="" method="POST">
 		<c:forEach var="book" items="${results}">
 		
 					<div class="bookResult">
 			
 					 <p><img src="images/${book.bid}.jpg" alt="no image"> </img> </p>
-					 <p>${book.title} <br> </br> 
+					 <p> <h2> ${book.title} </h2> <br> </br> 
 					 by: ${book.author} <br> </br>
 					 ${book.price}
 					 ${book.category} </p>
 					 <button name="addCart" id="addCart" class="addCart"
 								action="submit" value="${book.bid}" >ADD TO CART</button>
-
-					</div>
 					
+					</div>
+					<div class="searchSeparator"><hr> </hr> </div>
 				
 		</c:forEach>
 		</form>
