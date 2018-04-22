@@ -160,8 +160,10 @@ public class Start extends HttpServlet {
 		// System.out.println(str);
 		// System.out.println(request.getAttribute(str));
 		// }
-
-		request.getRequestDispatcher(target).forward(request, response);
+			request.getRequestDispatcher(target).forward(request, response);
+		
+		
+		
 
 	}
 

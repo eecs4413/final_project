@@ -220,25 +220,46 @@ function doSimpleAjax(address) {
 
 	data += "searchBar=" + searchBar;
 	
-	console.log(data);
-	request.onreadystatechange = function() {
-		handler(request);
-	};
+	//alert(address);
+	alert((address + "?" + data));
 
-	request.open("GET", (address + "?" + data), true);
 	request.onreadystatechange = function() {
 		handler(request);
 	};
-	request.send(null);
+	request.open("GET", (address + "?" + data), true);
+	request.send();
 }
 
 function handler(request) {
-	// var target = document.getElementById("ajaxResult");
 	if ((request.readyState == 4) && (request.status == 200)) {
-		var target = document.getElementById("ajaxResult");
-		//var temp = document.getElementById
+		var target = document.getElementById("demo");
 		target.innerHTML = request.responseText;
+		alert("tits");
+	} 
+	
+	if (request.status == 200){
+		alert("WTF");
 	}
+	
+	if (request.readyState == 4){
+		alert("work?");
+	}
+}
 
+function loadFilterViaPrice(){
+	
+	var searchBar = document.getElementById("searchBar").value;
+	alert(searchBar);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("demo").innerHTML = this.responseText;
+	     	alert(this.responseText)
+	    }
+	        
+	  };
+	  xhttp.open("GET", 'Home?' + searchBar, true);
+	  xhttp.send(null);
 	
 }

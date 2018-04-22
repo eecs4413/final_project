@@ -77,7 +77,7 @@
 										</td>
 										<td>
 									<button class="searchButton" id="searchButton"
-										name="searchButton" action="submit">Search</button>
+										name="searchButton" action="submit" onclick="loadFilterViaPrice();">Search</button>
 										</td>
 								
 							</table>
@@ -144,18 +144,29 @@
 
 				<hr></hr>
 				PRICE RANGE <br> </br>
-
-				<input id="u15" type="checkbox"> Under $15 (${u15})</input> <br> </br> <input
-					id="r15_25" type="checkbox"> $15 - $25 (${r15_r25})</input> <br> </br> <input
-					id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input> <br> </br> <input
-					id="o50" type="checkbox"> Over $50 (${o50})</input> <br> </br>
-
+				
+				<label class="CBcontainer">
+					<input id="u15" type="checkbox" onclick="loadFilterViaPrice();"
+					value="true">
+					 Under $15 (${u15})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="r15_25" type="checkbox"> $15 - $25 (${r15_r25})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="o50" type="checkbox"> Over $50 (${o50})</input>
+					<span class="checkmark"></span>			
+				 </label>
 
 			</div>
 		</c:when>
 	</c:choose>
-
-
 
 	<form action="" method="POST">
 		<c:forEach var="book" items="${results}">
@@ -175,6 +186,9 @@
 				
 		</c:forEach>
 		</form>
+		
+		<p id="demo"> </p>
+		
 </body>
 	</html>
 </jsp:root>
