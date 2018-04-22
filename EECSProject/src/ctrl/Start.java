@@ -73,6 +73,7 @@ public class Start extends HttpServlet {
 
 		if (request.getParameter("searchButton") != null) {
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+
 			
 			request.setAttribute("isSearchFilter", true);
 			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));

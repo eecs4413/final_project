@@ -221,45 +221,44 @@ function doSimpleAjax(address) {
 	data += "searchBar=" + searchBar;
 	
 	//alert(address);
-	alert((address + "?" + data));
-
+	//alert((address + "?" + data));
+	request.open("GET", (address + "?" + data), true);
 	request.onreadystatechange = function() {
 		handler(request);
 	};
-	request.open("GET", (address + "?" + data), true);
-	request.send();
+	
+	request.send(null);
 }
 
 function handler(request) {
 	if ((request.readyState == 4) && (request.status == 200)) {
 		var target = document.getElementById("demo");
 		target.innerHTML = request.responseText;
-		alert("tits");
 	} 
 	
 	if (request.status == 200){
-		alert("WTF");
+		//alert("status?");
 	}
 	
 	if (request.readyState == 4){
-		alert("work?");
+		//alert("work?");
 	}
 }
 
 function loadFilterViaPrice(){
 	
 	var searchBar = document.getElementById("searchBar").value;
-	alert(searchBar);
+	//alert(searchBar);
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	     document.getElementById("demo").innerHTML = this.responseText;
-	     	alert(this.responseText)
+	     	//alert(this.responseText)
 	    }
 	        
 	  };
-	  xhttp.open("GET", 'Home?' + searchBar, true);
+	  xhttp.open("GET", 'Home', true);
 	  xhttp.send(null);
 	
 }

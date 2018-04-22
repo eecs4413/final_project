@@ -77,7 +77,7 @@
 										</td>
 										<td>
 									<button class="searchButton" id="searchButton"
-										name="searchButton" action="submit" onclick="loadFilterViaPrice();">Search</button>
+										name="searchButton" action="submit" onclick="loadFilterViaPrice();"></button>
 										</td>
 								
 							</table>
@@ -126,7 +126,7 @@
 				</div>
 				
 				
-				
+	<!-- 	
 	<c:choose>
 		<c:when test="${isSearchFilter eq true}">
 
@@ -168,16 +168,16 @@
 		</c:when>
 	</c:choose>
 
-	<form action="" method="POST">
+	<form action="Home?searchBar=${search}&amp;searchButton=" method="POST">
 		<c:forEach var="book" items="${results}">
 		
 					<div class="bookResult">
 			
 					 <p><img src="images/${book.bid}.jpg" alt="no image"> </img> </p>
-					 <p> <h2> ${book.title} </h2> <br> </br> 
+					 <p> ${book.title} <br> </br> 
 					 by: ${book.author} <br> </br>
-					 ${book.price}
-					 ${book.category} </p>
+					 <span class="bookPrice"> ${book.price} </span><br> </br>
+					  </p>
 					 <button name="addCart" id="addCart" class="addCart"
 								action="submit" value="${book.bid}" >ADD TO CART</button>
 					
@@ -186,7 +186,13 @@
 				
 		</c:forEach>
 		</form>
-		
+		-->
+		<form>
+		<button name="ajax" value="true" 
+								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');">
+							Search (Ajax)
+									</button>
+		</form>
 		<p id="demo"> </p>
 		
 </body>

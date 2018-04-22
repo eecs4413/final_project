@@ -144,7 +144,7 @@ form {
 }
 
 .search button[type="submit"] {
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSl56RW86NlOQgiYTK5_BJ31YKcxxQe9sXZMH8xIqGCNOCT1Uw') no-repeat 0px 1px;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSl56RW86NlOQgiYTK5_BJ31YKcxxQe9sXZMH8xIqGCNOCT1Uw') no-repeat;
     border: none;
     cursor: pointer;
     outline: none;
@@ -351,6 +351,13 @@ hr {
 .searchSeparator {
 	margin-left: 175px;
 	padding-left: 5px;
+}
+
+.bookPrice {
+	border: 1px solid rgba(238, 238, 238, 1);
+	font-size: 20px;
+	padding: 5px;
+	cursor: pointer;
 }
 
 .CBcontainer {
