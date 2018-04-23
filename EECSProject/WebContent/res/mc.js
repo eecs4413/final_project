@@ -191,9 +191,6 @@ function validatePurchaseForm() {
 	
 	if (!ok) {
 		alert(error);
-		 document.getElementById("processOrderButtonProceed").disabled = true;
-	}else{
-		 document.getElementById("processOrderButtonProceed").disabled = false;
 	}
 
 	return ok;

@@ -54,7 +54,7 @@ public class PurchaseLogin implements Filter {
 			chain.doFilter(request, response);
 		}
 
-		// pass the request along the filter chain
+		// pass the request along the bleh chain
 		
 	}
 

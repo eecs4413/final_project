@@ -55,8 +55,7 @@
 						action="submit" value="1">Purchase Order</button>
 				 </FIELDSET>
 			</form>
-<button id="ConfirmOrderButton" name="ConfirmOrderButton" disabled="disabled"
-						action="submit" value="1">Proceed</button>
+
 	
 
 </body>
