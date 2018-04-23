@@ -220,24 +220,26 @@ function doSimpleAjax(address) {
 
 	data += "searchBar=" + searchBar;
 	
-	//alert(address);
+	alert(address);
 	//alert((address + "?" + data));
-	request.open("GET", (address + "?" + data), true);
+	alert(address + "?" + data);
+	request.open("GET", address + "?" + data, true);
 	request.onreadystatechange = function() {
 		handler(request);
 	};
 	
-	request.send(null);
+	request.send();
 }
 
 function handler(request) {
 	if ((request.readyState == 4) && (request.status == 200)) {
 		var target = document.getElementById("demo");
+		alert(request.responseText);
 		target.innerHTML = request.responseText;
-	} 
+	}
 	
 	if (request.status == 200){
-		//alert("status?");
+		alert("status?");
 	}
 	
 	if (request.readyState == 4){
@@ -248,6 +250,7 @@ function handler(request) {
 function loadFilterViaPrice(){
 	
 	var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
 	//alert(searchBar);
 	
 	var xhttp = new XMLHttpRequest();
@@ -258,7 +261,9 @@ function loadFilterViaPrice(){
 	    }
 	        
 	  };
-	  xhttp.open("GET", 'Home', true);
+	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
+	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  xhttp.open("GET", 'Home?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
 	  xhttp.send(null);
 	
 }

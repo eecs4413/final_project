@@ -72,6 +72,7 @@ public class Start extends HttpServlet {
 		request.getSession().setAttribute("search", search);
 
 		if (request.getParameter("searchButton") != null) {
+			System.out.println("WHY NO SEARCH");
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 
 			
@@ -100,6 +101,12 @@ public class Start extends HttpServlet {
 		 * SearchUtil.search(request.getParameter("searchBar"))); String search =
 		 * request.getParameter("searchBar"); System.out.println(search); }
 		 */
+		
+		if(request.getParameter("bookID") != null) {
+			System.out.println(request.getParameter("bookID"));
+			request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));
+			target = "Item.jspx";
+		}
 
 		if (request.getParameter("addCart") != null) {
 			String bookID = request.getParameter("addCart");

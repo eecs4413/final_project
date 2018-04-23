@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" session="true" />
+	<jsp:output doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		omit-xml-declaration="true" />
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Insert title here</title>
+<link rel="StyleSheet"
+	href="${pageContext.request.contextPath}/res/item.css" type="text/css"
+	title="StyleSheet" media="screen, print" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script type="text/javascript" src="res/mc.js">
+	;
+</script>
+
+</head>
+<body>
+	<div class="top_bg">
+		<div class="container">
+			<div class="header_top">
+				<div class="top_right">
+					<ul>
+						<li><a href="${pageContext.request.contextPath}/Login">Login</a>
+						</li> |
+						<li class="reg"><a
+							href="${pageContext.request.contextPath}/Register">Register</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header_bg">
+		<div class="container">
+			<div class="header">
+				<div class="head-t">
+					<div class="logo">
+						<a href="${pageContext.request.contextPath}/Home">PAGES</a>
+					</div>
+					<div class="header_right">
+						<div class="rgt-bottom">
+							<div class="cart">
+								<a href="${pageContext.request.contextPath}/Cart">Cart(0)</a>
+							</div>
+						</div>
+						<div class="search">
+							<form action="" method="POST" class="searchBox">
+								<table>
+									<td><input type="text" class="searchBar" id="searchBar"
+										placeholder="Search..." name="searchBar" value="${search}"></input>
+									</td>
+									<td>
+										<button class="searchButton" id="searchButton"
+											name="searchButton" action="submit"
+											onclick="loadFilterViaPrice();return false;">Search</button>
+									</td>
+
+								</table>
+							</form>
+							<!--<form>
+							<input type="text" placeholder="Search..."></input>
+							<input type="submit" value=""></input>
+						</form>-->
+						</div>
+					</div>
+				</div>
+				<!--
+				<div class="menu">
+ 					<a href="${pageContext.request.contextPath}/Home">Home</a>
+ 					<a href="#news">News</a>
+  					<a href="#Books">Books</a>
+  					<a href="#about">About</a>
+				</div>
+				-->
+				<div class="menu">
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#news">About</a></li>
+						<li class="dropdown"><a href="javascript:void(0)"
+							class="dropbtn">Books</a>
+							<div class="dropdown-content">
+								<form>
+									<c:forEach var="data" items="${catagorylist}">
+
+										<button class="searchButton" id="headerButton"
+											name="headerButton" value="${data}" action="submit">
+											<c:out value="${data}" />
+										</button>
+
+									</c:forEach>
+
+								</form>
+
+
+
+							</div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bookResult">
+		<img src="images/${item.bid}.jpg" alt="no image"> </img>
+		<p>
+			<span class="titles"> ${item.title} </span> <br> </br> by <span
+				class="authors"> ${item.author} </span> <br> </br>
+		</p>
+		<p class="priceContainer">
+			<span class="bookPrice"> $${item.price} </span><br> </br>
+
+			<button name="addCart" id="addCart" class="addCart" action="submit"
+				value="${item.bid}">ADD TO CART</button>
+		</p>
+	</div>
+	<p id="demo">test </p>
+	
+	
+</body>
+	</html>
+</jsp:root>

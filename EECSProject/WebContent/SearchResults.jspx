@@ -22,9 +22,7 @@
 </head>
 <body>
 
-
-		
-
+		<form action="" method="POST">
 			<div class="filterBar">
 
 				<b>FILTERS:</b>
@@ -41,7 +39,7 @@
 				PRICE RANGE <br> </br>
 				
 				<label class="CBcontainer">
-					<input id="u15" type="checkbox" onclick="loadFilterViaPrice();"
+					<input id="u15" type="checkbox" 
 					value="true">
 					 Under $15 (${u15})</input>
 					<span class="checkmark"></span>			
@@ -62,7 +60,7 @@
 			</div>
 		
 	
-
+		${results}?
 		<c:forEach var="book" items="${results}">
 		
 					<div class="bookResult">
@@ -79,7 +77,7 @@
 					<div class="searchSeparator"><hr> </hr> </div>
 				
 		</c:forEach>
-
+	</form>
 
 </body>
 </html>

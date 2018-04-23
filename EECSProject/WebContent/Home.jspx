@@ -77,7 +77,8 @@
 										</td>
 										<td>
 									<button class="searchButton" id="searchButton"
-										name="searchButton" action="submit" onclick="loadFilterViaPrice();"></button>
+										name="searchButton" action="submit"
+										onclick="doSimpleAjax('EECSProject/Home/Ajax');">SEARCH</button>
 										</td>
 								
 							</table>
@@ -124,9 +125,31 @@
 							</div></li>
 					</ul>
 				</div>
+	
+	TOP SELLING BOOKS
+	<hr> </hr>
+	
+	<!-- need to implement top seller code -->
+	
+	<div class="topSellContainer">
+		<div id="arrow-left" class="arrow"></div>
+		<div class="slider">
+			<p><img src="images/b001.jpg"> </img>
+			<img src="images/b002.jpg"> </img>
+			
+			<img src="images/b003.jpg"> </img>
+			<img src="images/b004.jpg"> </img> </p>
+		</div>	
+		<div id="arrow-right" class="arrow"></div>
+	
+	</div>
+	
+	
+	
+	
+	
 				
-				
-	<!-- 	
+	
 	<c:choose>
 		<c:when test="${isSearchFilter eq true}">
 
@@ -139,8 +162,25 @@
 					<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
 				</ul>
 				<hr></hr>
-				CATEGORIES <input id="" type="checkbox"> </input> <input id=""
-					type="checkbox"> </input> <input id="" type="checkbox"> </input>
+				CATEGORIES <br> </br>
+
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Fiction ()</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Science Fiction and Fantasy ()	</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Science ()</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Engineering ()	</input>
+					<span class="checkmark"></span>			
+				 </label>
+				
 
 				<hr></hr>
 				PRICE RANGE <br> </br>
@@ -172,27 +212,28 @@
 		<c:forEach var="book" items="${results}">
 		
 					<div class="bookResult">
-			
-					 <p><img src="images/${book.bid}.jpg" alt="no image"> </img> </p>
-					 <p> ${book.title} <br> </br> 
-					 by: ${book.author} <br> </br>
-					 <span class="bookPrice"> ${book.price} </span><br> </br>
-					  </p>
+					<a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> 
+					 <img src="images/${book.bid}.jpg" alt="no image"> </img> </a>
+					 <p> <span class="titles"> ${book.title} </span> <br> </br> 
+					 by <span class="authors"> ${book.author} </span> <br> </br> </p>
+					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
+					  
 					 <button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" >ADD TO CART</button>
+								action="submit" value="${book.bid}" >ADD TO CART</button> </p>
 					
 					</div>
 					<div class="searchSeparator"><hr> </hr> </div>
 				
 		</c:forEach>
 		</form>
-		-->
-		<form>
-		<button name="ajax" value="true" 
-								onclick="doSimpleAjax('/EECSProject/Home/Ajax/');">
-							Search (Ajax)
-									</button>
+		
+		<!-- 
+		<form action="" method="GET">
+		<button class="searchButton" id="searchButton"
+										name="searchButton" action="submit"
+										onclick="loadFilterViaPrice(); return false;">SEARCH</button>
 		</form>
+		 -->
 		<p id="demo"> </p>
 		
 </body>
