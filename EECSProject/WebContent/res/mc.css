@@ -529,6 +529,7 @@ hr {
     display: block;
 }
 
+<<<<<<< HEAD
 /* Toast */
 
 #snackbar {
@@ -571,4 +572,14 @@ hr {
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+
+#cart_anchor{
+	font-size: x-large;
+	margin-right: 30px;
+}
+
+h1{
+	width:100%
+	text-align: center;
+
 }

@@ -35,25 +35,30 @@ public class Cart extends HttpServlet {
 			throws ServletException, IOException {
 		String target = "/Cart.jspx";
 		
+		CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
+		
 		
 
-		if (request.getParameter("addbook")!= null) {
-			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
-			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),1, request.getParameter("comment"));
-			request.getSession().setAttribute("cart", CartUtil.getCart());
+		if (request.getParameter("addbook")!= null) {	
+			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),1, request.getParameter("comment"));		
+		}
+		
+		if (request.getParameter("commentsubmit")!= null) {
+		
+			CartUtil.updateComment(request.getParameter("commentsubmit"),request.getParameter("comment"));
 		}
 		
 		
 
 		if (request.getParameter("removebook")!= null) {
-			CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
 			CartUtil.removeItem(SearchUtil.searchID(request.getParameter("removebook")),1);
-			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 		
 		if(request.getParameter("next")!= null) {
 			target= "/Purchase.jspx";
 		}
+		
+		request.getSession().setAttribute("cart", CartUtil.getCart());
 		
 			request.getRequestDispatcher(target).forward(request, response);
 		

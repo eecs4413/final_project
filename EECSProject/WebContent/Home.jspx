@@ -28,23 +28,27 @@
 		<div class="container">
 			<div class="header_top">
 				<div class="top_right">
-					<c:if test="${not sessionScope['logged_in']}">
-						<form action="" method="post">
-							<ul>
+				<form action="" method="post">
+				<c:choose>
+				<c:when test="${sessionScope['account'] eq null}">
+					<ul>
 								<li><a href="${pageContext.request.contextPath}/Login">Login</a>
 								</li> |
 								<li class="reg"><a
 									href="${pageContext.request.contextPath}/Register">Register</a></li>
 							</ul>
-						</form>
-					</c:if>
-					<c:if test="${sessionScope['logged_in']}">
-						<form method="post">
-							<button name="signOut" id="signOut" class="signOutButton"
-								action="submit" href="${pageContext.request.contextPath}/Home">Sign
+				
+				</c:when>
+				<c:otherwise>
+				
+				<button name="signOut" id="signOut" class="signOutButton"
+								action="submit" value="1" href="${pageContext.request.contextPath}/Home">Sign
 								Out</button>
-						</form>
-					</c:if>
+				
+				</c:otherwise>
+				</c:choose>
+				</form>
+		
 					<!--
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/Login">Login</a>
@@ -66,12 +70,14 @@
 					</div>
 					<div class="header_right">
 						<div class="rgt-bottom">
+
 							<div class="cart">
-								<a href="${pageContext.request.contextPath}/Cart">
-								
-								Cart(${cartcount})
-								</a>
+							
+
+							
+								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
 							</div>
+							
 						</div>
 						<div class="search">
 							<form action="" method="POST" class="searchBox">

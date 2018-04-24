@@ -46,12 +46,16 @@ public class StoreWSRest {
 
 		List<PurchaseOrderBean> orderBeans = new ArrayList<PurchaseOrderBean>();
 		
+		
+		
+		
 		for (POBean pobean : getPObeansWith(partNumber)) {
 			
 			ArrayList<PurchaseOrderItemBean> items = new ArrayList<PurchaseOrderItemBean>();
 
 			PurchaseOrderBean orderBean = new PurchaseOrderBean();
-
+			
+			
 			orderBean.setBillTo(new PurchaseOrderBillTo(getAccountofPObean(pobean)));
 			orderBean.setShipto(new PurchaseOrderShipTo(pobean.getAddress(), pobean));
 			orderBean.setComment(pobean.getComment());
@@ -60,15 +64,16 @@ public class StoreWSRest {
 				
 				items.add(new PurchaseOrderItemBean(partNumber, bean));
 			}
-			System.out.println(".......");
+		
 			orderBean.setItems(items);
 			orderBeans.add(orderBean);
 		}
 		StringWriter sw = new StringWriter();
+	
 
 		try {
 			poxmlWrapper = new POXMLWrapper(orderBeans);
-			System.out.println(orderBeans.size());
+			
 
 			JAXBContext jaxbContext = JAXBContext.newInstance(POXMLWrapper.class);
 
@@ -90,7 +95,7 @@ public class StoreWSRest {
 		} catch (Exception e) {
 			// System.out.println("Change the path of the po.xsd if you have not done so
 			// already");
-			e.printStackTrace();
+		//	e.printStackTrace();
 		}
 
 		return sw.toString();
@@ -113,6 +118,7 @@ public class StoreWSRest {
 	}
 
 	private ArrayList<POBean> getPObeansWith(String bid) {
+		
 		Map<String, POItemBean> poitems = (new POItemDAO()).retrieve();
 
 		Map<String, POBean> po = (new PODAO()).retrieve();
@@ -120,9 +126,13 @@ public class StoreWSRest {
 		ArrayList<POBean> temp = new ArrayList<POBean>();
 
 		for (Entry<String, POItemBean> entry : poitems.entrySet()) {
-
+			
+			
 			if (entry.getValue().getBid().equals(bid)) {
+				
 				temp.add(po.get(entry.getValue().getId()));
+				
+				
 			}
 		}
 		return temp;

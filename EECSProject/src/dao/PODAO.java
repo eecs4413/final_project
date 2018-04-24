@@ -51,7 +51,7 @@ public class PODAO {
 
 				Map<String, AddressBean> map = addressDAO.retrieve();
 				
-
+				
 				rv.put(id, new POBean(id, lname, fname, aid, status, map.get(shipAddress), comment));
 
 			}
@@ -68,7 +68,7 @@ public class PODAO {
 	public int sendPO(POBean pobean) {
 
 
-		String query = "INSERT INTO PO (aid, fname, lname, status, shipAddress) VALUES (?,?,?,?,?);";
+		String query = "INSERT INTO PO (aid, fname, lname, status, shipAddress, comment) VALUES (?,?,?,?,?,?);";
 		Connection con;
 		try {
 			con = this.ds.getConnection();
@@ -80,8 +80,8 @@ public class PODAO {
 			p.setString(3, pobean.getLname());
 			p.setString(4, pobean.getStatus());
 			p.setString(5, pobean.getAddress().getId());
+			p.setString(6, pobean.getComment());
 			
-
 			p.executeUpdate();
 
 			p.close();
