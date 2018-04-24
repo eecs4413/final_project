@@ -112,7 +112,6 @@ public class AccountDAO {
 
 			}
 			
-				System.out.println(rv);
 			
 			r.close();
 			p.close();
@@ -121,6 +120,9 @@ public class AccountDAO {
 
 			e.printStackTrace();
 		}
+
+
+		
 		return rv;
 		
 	}

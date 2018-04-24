@@ -53,7 +53,6 @@ public class PurchaseUtil {
 
 	}
 
-
 	public static void checkout(POBean pobean, ArrayList<POItemBean> cart) {
 
 		String id = "";
@@ -69,28 +68,27 @@ public class PurchaseUtil {
 			(new POItemDAO()).sendItems(cart);
 
 		}
-		
+
 		System.out.println("Order Status :" + pobean.getStatus());
 
 	}
 
-
 	public static POBean Process(CreditCard cred, AddressBean addbean, String comment, ArrayList<POItemBean> cart) {
 
-		POBean pobean = new POBean(false, account.getLname(), account.getFname(), account.getEmail(), "DENIED",
-				addbean, comment);
+		POBean pobean = new POBean(false, account.getLname(), account.getFname(), account.getEmail(), "DENIED", addbean,
+				comment);
 
 		try {
-			for(char s : cred.getCrednum().toCharArray()) {
-				Integer.parseInt(s+"");
+			for (char s : cred.getCrednum().toCharArray()) {
+				Integer.parseInt(s + "");
 			}
-			
+
 			if (cred.getCrednum().length() < 17 && cred.getCrednum().length() > 13) {
 				pobean.setStatus("PROCESSED");
 				pobean.getNewID();
-				
-			}else {
-				System.out.println(cred.getCrednum().length() +" Credit card too Long "  +  cred.getCrednum());
+
+			} else {
+				System.out.println(cred.getCrednum().length() + " Credit card too Long " + cred.getCrednum());
 			}
 		} catch (Exception e) {
 			System.out.println("Credit Not A Number");
@@ -105,7 +103,7 @@ public class PurchaseUtil {
 		}
 
 		(new POItemDAO()).sendItems(cart);
-System.out.println("Your Order Has Been " + pobean.getStatus());
+		System.out.println("Your Order Has Been " + pobean.getStatus());
 		return pobean;
 	}
 

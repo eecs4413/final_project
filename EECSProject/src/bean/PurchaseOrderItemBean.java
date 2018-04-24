@@ -33,7 +33,7 @@ public class PurchaseOrderItemBean {
 
 		BookBean bookBean = SearchUtil.searchID(partNum);
 		
-		this.quantity = (int) (Float.parseFloat(pOItemBean.getPrice()) / Float.parseFloat(bookBean.getPrice()));
+		this.quantity = Integer.parseInt(pOItemBean.getQuantity());
 		this.productName = bookBean.getTitle() + " by " + bookBean.getAuthor();
 		this.partNum = partNum;
 		this.CAPrice = Float.parseFloat(bookBean.getPrice());

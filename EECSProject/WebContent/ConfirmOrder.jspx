@@ -39,6 +39,7 @@ You Just Purchased These items
 				<td><c:out value="${part.title}" /></td>
 				<td><c:out value="${part.author}" /></td>
 				<td><c:out value="${part.category}" /></td>
+				<td><c:out value="${part.comment}" /></td>
 				
 			</TR>
 			

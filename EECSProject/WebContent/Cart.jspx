@@ -16,18 +16,35 @@
 
 	<table>
 
-<form>
+
 
 		<c:forEach items="${cart}" var="part">
+		<form>
 			<TR>
 
 				<td><c:out value="${part.price}" /></td>
 				<td><c:out value="${part.quantity}" /></td>
-				<td><c:out value="${part.comment}" /></td>
 				<td><c:out value="${part.day}" /></td>
 				<td><c:out value="${part.title}" /></td>
 				<td><c:out value="${part.author}" /></td>
 				<td><c:out value="${part.category}" /></td>
+				
+				<td>
+				<c:choose>
+				<c:when test="${empty part.comment}">
+				<input type="text" class="comment" id="comment"	placeholder="Comment" name="comment" ></input>
+				
+				</c:when>
+				<c:otherwise>
+				<input type="text" class="comment" id="comment"	value="${part.comment}" name="comment" ></input>
+				</c:otherwise>
+				</c:choose>
+				</td>
+						<td>
+				<button name="commentsubmit" id="commentsubmit" class="cartadjust"	action="submit" value ="${part.bid}"> Submit Comment </button>
+				</td>				
+										
+										
 				<td>
 				<button name="addbook" id="addbook" class="cartadjust"	action="submit" value ="${part.bid}"> + </button>
 				</td>
@@ -36,12 +53,12 @@
 				<button name="removebook" id="removebook" class="cartadjust" action="submit" value ="${part.bid}"> - </button>
 				</td>
 			</TR>
-			
+			</form>
 		</c:forEach>
 		
 		
 
-</form>
+
 
    <a href="${pageContext.request.contextPath}/Purchase/"><button> Next </button></a>
 
