@@ -69,6 +69,8 @@ public class PurchaseUtil {
 			(new POItemDAO()).sendItems(cart);
 
 		}
+		
+		System.out.println("Order Status :" + pobean.getStatus());
 
 	}
 

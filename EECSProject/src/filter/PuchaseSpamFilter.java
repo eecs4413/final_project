@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Servlet Filter implementation class PuchaseFilter
  */
-@WebFilter(dispatcherTypes = { DispatcherType.REQUEST }, urlPatterns = { "/Purchase" })
+@WebFilter(dispatcherTypes = { DispatcherType.REQUEST }, urlPatterns = { "/Purchase", "/Purchase/*"})
 public class PuchaseSpamFilter implements Filter {
 
 	/**
@@ -46,7 +46,7 @@ public class PuchaseSpamFilter implements Filter {
 		}
 
 		int counter = (int) sc.getSession().getAttribute("purchase_tries");
-
+		System.out.println("Tries :" + counter);
 		counter++;
 
 		sc.getSession().setAttribute("purchase_tries", counter);
@@ -57,7 +57,7 @@ public class PuchaseSpamFilter implements Filter {
 			System.out.println("toomany");
 		}
 
-		if (((counter - 1) % 3) == 0) {
+		if (((counter - 1) % 3) == 0 && (counter - 1 ) > 0) {
 			target = "/Errorpage.jspx";
 		}
 

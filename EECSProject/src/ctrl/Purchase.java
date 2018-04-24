@@ -83,25 +83,26 @@ public class Purchase extends HttpServlet {
 				POBean poBean = PurchaseUtil.Process(cred, billto, comment ,(ArrayList<POItemBean>) request.getSession().getAttribute("cart")) ;
 				request.getSession().setAttribute("PoBean", poBean);
 				
+				request.setAttribute("status", poBean.getStatus());
+				 target = "/ConfirmOrder.jspx";
+				
 				}
 		
 		
 		
 		if(request.getParameter("ConfirmOrderButton" )!=null){
 			
-			POBean poBean = (POBean) request.getSession().getAttribute("poBean");
+			POBean poBean = (POBean) request.getSession().getAttribute("PoBean");
 			
 			 if(poBean.getStatus().equals("PROCESSED")) {
-				 target = "/ConfirmOrder";
+				target = "/Home";
 			 }else {
-				 target = "/Purchase";
+				 target = "/Purchase/";
 				 request.setAttribute("error", "Could not process");
 			 }
 			
-			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("poBean" ) ,(ArrayList<POItemBean>)request.getSession().getAttribute("cart"));
-			 target = "/Home";
+			PurchaseUtil.checkout((POBean) request.getSession().getAttribute("PoBean" ) ,(ArrayList<POItemBean>)request.getSession().getAttribute("cart"));
 		}
-		System.out.println(target);	
 		request.getRequestDispatcher(target).forward(request, response);
 	}
 

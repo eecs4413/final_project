@@ -74,13 +74,6 @@ public class CartUtil {
 			cart.add(new POItemBean( book.getBid(),  book.getPrice(),  quantity+"", comment, null, book.getTitle(), book.getAuthor(), book.getCategory()));
 			
 		}
-		
-		//System.out.println(book.getBid());
-	
-		
-		VisitEventDAO ve = new VisitEventDAO();
-		VisitEventBean vbean = new VisitEventBean(book.getBid(),null,"CART");
-		ve.createEvent(vbean);
 
 	}
 
