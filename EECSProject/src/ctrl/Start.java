@@ -23,7 +23,8 @@ import model.SearchUtil;
 /**
  * Servlet implementation class Start
  */
-@WebServlet({ "/Home", "/Home/*", "" })
+
+@WebServlet({ "/Home", "/Home/*" ,""})
 public class Start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,25 +52,18 @@ public class Start extends HttpServlet {
 		request.getSession().setAttribute("catagorylist", SearchUtil.getCatagories());
 
 		String target = "/Home.jspx";
-
-		// Set up a new cart
 		if (request.getSession().getAttribute("cart") == null) {
 			request.getSession().setAttribute("cart", CartUtil.getCart());
 		}
 
-		// Signing out
-
 		if (request.getParameter("signOut") != null) {
-			request.getSession().removeAttribute("account");
-			System.out.println("Logged out");
+			request.getSession().setAttribute("logged_in", false);
 			target = "/Home.jspx";
 		}
-
-		// Filter books by header category
-
-		if (request.getParameter("headerButton") != null) {
-			request.setAttribute("results", SearchUtil.search(request.getParameter("headerButton")));
-
+		
+		if(request.getParameter("signIn") != null) {
+			request.getSession().setAttribute("logged_in", false);
+			target = "Login.jspx";
 		}
 
 		/*
@@ -80,13 +74,18 @@ public class Start extends HttpServlet {
 
 		if (request.getParameter("searchButton") != null) {
 			System.out.println("WHY NO SEARCH");
-			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+//			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+			
+//			request.setAttribute("isSearchFilter", true);
+//			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
+//			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
+//			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
+//			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
+		}
 
-			request.setAttribute("isSearchFilter", true);
-			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
-			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
-			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
-			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
+		if (request.getParameter("headerButton") != null) {
+			request.setAttribute("results", SearchUtil.search(request.getParameter("headerButton")));
+
 		}
 
 		request.getSession().setAttribute("search", search);
@@ -102,8 +101,8 @@ public class Start extends HttpServlet {
 		 * SearchUtil.search(request.getParameter("searchBar"))); String search =
 		 * request.getParameter("searchBar"); System.out.println(search); }
 		 */
-
-		if (request.getParameter("bookID") != null) {
+		
+		if(request.getParameter("bookID") != null) {
 			System.out.println(request.getParameter("bookID"));
 			request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));
 			target = "Item.jspx";
@@ -118,10 +117,10 @@ public class Start extends HttpServlet {
 				cart = new ArrayList<POItemBean>();
 			}
 			CartUtil.setCart(cart);
-
+			
 			CartUtil.addItem(book, 1, null);
 			cart = CartUtil.getCart();
-
+			
 			request.getSession().setAttribute("cart", cart);
 			request.getSession().setAttribute("cartcount", cart.size());
 
@@ -169,7 +168,10 @@ public class Start extends HttpServlet {
 		// System.out.println(str);
 		// System.out.println(request.getAttribute(str));
 		// }
-		request.getRequestDispatcher(target).forward(request, response);
+			request.getRequestDispatcher(target).forward(request, response);
+		
+		
+		
 
 	}
 

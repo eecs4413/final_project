@@ -254,13 +254,13 @@ function loadFilterViaPrice(){
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	     document.getElementById("demo").innerHTML = this.responseText;
-	     	//alert(this.responseText)
+	     	alert(this.responseText)
 	    }
 	        
 	  };
 	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
+	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
 	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
-	  xhttp.open("GET", 'Home?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
 	  xhttp.send(null);
 	
 }

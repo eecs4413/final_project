@@ -17,9 +17,8 @@
 	title="StyleSheet" media="screen, print" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<script type="text/javascript" src="res/mc.js">
-;
-</script>
+<script type="text/javascript" src="res/mc.js">;</script>
+<script type="text/javascript" src="res/imageGallery.js">;</script>
 </head>
 <body>
 	<div class="top_bg">
@@ -82,7 +81,7 @@
 										<td>
 									<button class="searchButton" id="searchButton"
 										name="searchButton" action="submit"
-										onclick="doSimpleAjax('EECSProject/Home/Ajax');">SEARCH</button>
+										onclick="loadFilterViaPrice(); return false;">SEARCH</button>
 										</td>
 								
 							</table>
@@ -129,115 +128,67 @@
 							</div></li>
 					</ul>
 				</div>
-	
-	TOP SELLING BOOKS
+
+	<div class="gallery">
+		<a target="_blank" href="images/deals.png">
+		 <img src="images/deals.png" alt="deals of the week"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/picks.png"> 
+			<img src="images/picks.png" alt="staff picks"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/arrivals.png"> <img
+			src="images/arrivals.png" alt="new releases"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/clearance.png"> <img
+			src="images/clearance.png" alt="clearance"/></a>
+	</div>
+
+
+	<br> </br>
+	BEST SELLERS
 	<hr> </hr>
-	
+
 	<!-- need to implement top seller code -->
-	
+	<!--
 	<div class="topSellContainer">
 		<div id="arrow-left" class="arrow"></div>
 		<div class="slider">
-			<p><img src="images/b001.jpg"> </img>
-			<img src="images/b002.jpg"> </img>
-			
-			<img src="images/b003.jpg"> </img>
-			<img src="images/b004.jpg"> </img> </p>
-		</div>	
-		<div id="arrow-right" class="arrow"></div>
-	
-	</div>
-	
-	
-	
-	
-	
-				
-	
-	<c:choose>
-		<c:when test="${isSearchFilter eq true}">
-
-			<div class="filterBar">
-
-				<b>FILTERS:</b>
-				<ul>
-					<li><a href="http://www.blogto.com/restaurants/">Still</a></li>
-					<li><a href="http://allrecipes.com/">need to</a></li>
-					<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
-				</ul>
-				<hr></hr>
-				CATEGORIES <br> </br>
-
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Fiction ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science Fiction and Fantasy ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Engineering ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
-				
-
-				<hr></hr>
-				PRICE RANGE <br> </br>
-				
-				<label class="CBcontainer">
-					<input id="u15" type="checkbox" onclick="loadFilterViaPrice();"
-					value="true">
-					 Under $15 (${u15})</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="r15_25" type="checkbox"> $15 - $25 (${r15_r25})</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="o50" type="checkbox"> Over $50 (${o50})</input>
-					<span class="checkmark"></span>			
-				 </label>
-
+			<div class="slide slide1">
+				<img src="images/b001.jpg"></img>
 			</div>
-		</c:when>
-	</c:choose>
+			<div class="slide slide2">
+				<img src="images/b002.jpg"></img>
+			</div>
+			<div class="slide slide3">
+				<img src="images/b003.jpg"></img>
+			</div>
+			<div class="slide slide4">
+				<img src="images/b004.jpg"></img>
+			</div>
 
-	<form action="Home?searchBar=${search}&amp;searchButton=" method="POST">
-		<c:forEach var="book" items="${results}">
-		
-					<div class="bookResult">
-					<a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> 
-					 <img src="images/${book.bid}.jpg" alt="no image"> </img> </a>
-					 <p> <span class="titles"> ${book.title} </span> <br> </br> 
-					 by <span class="authors"> ${book.author} </span> <br> </br> </p>
-					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
-					  
-					 <button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" >ADD TO CART</button> </p>
-					
-					</div>
-					<div class="searchSeparator"><hr> </hr> </div>
-				
-		</c:forEach>
-		</form>
-		
-		<!-- 
-		<form action="" method="GET">
-		<button class="searchButton" id="searchButton"
-										name="searchButton" action="submit"
-										onclick="loadFilterViaPrice(); return false;">SEARCH</button>
-		</form>
-		 -->
+		</div>
+		<div id="arrow-right" class="arrow"></div>
+
+	</div>
+	 -->
+	<div class="w3-content w3-display-container">
+  <img class="mySlides" src="images/b001.jpg" style="width:125px"/> 
+  <img class="mySlides" src="images/b002.jpg" style="width:125px"/>
+  <img class="mySlides" src="images/b003.jpg" style="width:125px"/>
+  <img class="mySlides" src="images/b004.jpg" style="width:125px"/>
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+	
+
+	
 		<p id="demo"> </p>
 		
 </body>

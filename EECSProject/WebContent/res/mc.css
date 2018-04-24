@@ -86,7 +86,8 @@ element.style {
 .logo {
     float: left;
    	margin: 0.45em 0;
-    font-size: 50px;
+    font-size: 54px;
+    font-weight: bold;
     padding-left: 10px;
 }
 
@@ -181,26 +182,35 @@ form {
 */
 
 body {
+	font-family: Arial;
 	margin: 0;
 	padding: 0;
 }
 
-.wrap, .slide-content {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100vh;
-	overflow-x: hidden;
+div.gallery {
+    margin: 5px;
+    float: left;
+    width: 300px;
 }
 
-.topSellContainer img {
-	width: 125px;
+div.gallery:hover {
+    border: 1px solid #777;
 }
 
-.slide {
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;	
+div.gallery img {
+    width: 100%;
+    height: auto;
+    margin-left: 10px;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+    
+}
+
+.topSellContainer {
+	position: relative;
 }
 
 .wrapper {

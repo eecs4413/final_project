@@ -26,14 +26,27 @@
 			<div class="filterBar">
 
 				<b>FILTERS:</b>
-				<ul>
-					<li><a href="http://www.blogto.com/restaurants/">Still</a></li>
-					<li><a href="http://allrecipes.com/">need to</a></li>
-					<li><a href="https://www.youtube.com/watch?v=1Wh8RzcQZr4">implement</a></li>
-				</ul>
+				
 				<hr></hr>
-				CATEGORIES <input id="" type="checkbox"> </input> <input id=""
-					type="checkbox"> </input> <input id="" type="checkbox"> </input>
+				CATEGORIES
+					
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Fiction ()</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Science Fiction and Fantasy ()	</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Science ()</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="" type="checkbox"> Engineering ()	</input>
+					<span class="checkmark"></span>			
+				 </label>
+				
 
 				<hr></hr>
 				PRICE RANGE <br> </br>
@@ -50,7 +63,7 @@
 				 </label>
 				 <label class="CBcontainer">
 					<input id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input>
-					<span class="checkmark"></span>			
+					<span class="checkmark"></span>				
 				 </label>
 				 <label class="CBcontainer">
 					<input id="o50" type="checkbox"> Over $50 (${o50})</input>
@@ -59,25 +72,25 @@
 
 			</div>
 		
-	
-		${results}?
+		<form action="" method="POST">
 		<c:forEach var="book" items="${results}">
 		
 					<div class="bookResult">
-			
-					 <p><img src="images/${book.bid}.jpg" alt="no image"> </img> </p>
-					 <p> <h2> ${book.title} </h2> <br> </br> 
-					 by: ${book.author} <br> </br>
-					 ${book.price}
-					 ${book.category} </p>
+					<a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> 
+					 <img src="images/${book.bid}.jpg" alt="no image"> </img> </a>
+					 <p> <span class="titles"> ${book.title} </span> <br> </br> 
+					 by <span class="authors"> ${book.author} </span> <br> </br> </p>
+					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
+					  
 					 <button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" >ADD TO CART</button>
+								action="submit" value="${book.bid}" >ADD TO CART</button> </p>
 					
 					</div>
 					<div class="searchSeparator"><hr> </hr> </div>
 				
 		</c:forEach>
-	</form>
+		</form>
+		</form>
 
 </body>
 </html>
