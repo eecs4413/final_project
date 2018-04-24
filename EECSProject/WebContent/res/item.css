@@ -388,3 +388,21 @@ hr {
 .menu .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.rating {
+	top: 50%;
+	left: 50%;
+	display: flex;
+}
+
+.rating input {
+	
+}
+
+.rating label {
+	display: block;
+	cursor: pointer;
+	width: 50px;
+	background: #ccc;
+}
+

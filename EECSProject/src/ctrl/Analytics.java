@@ -27,9 +27,8 @@ public class Analytics extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if(request.getSession().getAttribute("maxPrincipal") != null) {
-			System.out.println("Max principal: " + request.getSession().getAttribute("maxPrincipal").toString());
-			request.getRequestDispatcher("MaxPrincipal.jspx").forward(request, response);
+		if(request.getSession().getAttribute("temp") != null) {
+			request.getRequestDispatcher("").forward(request, response);
 		}
 	}
 
