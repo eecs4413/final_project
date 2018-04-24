@@ -34,7 +34,6 @@ public class VisitEventDAO {
 
 				String day = r.getString("day");
 				String bid = r.getString("bid");
-				String aid = r.getString("aid");
 				String eventtype = r.getString("eventtype");
 				
 				rv.put(bid, new VisitEventBean(bid, day, eventtype));

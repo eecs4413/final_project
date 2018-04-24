@@ -1,17 +1,147 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-	<jsp:directive.page contentType="text/html; charset=ISO-8859-1" 
-		pageEncoding="ISO-8859-1" session="false"/>
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsp/jstl/fmt" version="2.0">
+	<jsp:directive.page contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8" session="true" />
 	<jsp:output doctype-root-element="html"
 		doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
 		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
 		omit-xml-declaration="true" />
-<html xmlns="http://www.w3.org/1999/xhtml">
+	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Insert title here</title>
+<title>Admin Page</title>
 </head>
 <body>
-<form>
+
+<H1>Select Button To Generate Report</H1>
+
+<form action ="" method="post">
+<FIELDSET>
+<BR />
+<BUTTON name="topten" value="1">TopTen</BUTTON>
+</FIELDSET>
+</form>
+
+<form action ="" method="post">
+<FIELDSET>
+<input type="number" placeholder="Month (MM)" name="month"></input>
+<input type="number" placeholder="Year (YYYY)" name="year"></input>
+<BUTTON name="byDate" action="submit" value="1"> By Month</BUTTON>
+</FIELDSET>
+</form>
+
+<form action ="" method="post">
+<FIELDSET>
+<BR />
+<BUTTON name="byZipcode" action="submit" value="1"> By Zip</BUTTON>
+<BR />
+</FIELDSET>
+</form>
+
+<form action ="" method="post">
+<FIELDSET>
+<BR />
+<BUTTON name="byUser" action="submit" value="1"> By User</BUTTON>
+</FIELDSET>
+</form>
+
+<BR />
+
+<c:if test="${topten ne null}">
+<H2>Top Ten Books sold</H2>
+<TABLE border="2">
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Author</th>
+</tr>
+<c:forEach items="${topten}" var="part">
+			<TR>
+				<td><c:out value="${part.bid}" /></td>	
+				<td><c:out value="${part.title}" /></td>
+				<td><c:out value="${part.author}" /></td>			
+			</TR>		
+</c:forEach>
+</TABLE>
+</c:if>
+
+<BR />
+<BR />
+
+<c:if test="${byDate ne null}">
+<H2>Books sold by date</H2>
+<TABLE border="2">
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Author</th>
+</tr>
+<c:forEach items="${byDate}" var="part">
+		
+			<TR>
+				<td><c:out value="${part.bid}" /></td>	
+				<td><c:out value="${part.title}" /></td>
+				<td><c:out value="${part.author}" /></td>			
+			</TR>		
+</c:forEach>
+</TABLE>
+</c:if>
+
+<BR />
+<BR />
+
+<c:if test="${byZipcode ne null}">
+<H2>Amount sold to User By Zip Code </H2>
+<TABLE border="2">
+<tr>
+<th>Zip</th>
+<th>Spent</th>
+</tr>
+<c:forEach items="${byZipcode}" var="part">
+			<TR>
+				<td><c:out value="${part.zip}" /></td>
+				<td><c:out value="${part.spent}" /></td>
+			</TR>		
+</c:forEach>
+</TABLE>
+</c:if>
+
+<BR />
+<BR />
+<c:if test="${byUser ne null}">
+<H2>Amount sold to User by ID</H2>
+<TABLE border="2">
+<tr>
+<th>ID (masked)</th>
+<th>Spent</th>
+</tr>
+<c:forEach items="${byUser}" var="part">
+			<TR>
+				<td>******</td>	
+				<td><c:out value="${part.spent}" /></td>
+			</TR>		
+</c:forEach>
+</TABLE>
+</c:if>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 </jsp:root>

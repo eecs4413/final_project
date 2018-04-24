@@ -1,5 +1,6 @@
 package restService;
 
+import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
 import bean.AccountBean;
 import bean.BookBean;
 import bean.POBean;
@@ -80,24 +85,24 @@ public class StoreWSRest {
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
-			// SchemaFactory sf =
-			// SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		//	 SchemaFactory sf =
+		//	 SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
-			// Schema schema = sf.newSchema(new File(
-			// "C:\\Users\\dwell\\git\\final_project\\EECSProject\\WebContent\\po.xsd"));
+	//		 Schema schema = sf.newSchema(new File(
+	//		 "C:\\Users\\dwell\\git\\final_project\\EECSProject\\WebContent\\po.xsd"));
 
-			// marshaller.setSchema(schema);
+		//	 marshaller.setSchema(schema);
 			// standard IO
 			sw.write("\n");
 
 			marshaller.marshal(poxmlWrapper, new StreamResult(sw));
+			
 
 		} catch (Exception e) {
 			// System.out.println("Change the path of the po.xsd if you have not done so
 			// already");
 		//	e.printStackTrace();
 		}
-
 		return sw.toString();
 	}
 
