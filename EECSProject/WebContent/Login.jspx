@@ -41,10 +41,10 @@
 						<a href="${pageContext.request.contextPath}/Home">PAGES</a>
 					</div>
 					<div class="header_right">
-						<div class="rgt-bottom">
-							<div class="cart">
-								<a href="${pageContext.request.contextPath}/Cart">Cart(0)</a>
-							</div>
+							<div class="rgt-bottom">
+							
+								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
+							
 						</div>
 						<div class="search">
 							<form action="" method="POST" class="searchBox">
@@ -120,10 +120,7 @@
 						class="fields" id="password" placeholder="Password" />
 					<button id="login" name="login" class="submitButton"
 						action="submit" value="Logged In">LOGIN</button>
-					<p>
-						<a href="${pageContext.request.contextPath}/Login/Reset" style="color: blue">Forgot
-							Password?</a>
-					</p>
+				
 					<p>
 						Don't have an account? <a
 							href="${pageContext.request.contextPath}/Register" style="color: blue">Register

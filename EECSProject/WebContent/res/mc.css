@@ -471,3 +471,13 @@ hr {
 .menu .dropdown:hover .dropdown-content {
     display: block;
 }
+
+#cart_anchor{
+	font-size: x-large;
+	margin-right: 30px;
+}
+
+h1{
+	width:100%
+	text-align: center;
+}
