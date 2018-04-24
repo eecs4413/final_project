@@ -23,7 +23,7 @@ import model.SearchUtil;
 /**
  * Servlet implementation class Start
  */
-@WebServlet({ "/Home", "/Home/*" })
+@WebServlet({ "/Home", "/Home/*"})
 public class Start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -73,14 +73,13 @@ public class Start extends HttpServlet {
 
 		if (request.getParameter("searchButton") != null) {
 			System.out.println("WHY NO SEARCH");
-			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
-
+//			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 			
-			request.setAttribute("isSearchFilter", true);
-			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
-			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
-			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
-			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
+//			request.setAttribute("isSearchFilter", true);
+//			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
+//			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
+//			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
+//			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
 		}
 
 		if (request.getParameter("headerButton") != null) {
@@ -117,7 +116,7 @@ public class Start extends HttpServlet {
 				cart = new ArrayList<POItemBean>();
 			}
 			CartUtil.setCart(cart);
-
+			
 			CartUtil.addItem(book, 1, null);
 			cart = CartUtil.getCart();
 			
