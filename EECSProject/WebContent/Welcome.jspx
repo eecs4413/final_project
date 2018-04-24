@@ -22,6 +22,7 @@
 </script>
 </head>
 <body>
+<H1>Welcome Back ${account.fname} ${account.lname}</H1>
 	<p>Click <a style="color: blue" href="${pageContext.request.contextPath}/Home">here</a> to continue shopping</p>
 </body>
 	</html>

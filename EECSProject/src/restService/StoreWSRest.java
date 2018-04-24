@@ -45,8 +45,9 @@ public class StoreWSRest {
 	public String getOrdersByPartNumber(@DefaultValue("b001") @QueryParam("partNumber") String partNumber) {
 
 		List<PurchaseOrderBean> orderBeans = new ArrayList<PurchaseOrderBean>();
-
+		
 		for (POBean pobean : getPObeansWith(partNumber)) {
+			
 			ArrayList<PurchaseOrderItemBean> items = new ArrayList<PurchaseOrderItemBean>();
 
 			PurchaseOrderBean orderBean = new PurchaseOrderBean();
@@ -56,10 +57,10 @@ public class StoreWSRest {
 			orderBean.setComment(pobean.getComment());
 
 			for (POItemBean bean : getPOItemsFor(pobean)) {
-
+				
 				items.add(new PurchaseOrderItemBean(partNumber, bean));
 			}
-
+			System.out.println(".......");
 			orderBean.setItems(items);
 			orderBeans.add(orderBean);
 		}

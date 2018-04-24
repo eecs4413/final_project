@@ -57,7 +57,7 @@ public class PuchaseSpamFilter implements Filter {
 			System.out.println("toomany");
 		}
 
-		if (((counter - 1) % 3) == 0) {
+		if (((counter - 1) % 3) == 0 && (counter - 1 ) > 0) {
 			target = "/Errorpage.jspx";
 		}
 

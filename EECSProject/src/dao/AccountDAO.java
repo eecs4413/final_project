@@ -111,9 +111,9 @@ public class AccountDAO {
 						new AddressBean(aid, street,  province, country, city,zip, phone));
 
 			}
-			if(rv == null) {
-				System.out.println("dao did not get anything");
-			}
+			
+				System.out.println(rv);
+			
 			r.close();
 			p.close();
 			con.close();

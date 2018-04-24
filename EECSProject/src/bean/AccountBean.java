@@ -16,9 +16,9 @@ public class AccountBean {
 		@XmlElement
 		private String password;
 		@XmlElement
-		private String lname;
+		public String lname;
 		@XmlElement
-		private String fname;
+		public String fname;
 		@XmlElement
 		private AddressBean address;
 		@XmlElement
