@@ -83,7 +83,7 @@
 					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
 					  
 					 <button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" >ADD TO CART</button> </p>
+								action="submit" value="${book.bid}" onclick="addCartToast();" >ADD TO CART</button> </p>
 					
 					</div>
 					<div class="searchSeparator"><hr> </hr> </div>
@@ -91,6 +91,9 @@
 		</c:forEach>
 		</form>
 		</form>
+		
+		<div id="snackbar">Added to cart</div>
+		
 
 </body>
 </html>

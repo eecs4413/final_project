@@ -17,6 +17,9 @@
 	title="StyleSheet" media="screen, print" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"/>
+
 <script type="text/javascript" src="res/mc.js">;</script>
 <script type="text/javascript" src="res/imageGallery.js">;</script>
 </head>
@@ -67,8 +70,13 @@
 					</div>
 					<div class="header_right">
 						<div class="rgt-bottom">
+
+							<div class="cart">
+							
+
 							
 								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
+							</div>
 							
 						</div>
 						<div class="search">
@@ -81,7 +89,8 @@
 										<td>
 									<button class="searchButton" id="searchButton"
 										name="searchButton" action="submit"
-										onclick="loadFilterViaPrice(); return false;">SEARCH</button>
+										onclick="loadFilterViaPrice(); return false;"><i class="fas fa-search"></i>
+										</button>
 										</td>
 								
 							</table>
@@ -128,7 +137,8 @@
 							</div></li>
 					</ul>
 				</div>
-
+	
+	<p>
 	<div class="gallery">
 		<a target="_blank" href="images/deals.png">
 		 <img src="images/deals.png" alt="deals of the week"/></a>
@@ -148,11 +158,31 @@
 		<a target="_blank" href="images/clearance.png"> <img
 			src="images/clearance.png" alt="clearance"/></a>
 	</div>
+	</p>
 
+	<div class="hp_headers">TOP SELLERS
+		<hr> </hr>
+	
+	</div>
 
-	<br> </br>
-	BEST SELLERS
-	<hr> </hr>
+	<div class="w3-content w3-display-container">
+	<div class="topSells">
+	  <img class="mySlides" src="images/b001.jpg"/>
+	  <img class="mySlides" src="images/b002.jpg"/>
+	  <img class="mySlides" src="images/b003.jpg"/>
+	  <img class="mySlides" src="images/b004.jpg"/>
+	  <img class="mySlides" src="images/b007.jpg"/>
+	  <img class="mySlides" src="images/b008.jpg"/>
+	  <img class="mySlides" src="images/b009.jpg"/>
+	  <img class="mySlides" src="images/b010.jpg"/>
+	  <img class="mySlides" src="images/b011.jpg"/>
+	  
+  <script> showDivs(slideIndex); </script>
+  
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+  </div>
+</div>
 
 	<!-- need to implement top seller code -->
 	<!--
@@ -177,16 +207,8 @@
 
 	</div>
 	 -->
-	<div class="w3-content w3-display-container">
-  <img class="mySlides" src="images/b001.jpg" style="width:125px"/> 
-  <img class="mySlides" src="images/b002.jpg" style="width:125px"/>
-  <img class="mySlides" src="images/b003.jpg" style="width:125px"/>
-  <img class="mySlides" src="images/b004.jpg" style="width:125px"/>
-
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
 	
+
 
 	
 		<p id="demo"> </p>

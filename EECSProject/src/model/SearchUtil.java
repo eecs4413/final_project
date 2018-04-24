@@ -31,25 +31,26 @@ public class SearchUtil {
 	// }
 
 	//Search the query based on price
-	public static ArrayList<Integer> searchByPrice(String searchString){
+	public static ArrayList<ArrayList<BookBean>> searchByPrice(String searchString){
 		
-		int u15 = 0;
-		int r15_r25 = 0;
-		int r25_r50 = 0;
-		int over50 = 0;
+		ArrayList<BookBean> u15 = new ArrayList<BookBean>();
+		ArrayList<BookBean> r15_r25 = new ArrayList<BookBean>();
+		ArrayList<BookBean> r25_r50 = new ArrayList<BookBean>();
+		ArrayList<BookBean> over50 = new ArrayList<BookBean>();
 		
-		ArrayList<Integer> priceList = new ArrayList();
+		ArrayList<ArrayList<BookBean>> priceList = new ArrayList<ArrayList<BookBean>>();
+		
 		Set<BookBean> books = search(searchString);
 		
 		for(BookBean book : books) {
 			if(Float.parseFloat(book.price) < 15f) {
-				u15++;
+				u15.add(book);
 			} else if (Float.parseFloat(book.price) >= 15f && Float.parseFloat(book.price) < 25f) {
-				r15_r25++;
+				r15_r25.add(book);
 			} else if (Float.parseFloat(book.price) >= 25f && Float.parseFloat(book.price) < 50f) {
-				r25_r50++;
+				r25_r50.add(book);
 			} else {
-				over50++;
+				over50.add(book);
 			}
 		}
 		
