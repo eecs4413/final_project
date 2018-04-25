@@ -58,7 +58,7 @@ public class Cart extends HttpServlet {
 		
 		request.getSession().setAttribute("cart", CartUtil.getCart());
 		
-			request.getRequestDispatcher(target).forward(request, response);
+		request.getRequestDispatcher(target).forward(request, response);
 		
 
 	

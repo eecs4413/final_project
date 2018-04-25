@@ -250,6 +250,26 @@ function addCartToast(){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+function clickCart(){
+	
+	var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
+	alert(searchBar);
+	alert('Search?searchBar=' +searchBar + "&searchButton=" + searchBtn +"&addCart=");
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("page").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }
+	        
+	  };
+	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&searchButton=" + searchBtn +"&addCart=", true);
+	  xhttp.send(null);
+	
+}
+
 function loadSearch(){
 	
 	var searchBar = document.getElementById("searchBar").value;
@@ -301,12 +321,12 @@ function loadAuthorSearchFilter(author){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	     document.getElementById("page").innerHTML = this.responseText;
+	     document.getElementById("filter").innerHTML = this.responseText;
 	     	//alert(this.responseText)
 	    }
 	        
 	  };
-	  xhttp.open("GET", 'Search?author=' + "&searchBar=" + author, true);
+	  xhttp.open("GET", 'Searcj?searchBar=' +author + "&searchButton=" + searchBtn, true);
 	  xhttp.send(null);
 	
 }

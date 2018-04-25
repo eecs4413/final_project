@@ -429,13 +429,8 @@ public class Search extends HttpServlet {
 
 		}
 		
-		
-		
-		
-		
-				
 		if (request.getParameter("addCart") != null) {
-			System.out.println("Cart");
+			System.out.println("CART ?!");
 			String bookID = request.getParameter("addCart");
 			BookBean book = SearchUtil.searchID(bookID);
 			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");
