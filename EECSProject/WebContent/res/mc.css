@@ -282,6 +282,15 @@ div.desc {
 	text-align: left;
 }
 
+.fields2 {
+	text-align: left;
+	display: block;
+	margin: 10px auto;
+	width: 300px;
+	padding: 10px 20px;
+	border: 1px solid black;
+}
+
 input:focus {
 	outline: none;
 	-webkit-animation: bodd 2s infinite;

@@ -12,6 +12,9 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>${initParam.appnames}</title>
+<link rel="StyleSheet"
+	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
+	title="StyleSheet" media="screen, print" />
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/res/mc.js">
 	;
@@ -19,45 +22,56 @@
 </head>
 <body>
 	<form action="" method="post" onsubmit="validatePurchaseForm();">
+		<div class="home" style="font-size: 50px; text-align: center;">
+			<a href="${pageContext.request.contextPath}/Home">PAGES</a>
+		</div>
+		<FIELDSET>
+			<p class="shopperDetails" style="text-align: center;">Shopper
+				Details</p>
+			<input name="fname" type="text" class="fields2" id="fname"
+				placeholder="First name" /> <input name="lname" type="text"
+				class="fields2" id="lname" placeholder="Last Name" />
+			<p class="paymentDetails" style="text-align: center;">Payment
+				Details</p>
+			<input name="crednum" type="number" class="fields2" id="crednum"
+				placeholder="Credit Card Number" /> <input name="expMonth"
+				type="number" class="fields2" id="expMonth"
+				placeholder="Expiry Month" /> <input name="expYear" type="number"
+				class="fields2" id="expYear" placeholder="Expiry Year" />
+			<p id="additionalInformation" style="text-align: center;">Additional
+				Information</p>
+			<input name="comment" type="text" class="fields2" id="comment"
+				placeholder="Comment" />
+			<p id="shippingAddress" style="text-align: center;">Shipping
+				Address</p>
+			<input name="street" type="text" class="fields2" id="street"
+				placeholder="Street" /> <input name="city" type="text"
+				class="fields2" id="city" placeholder="City" /> <input
+				name="province" type="text" class="fields2" id="province"
+				placeholder="Province" /> <input name="country" type="text"
+				class="fields2" id="country" placeholder="Country" /> <input
+				name="zip" type="text" class="fields2" id="zip"
+				placeholder="Zip Code" /> <input name="phone" type="tel"
+				class="fields2" id="phone" placeholder="Phone number (###-###-####)" />
+			<p id="billingAddress" style="text-align: center;">Billing
+				Address</p>
+			<input name="street" type="text" class="fields2" id="street"
+				placeholder="Street" /> <input name="city" type="text"
+				class="fields2" id="city" placeholder="City" /> <input
+				name="province" type="text" class="fields2" id="province"
+				placeholder="Province" /> <input name="country" type="text"
+				class="fields2" id="country" placeholder="Country" /> <input
+				name="zip" type="text" class="fields2" id="zip"
+				placeholder="Zip Code" /> <input name="phone" type="tel"
+				class="fields2" id="phone" placeholder="Phone number (###-###-####)" />
 
-			<FIELDSET>		
-					 
-					 
-					 <input name="fname" type="text" class="fields" id="fname" 
-						placeholder="First name" /> 
-						<input name="lname" type="text" class="fields" id="lname" 
-						placeholder="Last Name" /> 
-						<BR />
-						<input name="crednum" type="number" class="fields" id="crednum" 
-						placeholder="Credit Card Number" /> 
-						<input name="expMonth" type="number" class="fields" id="expMonth" 
-						placeholder="Expiry Month" /> 
-						<input name="expYear" type="number" class="fields" id="expYear" 
-						placeholder="Expiry Year" /> 
-						<BR />
-						<input name="comment" type="text" class="fields" id="comment" 
-						placeholder="Comment" /> 
-						<BR />
-					 <input name="street" type="text" class="fields" id="street" 
-						placeholder="Street" /> 
-					<input name="city" type="text" class="fields" id="city" 
-						placeholder="City" /> 
-					<input name="province" type="text" class="fields" id="province"
-						placeholder="Province" />
-					<input name="country" type="text" class="fields" id="country"
-						placeholder="Country" /> 
-					<input name="zip" type="text" class="fields" id="zip"
-						placeholder="Zip Code" />
-					<input name="phone" type="tel" class="fields" id="phone"
-						placeholder="Phone number (###-###-####)" />
-					
-					<button id="processOrderButtonProceed" name="processOrderButtonProceed" class="submitButton"
-						action="submit" value="1">Purchase Order</button>
-				 </FIELDSET>
-			</form>
-
-	
-
+			<div class="button" style="text-align: center;">
+				<button id="processOrderButtonProceed"
+					name="processOrderButtonProceed" class="submitButton"
+					action="submit" value="1">Purchase Order</button>
+			</div>
+		</FIELDSET>
+	</form>
 </body>
 	</html>
 </jsp:root>
