@@ -72,9 +72,7 @@
 						<div class="rgt-bottom">
 
 							<div class="cart">
-							
 
-							
 								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">CART(${cartcount})</a>
 							</div>
 							

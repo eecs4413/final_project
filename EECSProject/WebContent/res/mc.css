@@ -188,22 +188,6 @@ form {
   margin-bottom: 5px;
 }
 
-/*
-.menu a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.menu a:hover {
-  background-color: #ddd;
-  color: black;
-}
-*/
-
 body {
 	font-family: Arial;
 	margin: 0;
@@ -419,7 +403,9 @@ input:focus {
     text-align: left;
 }
 
-.dropdown-content .options:hover {background-color: #f1f1f1}
+.dropdown-content .options:hover {
+	background-color: #f1f1f1
+}
 
 .bookResult {
 	margin-left: 175px; /* margin for filterBar */

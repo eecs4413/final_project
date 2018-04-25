@@ -14,12 +14,15 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="StyleSheet"
-	href="${pageContext.request.contextPath}/res/mc.css"
-	type="text/css" title="StyleSheet" media="screen, print" />
-	<script type="text/javascript"
-	src="${pageContext.request.contextPath}/res/mc.js">
-	;
-</script>
+	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
+	title="StyleSheet" media="screen, print" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"/>
+
+<script type="text/javascript" src="res/mc.js">;</script>
+<script type="text/javascript" src="res/imageGallery.js">;</script>
 </head>
 <body>
 	<div class="top_bg">
@@ -42,23 +45,36 @@
 	<div class="header_bg">
 		<div class="container">
 			<div class="header">
-				<div  class="head-t">
+				<div class="head-t">
 					<div class="logo">
 						<a href="${pageContext.request.contextPath}/Home">PAGES</a>
 					</div>
 					<div class="header_right">
 						<div class="rgt-bottom">
+
 							<div class="cart">
-								<a href="${pageContext.request.contextPath}/Cart">Cart(0)</a>
+
+								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">CART(${cartcount})</a>
 							</div>
+							
 						</div>
 						<div class="search">
-						<form action="" method="post" class="searchBox">
-							<input type="text" class="searchBar" id="searchBar"
-							placeholder="Search..." name="Search"  />
-							<button class="searchButton" id="searchButton" name="searchButton" action="submit">Search</button>
-						</form>
-					<!--<form>
+							<form action="" method="POST" class="searchBox">
+							<table>
+								<td>
+									<input type="text" class="searchBar" id="searchBar"
+										placeholder="Search..." name="searchBar" value="${search}"></input>
+										</td>
+										<td>
+									<button class="searchButton" id="searchButton"
+										name="searchButton" action="submit"
+										onclick="loadFilterViaPrice(); return false;"><i class="fas fa-search"></i>
+										</button>
+										</td>
+								
+							</table>
+							</form>
+							<!--<form>
 							<input type="text" placeholder="Search..."></input>
 							<input type="submit" value=""></input>
 						</form>-->
@@ -73,20 +89,33 @@
   					<a href="#about">About</a>
 				</div>
 				-->
-				<div class="menu">
-					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#news">About</a></li>
-						<li class="dropdown"><a href="javascript:void(0)"
-							class="dropbtn">Books</a>
-							<div class="dropdown-content">
-								<a href="#">Science</a> <a href="#">Engineering</a> <a href="#">Fiction</a>
-							</div></li>
-					</ul>
-				</div>
+				
 			</div>
 		</div>
 	</div>
+		<!-- <td id="ajaxResult"></td> -->
+		
+		<div class="menu">
+					<ul>
+						<li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li class="dropdown"><a href="javascript:void(0)"
+							class="dropbtn">Books</a>
+							<div class="dropdown-content">
+							<form>
+							<c:forEach var="data" items="${catagorylist}">
+							
+							<button class="options" id="headerButton" name="headerButton" value="${data}" action="submit"><c:out value="${data}" /></button>
+										
+							</c:forEach>
+							
+							</form>
+							
+							
+							
+							</div></li>
+					</ul>
+				</div>
 	<div class="wrapper">
 		<div class="content">
 			<form action="" method="post" onsubmit="validateRegisterAccount();"

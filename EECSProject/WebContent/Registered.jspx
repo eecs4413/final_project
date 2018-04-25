@@ -22,7 +22,11 @@
 </script>
 </head>
 <body>
-	<p>Thank you for registering. Click <a style="color: blue" href="${pageContext.request.contextPath}/Login">here</a> to login to start shopping.</p>
+
+<H1 style="text-align: center">Congratulations ${account.fname} ${account.lname}</H1>
+	<p style="text-align: center">Your account is now ready.</p>
+	<p style="text-align: center">To start shopping, click <a style="color: blue" href="${pageContext.request.contextPath}/Home">here</a> to login.</p>
+	
 </body>
 	</html>
 </jsp:root>
