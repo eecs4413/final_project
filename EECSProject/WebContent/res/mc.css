@@ -137,7 +137,7 @@ form {
     color: #5a5a5a;
     background: none;
     border: none;
-    width: 85.33333%;
+    width: 230%;
     line-height: 1.5em;
     position: relative;
     font-size: 0.8725em;
@@ -382,6 +382,33 @@ input:focus {
 .menu .dropdown-content a:hover {
 	background-color: #f1f1f1
 }
+
+.options {
+	border: none;
+	width: 160px;
+}
+
+.options, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.options:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content .options {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content .options:hover {background-color: #f1f1f1}
 
 .bookResult {
 	margin-left: 175px; /* margin for filterBar */
