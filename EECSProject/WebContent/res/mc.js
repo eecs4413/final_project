@@ -300,7 +300,8 @@ function loadCategorySearch(category){
 	     	//alert(this.responseText)
 	    }      
 	  };
-
+	  
+	  alert('Search?searchBar=' +searchBar + "&" + category + "=");
 	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&" + category + "=", true);
 	  xhttp.send(null);
 }

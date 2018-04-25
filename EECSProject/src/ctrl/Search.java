@@ -26,6 +26,12 @@ public class Search extends HttpServlet {
 	Set<BookBean> booksByFilter = new HashSet<BookBean>();
 	Set<BookBean> temp = new HashSet<BookBean>();
 	
+	Set<BookBean> u15 = new HashSet<BookBean>();
+	Set<BookBean> r15_r25 = new HashSet<BookBean>();
+	Set<BookBean> r25_r50 = new HashSet<BookBean>();
+	Set<BookBean> o50 = new HashSet<BookBean>();
+
+	
 	boolean u15Toggle = false;
 	boolean r15_r25Toggle = false;
 	boolean r25_r50Toggle = false;
@@ -58,6 +64,12 @@ public class Search extends HttpServlet {
 		if (request.getParameter("searchButton") != null) {
 			
 			temp.addAll(SearchUtil.search(request.getParameter("searchBar")));
+			
+			u15.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
+			r15_r25.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
+			r25_r50.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
+			o50.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
+			//
 			
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 
@@ -101,7 +113,6 @@ public class Search extends HttpServlet {
 				request.setAttribute("results", booksByFilter);
 			} else {
 				booksByFilter.removeAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
-				request.setAttribute("results", booksByFilter);
 			}
 		}
 		
@@ -122,7 +133,33 @@ public class Search extends HttpServlet {
 				if(booksByFilter.isEmpty()) {
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Crime")) {
-							booksByFilter.add(book);
+							if(u15Toggle) {
+								if(u15.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r15_r25Toggle) {
+								if(r15_r25.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r25_r50Toggle) {
+								if(r25_r50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(o50Toggle) {
+								if(o50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							if((u15Toggle && r15_r25Toggle && r25_r50Toggle && o50Toggle) == false) {
+								booksByFilter.add(book);
+							}
+							
 						}
 						
 					}
@@ -157,7 +194,33 @@ public class Search extends HttpServlet {
 				if(booksByFilter.isEmpty()) {
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Engineering")) {
-							booksByFilter.add(book);
+							if(u15Toggle) {
+								if(u15.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r15_r25Toggle) {
+								if(r15_r25.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r25_r50Toggle) {
+								if(r25_r50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(o50Toggle) {
+								if(o50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if((u15Toggle && r15_r25Toggle && r25_r50Toggle && o50Toggle) == false) {
+								booksByFilter.add(book);
+							}
 						}
 						
 					}
@@ -170,7 +233,6 @@ public class Search extends HttpServlet {
 
 				}
 			} else {
-				System.out.print("NOT ENG");
 				if(booksByFilter.isEmpty()) {
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Engineering")) {
@@ -193,7 +255,33 @@ public class Search extends HttpServlet {
 				if(booksByFilter.isEmpty()) {
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Fantasy")) {
-							booksByFilter.add(book);
+							if(u15Toggle) {
+								if(u15.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r15_r25Toggle) {
+								if(r15_r25.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r25_r50Toggle) {
+								if(r25_r50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(o50Toggle) {
+								if(o50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if((u15Toggle && r15_r25Toggle && r25_r50Toggle && o50Toggle) == false) {
+								booksByFilter.add(book);
+							}
 						}
 						
 					}
@@ -225,10 +313,35 @@ public class Search extends HttpServlet {
 			isKids = !isKids;
 			if(isKids) {
 				if(booksByFilter.isEmpty()) {
-					System.out.println("ITS EMPTY?");
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Kids")) {
-							booksByFilter.add(book);
+							if(u15Toggle) {
+								if(u15.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r15_r25Toggle) {
+								if(r15_r25.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r25_r50Toggle) {
+								if(r25_r50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(o50Toggle) {
+								if(o50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if((u15Toggle && r15_r25Toggle && r25_r50Toggle && o50Toggle) == false) {
+								booksByFilter.add(book);
+							}
 						}
 						
 					}
@@ -262,7 +375,34 @@ public class Search extends HttpServlet {
 				if(booksByFilter.isEmpty()) {
 					for(BookBean book : temp) {
 						if(book.getCategory().equals("Science Fiction")) {
-							booksByFilter.add(book);
+							
+							if(u15Toggle) {
+								if(u15.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r15_r25Toggle) {
+								if(r15_r25.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(r25_r50Toggle) {
+								if(r25_r50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+							
+							if(o50Toggle) {
+								if(o50.contains(book)) {
+									booksByFilter.add(book);
+								}
+							}
+						
+							if((u15Toggle && r15_r25Toggle && r25_r50Toggle && o50Toggle) == false) {
+								booksByFilter.add(book);
+							}
 						}
 						
 					}
