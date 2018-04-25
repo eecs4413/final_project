@@ -15,42 +15,51 @@
 <link rel="StyleSheet"
 	href="${pageContext.request.contextPath}/res/mc.css" type="text/css"
 	title="StyleSheet" media="screen, print" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<script type="text/javascript" src="res/mc.js">
-;
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/res/mc.js">
+	;
 </script>
 </head>
 <body>
 
-You Just Purchased These items 
+		<div class="home" style="font-size: 50px; text-align: center;">
+			<a href="${pageContext.request.contextPath}/Home">PAGES</a>
+		</div>
+	<table>
 
-<table>
-
-<form>
-
-		<c:forEach items="${cart}" var="part">
-			<TR>
-
-				<td><c:out value="${part.price}" /></td>
-				<td><c:out value="${part.quantity}" /></td>
-				<td><c:out value="${part.comment}" /></td>
-				<td><c:out value="${part.day}" /></td>
-				<td><c:out value="${part.title}" /></td>
-				<td><c:out value="${part.author}" /></td>
-				<td><c:out value="${part.category}" /></td>
-				<td><c:out value="${part.comment}" /></td>
-				
-			</TR>
+		<form>
+			<fieldset>
 			
-		</c:forEach>
-		
-		<button id="ConfirmOrderButton" name="ConfirmOrderButton" 
-						action="submit" value="1">Confirm Order</button>
-						
+			<p style="text-align: center">Order Information</p>
+			<p>You just purchased these items: </p>
+	
+			<c:forEach items="${cart}" var="part">
+				<TR>
 
-</form>
-</table>
+					<td><c:out value="${part.price}" /></td>
+					<td><c:out value="${part.quantity}" /></td>
+					<td><c:out value="${part.comment}" /></td>
+					<td><c:out value="${part.day}" /></td>
+					<td><c:out value="${part.title}" /></td>
+					<td><c:out value="${part.author}" /></td>
+					<td><c:out value="${part.category}" /></td>
+					<td><c:out value="${part.comment}" /></td>
+				</TR>
+			</c:forEach>
+
+				<p>Items will be shipped to:</p>
+				<td>${billTo}</td>
+			
+			
+			<p>Is the shipping address incorrect? Click <a href="${pageContext.request.contextPath}/Purchase" style="color:blue">here</a>
+			to change address.</p>
+			</fieldset>
+			
+			<button id="ConfirmOrderButton" name="ConfirmOrderButton"
+				action="submit" value="1">Confirm Order</button>
+
+		</form>
+	</table>
 
 
 </body>
