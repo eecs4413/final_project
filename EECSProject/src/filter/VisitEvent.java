@@ -14,6 +14,8 @@ import javax.servlet.annotation.WebFilter;
 
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 
+import bean.AccountBean;
+import bean.BuyerStat;
 import bean.POItemBean;
 import bean.VisitEventBean;
 import dao.VisitEventDAO;
@@ -55,11 +57,39 @@ public class VisitEvent implements Filter {
 		// book purchase event
 		if (request.getParameter("ConfirmOrderButton") != null) {
 			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) sc.getSession().getAttribute("cart");
+			float spent = 0f;
 
 			for (POItemBean bean : cart) {
 				(new VisitEventDAO()).createEvent(new VisitEventBean(bean.getBid(), null, "PURCHASE"));
+				
 				System.out.println("Registered Purchase Book :" + bean.getBid());
+				
+				
+				spent += Float.parseFloat(bean.getPrice())  *  Float.parseFloat(bean.getQuantity());
+				
+				
 			}
+			
+			
+			ArrayList <BuyerStat> BuyerStats = (ArrayList<BuyerStat>) request.getServletContext().getAttribute("BuyerStats");
+			
+			AccountBean acc =  (AccountBean) sc.getSession().getAttribute("account");
+			
+			if(BuyerStats == null) {
+				BuyerStats = new  ArrayList<BuyerStat>();
+				BuyerStats.add(new BuyerStat(acc.getEmail(), spent, acc.getAddress().getZip()));
+			}else {
+				for(BuyerStat b : BuyerStats) {
+					if(b.getAid().equals(acc.getEmail())){
+						spent += b.getSpent();
+						b.setSpent(spent);
+					}
+					
+				}
+				
+			}
+			 request.getServletContext().setAttribute("BuyerStats", BuyerStats);
+			
 
 		}
 		// book add to cart event
