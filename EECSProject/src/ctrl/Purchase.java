@@ -76,6 +76,7 @@ public class Purchase extends HttpServlet {
 				PurchaseUtil.setAccount((AccountBean) request.getSession().getAttribute("account"));
 				
 				AddressBean billto = new AddressBean(null, street, province, country, city, zip, phone);
+				
 				request.getSession().setAttribute("billTo", billto);
 				
 				CreditCard cred = new CreditCard(fname, lname, crednum, expYear, expMonth);
