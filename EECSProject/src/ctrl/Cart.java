@@ -37,8 +37,6 @@ public class Cart extends HttpServlet {
 		
 		CartUtil.setCart((ArrayList<POItemBean>) request.getSession().getAttribute("cart"));
 		
-		
-
 		if (request.getParameter("addbook")!= null) {	
 			CartUtil.addItem(SearchUtil.searchID(request.getParameter("addbook")),1, request.getParameter("comment"));		
 		}
