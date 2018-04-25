@@ -1,4 +1,5 @@
 var slideIndex = 0;
+var nextIndex = 0;
 
 function plusDivs(n) {
 	showDivs(n);
@@ -30,6 +31,12 @@ function showDivs(n) {
   
      x[slideIndex].style.display = "none";
      x[slideIndex+1].style.display = "none";
+     x[slideIndex+2].style.display = "none";
+     x[slideIndex+3].style.display = "none";
+     x[slideIndex+4].style.display = "none";
+     x[slideIndex+5].style.display = "none";
+     x[slideIndex+6].style.display = "none";
+     
 
 
   

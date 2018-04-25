@@ -399,6 +399,12 @@ hr {
 	
 }
 
+body {
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+}
+
 .rating label {
 	display: block;
 	cursor: pointer;
@@ -406,3 +412,595 @@ hr {
 	background: #ccc;
 }
 
+.deals {
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.top_bg {
+    background: #252525;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header_top {
+    padding: 15px 0 25px;
+    margin: 0 auto;
+}
+
+element.style {
+}
+
+.top_right {
+    float: right;
+    color: #ffffff;
+    margin-top: -5px;
+}
+
+.top_right ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+a {
+    color: #1B242F;
+    text-decoration: none;
+}
+
+a {
+    background: transparent;
+}
+
+.top_right a:hover {
+    text-decoration: underline;
+}
+
+.top_right ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+element.style {
+}
+
+.top_right ul li a {
+    text-align: center;
+    padding: 0px 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.header_right {
+    float: right;
+    width: 40%;
+}
+
+.head-t {
+    padding: 1em 0;
+}
+
+.logo {
+    float: left;
+   	margin: 0.45em 0;
+    font-size: 54px;
+    font-weight: bold;
+    padding-left: 10px;
+    color: #333;
+}
+
+.rgt-bottom {
+    margin-bottom: 2em;
+}
+
+.cart {
+    float: right;
+    padding-right: 10px;
+    width: 20%;
+    /*margin: 5px 0;*/
+    padding-left: 50px;
+}
+
+.cart a {
+    vertical-align: middle;
+    font-size: 0.85em;
+    font-weight: 300;
+    text-decoration: none;
+    float: right;
+}
+
+.search {
+	position: relative;
+    background: #f3f4f5;
+    border: 1px solid #D8D8D8;
+    /*width: 340px;*/
+    margin-right: 20px;
+}
+
+.search form {
+    width: 100%;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+.search input[type="text"] {
+    margin: 0px 0;
+    font-family: 'Open Sans', sans-serif;
+    padding: 8px 16px;
+    outline: none;
+    color: #5a5a5a;
+    background: none;
+    border: none;
+    width: 85.33333%;
+    line-height: 1.5em;
+    position: relative;
+    font-size: 0.8725em;
+    -webkit-appearance: none;
+    text-transform: capitalize;
+}
+
+#searchButton {
+	border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -1px;
+    margin-left: 50%;
+    height: 43px;
+    width: 43px;
+    background-color: #333;
+}
+
+.fas.fa-search{
+	color: #fff;
+}
+
+.fas.fa-shopping-cart{
+	height: 43px;
+    width: 43px;
+    color: #333;
+}
+
+.reg {
+	padding-left: 10px;
+}
+
+.menu {
+  overflow: hidden;
+  background-color: #333;
+  margin-top: 100px;
+  margin-bottom: 5px;
+}
+
+/*
+.menu a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menu a:hover {
+  background-color: #ddd;
+  color: black;
+}
+*/
+
+body {
+	font-family: Arial;
+	margin: 0;
+	padding: 0;
+}
+
+
+.hp_headers {
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+div.gallery {
+    margin-left: 10px;
+    width: 300px;
+    display: inline-block;
+    position: relative;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+    margin-left: 10px;
+    float: left;    
+}
+
+div.desc {
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.topSellContainer {
+	position: relative;
+}
+
+.topSells {
+	margin-left: 20px;
+	position: relative;
+}
+
+.topSells img {
+	width: 160px;
+	height: 240px;
+	display: inline-flex;
+	margin-right: 17px;
+}
+
+.topSells .w3-display-left{
+	position: absolute;
+	bottom: 50%;
+	left: 0px;
+}
+
+.topSells .w3-display-right{
+	position: absolute;
+	bottom: 50%;
+	margin-right: 20px;
+	right: 0px;
+}
+
+.wrapper {
+	padding-top: 20px;	
+}
+
+.loginFields, .loginHead, .fields, .loginBtn, .registerBtn {
+	display: block;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.loginHead, .fields {
+	width: 300px;
+	max-width: 320px;
+	padding: 10px 20px;
+}
+
+.loginFields {
+	border: 5px solid black;
+	width: 350px;
+	padding-top: 10px;
+}
+	
+.fields {
+	border: 1px solid black;
+	text-align: left;
+}
+
+input:focus {
+	outline: none;
+	-webkit-animation: bodd 2s infinite;
+}
+
+.submitButton {
+	text-align: left;
+	font-weight: 900;
+    font-size: 15px;
+    background: none;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.signOutButton {
+	text-align: right;
+    padding: 0px 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+    background: #252525;
+    border: none;
+    margin-right: 10px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.signOutButton:hover {
+	text-align: center;
+    padding: 0px 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    color: #ffffff;
+    background: #252525;
+    border: none;
+    margin-right: 10px;
+    text-decoration: underline;   
+    font-family: "Times New Roman", Times, serif;
+}
+
+.siteheading {
+	text-decoration: none;
+    font-weight: 600;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.menu li {
+    float: left;
+    margin-left: 10px;
+}
+
+.menu li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.menu li.dropdown {
+    display: inline-block;
+}
+
+.menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.menu .dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+
+.bookResult {
+	margin-left: 175px; /* margin for filterBar */
+/*   grid-template-columns: auto auto auto; */
+  padding: 10px;
+  overflow: hidden;
+  height: 10%;
+}
+
+.bookResult img {
+	cursor: pointer;
+	width:125px;
+	float: left;
+	clear: left;
+	padding-right: 10px;
+}
+
+.addCart {
+	float: right;
+	clear: right;
+	overflow: hidden;	
+	background-color: #252525;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+}
+
+/* cartButton hover*/
+.addCart:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.filterBar {
+	padding: 5px 10px 10px;
+	float: left;
+	clear: left;
+	width: 175px;
+	margin-right: 10px;
+	border-right: 1px solid rgba(238, 238, 238, 1);
+	border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+hr {
+	border: 1px solid rgba(238, 238, 238, 1);
+}
+
+.searchSeparator {
+	margin-left: 175px;
+	padding-left: 5px;
+}
+
+.bookPrice {
+	border: 1px solid rgba(238, 238, 238, 1);
+	font-size: 20px;
+	
+	padding: 5px;
+	cursor: pointer;
+}
+
+.priceContainer{
+	position: relative;
+}
+
+.CBcontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-top: 2.75px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 2.5px;
+}
+
+/* Hide the browser's default checkbox */
+.CBcontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.CBcontainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.CBcontainer input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.CBcontainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.CBcontainer .checkmark:after {
+    left: 8px;
+    top: 2.5px;
+    width: 3px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.titles {
+	font-family: Arial;
+	font-weight: 550;
+	font-size: 20px;
+}
+
+.authors {
+	font-weight: 400;
+	font-family: Arial, sans-serif;
+}
+
+.authors:hover, .titles:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.menu .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+<<<<<<< HEAD
+/* Toast */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+
+#cart_anchor{
+	font-size: x-large;
+	margin-right: 30px;
+}
+
+h1{
+	width:100%
+	text-align: center;
+
+}

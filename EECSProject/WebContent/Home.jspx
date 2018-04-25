@@ -140,8 +140,8 @@
 	
 	<p>
 	<div class="gallery">
-		<a target="_blank" href="images/deals.png">
-		 <img src="images/deals.png" alt="deals of the week"/></a>
+		<a target="_blank" href="http://localhost:8080/EECSProject/Home?deals=">
+		 <img id="" src="images/deals.png" alt="deals of the week"/></a>
 	</div>
 
 	<div class="gallery">

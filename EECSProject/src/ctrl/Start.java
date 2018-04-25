@@ -102,6 +102,11 @@ public class Start extends HttpServlet {
 		 * request.getParameter("searchBar"); System.out.println(search); }
 		 */
 		
+		if(request.getParameter("deals") != null) {
+			//request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));
+			target = "Deals.jspx";
+		}
+		
 		if(request.getParameter("bookID") != null) {
 			System.out.println(request.getParameter("bookID"));
 			request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));
