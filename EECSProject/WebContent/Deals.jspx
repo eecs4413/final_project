@@ -176,29 +176,50 @@
 			<span class="deals"> DEALS OF THE WEEK </span>
 			
 			<hr> </hr>
+	
+
+		<c:forEach var="book" items="${dotw}">
+			<div class="gallery">
+			  <a target="_blank" href="img_fjords.jpg">
+			    <img src="images/${book.value.bid}.jpg" alt="no image"/>
+			  </a>
+			  <div class="desc"><span class="titles">${book.value.title}</span> <br> </br>  by 
+			  <span class="authors"> ${book.value.author}</span> <br> </br> 
+			   <span class="salePrice">$${book.value.price}</span>  $${book.value.reducedPrice}</div>
+			</div>	
+		</c:forEach>
+	
 			
-			<p>
-	<div class="gallery">
-		<a href="http://localhost:8080/EECSProject/Home?deals=">
-		 <img id="" src="images/deals.png" alt="deals of the week"/></a>
-	</div>
+	
+<!-- 
+<div class="gallery">
+  <a target="_blank" href="img_forest.jpg">
+    <img src="images/b002.jpg" alt="Forest" width="300" height="200"/>
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/picks.png"> 
-			<img src="images/picks.png" alt="staff picks"/></a>
-	</div>
+<div class="gallery">
+  <a target="_blank" href="img_lights.jpg">
+    <img src="images/b003.jpg" alt="Northern Lights" width="300" height="200"/>
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/arrivals.png"> <img
-			src="images/arrivals.png" alt="new releases"/></a>
-	</div>
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="images/b004.jpg" alt="Mountains" width="300" height="200"/>
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/clearance.png"> <img
-			src="images/clearance.png" alt="clearance"/></a>
-	</div>
-	</p>
-			
+<div class="gallery">
+  <a target="_blank" href="img_mountains.jpg">
+    <img src="images/b007.jpg" alt="Mountains" width="300" height="200"/>
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+	-->		
 	
 	
 </body>

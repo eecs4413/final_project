@@ -78,17 +78,35 @@
 		<form action="" method="POST">
 		<c:forEach var="book" items="${results}">
 		
+			<c:choose>
+				<c:when test="${isSale eq true}"> 
+					<c:forEach var="book" items="${dotw}">
+						<div class="gallery">
+						  <a target="_blank" href="img_fjords.jpg">
+						    <img src="images/${book.value.bid}.jpg" alt="no image"/>
+						  </a>
+						  <div class="desc"><span class="titles">${book.value.title}</span> <br> </br>  by 
+						  <span class="authors"> ${book.value.author}</span> <br> </br> 
+						   <span class="salePrice">$${book.value.price}</span>  $${book.value.reducedPrice}</div>
+						</div>	
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
 					<div class="bookResult">
 					<a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> 
 					 <img src="images/${book.bid}.jpg" alt="no image"> </img> </a>
-					 <p> <span class="titles"> ${book.title} </span> <br> </br> 
-					 by <span class="authors"> ${book.author} </span> <br> </br> </p>
+					 <p> <a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> <span class="titles"> ${book.title}</span></a> <br> </br> 
+					 by <span class="authors" onclick="loadAuthorSearchFilter('${book.author}');"> ${book.author}</span> <br> </br> </p>
 					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
 					  
 					 <button name="addCart" id="addCart" class="addCart"
 								action="submit" value="${book.bid}" onclick="addCartToast();" >ADD TO CART</button> </p>
 					
 					</div>
+				</c:otherwise>
+			</c:choose>
+		
+					
 					<div class="searchSeparator"><hr> </hr> </div>
 				
 		</c:forEach>

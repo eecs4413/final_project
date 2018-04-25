@@ -78,7 +78,9 @@ public class Admin extends HttpServlet {
 			
 		}
 		
-		
+		if(request.getParameter("dotw") != null) {
+			
+		}
 
 
 		// calculate ten books sold

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import bean.AccountBean;
 import bean.BookBean;
 import bean.POItemBean;
 import bean.ReviewBean;
+import dao.DOTWDAO;
 import dao.ReviewDAO;
 import model.CartUtil;
 import model.SearchUtil;
@@ -27,7 +29,7 @@ import model.SearchUtil;
 @WebServlet({ "/Home", "/Home/*" ,""})
 public class Start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -69,7 +71,7 @@ public class Start extends HttpServlet {
 		request.getSession().setAttribute("search", search);
 
 		if (request.getParameter("searchButton") != null) {
-			System.out.println("WHY NO SEARCH");
+			
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 			
 			request.setAttribute("isSearchFilter", true);
@@ -100,7 +102,9 @@ public class Start extends HttpServlet {
 		
 		
 		if(request.getParameter("deals") != null) {
-			//request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));
+			
+			DOTWDAO dotw = new DOTWDAO();
+			request.setAttribute("dotw", dotw.retrieve());
 			target = "Deals.jspx";
 		}
 		
@@ -135,6 +139,26 @@ public class Start extends HttpServlet {
 				;
 
 			}
+
+		}
+		
+		
+		if (request.getParameter("addCart") != null) {
+			System.out.println("Cart");
+			String bookID = request.getParameter("addCart");
+			BookBean book = SearchUtil.searchID(bookID);
+			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");
+
+			if (cart == null) {
+				cart = new ArrayList<POItemBean>();
+			}
+			CartUtil.setCart(cart);
+			
+			CartUtil.addItem(book, 1, null);
+			cart = CartUtil.getCart();
+			
+			request.getSession().setAttribute("cart", cart);
+			request.getSession().setAttribute("cartcount", cart.size());
 
 		}
 

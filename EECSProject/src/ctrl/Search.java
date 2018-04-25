@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bean.BookBean;
 import bean.POItemBean;
+import dao.DOTWDAO;
 import model.CartUtil;
 import model.SearchUtil;
 
@@ -64,16 +65,14 @@ public class Search extends HttpServlet {
 		if (request.getParameter("searchButton") != null) {
 			
 			temp.addAll(SearchUtil.search(request.getParameter("searchBar")));
-			
-			u15.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
-			r15_r25.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
-			r25_r50.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
-			o50.addAll(SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
-			//
-			
+
 			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 
 			
+		}
+		
+		if(request.getParameter("author") != null) {
+			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 		}
 				
 		if(request.getParameter("u15") != null) {
@@ -436,6 +435,7 @@ public class Search extends HttpServlet {
 		
 				
 		if (request.getParameter("addCart") != null) {
+			System.out.println("Cart");
 			String bookID = request.getParameter("addCart");
 			BookBean book = SearchUtil.searchID(bookID);
 			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");

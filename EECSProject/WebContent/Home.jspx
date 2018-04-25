@@ -161,17 +161,17 @@
 		</div>
 
 		<div class="gallery">
-			<a target="_blank" href="images/picks.png"> <img
+			<a href="http://localhost:8080/EECSProject/Home?staffPicks=">  <img
 				src="images/picks.png" alt="staff picks" /></a>
 		</div>
 
 		<div class="gallery">
-			<a target="_blank" href="images/arrivals.png"> <img
+			<a href="http://localhost:8080/EECSProject/Home?newReleases=">  <img
 				src="images/arrivals.png" alt="new releases" /></a>
 		</div>
 
 		<div class="gallery">
-			<a target="_blank" href="images/clearance.png"> <img
+			<a href="http://localhost:8080/EECSProject/Home?=>" ><img
 				src="images/clearance.png" alt="clearance" /></a>
 		</div>
 		</p>
@@ -206,6 +206,7 @@
 		</div>
 
 	</div>
+	<br> </br>
 </body>
 	</html>
 </jsp:root>

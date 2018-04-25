@@ -144,6 +144,18 @@ public class SearchUtil {
 		}
 		return temp;
 	}
+	
+	public static ArrayList<BookBean> searchCategory(String searchString, ArrayList<BookBean> bookList) {
+		ArrayList<BookBean> temp = new ArrayList<BookBean>();
+
+		for (BookBean addressBean : bookList) {
+			if (addressBean.getCategory().toLowerCase().contains(searchString.toLowerCase())) {
+				temp.add(addressBean);
+			}
+
+		}
+		return temp;
+	}
 
 	public static BookBean searchID(String searchString) {
 

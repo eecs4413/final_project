@@ -191,7 +191,40 @@ INSERT INTO Review (aid, bid, comment, rating)  VALUES ('dmnosale@my.yorku.ca', 
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b003', 'This book is good', '5');
 INSERT INTO Review (aid, bid, comment, rating)  VALUES ('michaelshortford@my.york.ca', 'b004' ,'This book needs more examples', '2');
 
+Use Store_DB;
+DROP TABLE if exists DOTW;
+CREATE TABLE DOTW (
+bid VARCHAR(20) NOT NULL,
+title VARCHAR(60) NOT NULL,
+author VARCHAR(60) NOT NULL,
+price INT NOT NULL,
+reducedPrice INT NOT NULL,
+category ENUM('Science Fiction','Crime','Engineering','Kids','Fantasy') NOT NULL,
+PRIMARY KEY(bid)
+);
 
+INSERT INTO DOTW (bid, title, author, price, reducedPrice, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 15, 'Kids');
+INSERT INTO DOTW (bid, title, author, price, reducedPrice, category) VALUES ('b002','The Name of the Wind','Patrick Rothfuss', 13, 10, 'Fantasy');
+INSERT INTO DOTW (bid, title, author, price, reducedPrice, category) VALUES ('b003','A Game of Thrones','George R.R. Martin' ,13, 10, 'Fantasy');
+INSERT INTO DOTW (bid, title, author, price, reducedPrice, category) VALUES ('b004','The Way of Kings','Brandon Sanderson' ,11, 9, 'Fantasy');
+INSERT INTO DOTW (bid, title, author, price, reducedPrice, category) VALUES ('b007','Mistborn','Brandon Sanderson', 13, 10, 'Fantasy');
+
+DROP TABLE if exists Clearance;
+CREATE TABLE Clearance (
+bid VARCHAR(20) NOT NULL,
+title VARCHAR(60) NOT NULL,
+author VARCHAR(60) NOT NULL,
+price INT NOT NULL,
+reducedPrice INT NOT NULL,
+category ENUM('Science Fiction','Crime','Engineering','Kids','Fantasy') NOT NULL,
+PRIMARY KEY(bid)
+);
+
+INSERT INTO Clearance (bid, title, author, price, reducedPrice, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 15, 'Kids');
+INSERT INTO Clearance (bid, title, author, price, reducedPrice, category) VALUES ('b002','The Name of the Wind','Patrick Rothfuss', 13, 10, 'Fantasy');
+INSERT INTO Clearance (bid, title, author, price, reducedPrice, category) VALUES ('b003','A Game of Thrones','George R.R. Martin' ,13, 10, 'Fantasy');
+INSERT INTO Clearance (bid, title, author, price, reducedPrice, category) VALUES ('b004','The Way of Kings','Brandon Sanderson' ,11, 9, 'Fantasy');
+INSERT INTO Clearance (bid, title, author, price, reducedPrice, category) VALUES ('b007','Mistborn','Brandon Sanderson', 13, 10, 'Fantasy');
 
 
 

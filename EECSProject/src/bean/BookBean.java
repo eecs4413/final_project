@@ -18,6 +18,8 @@ public class BookBean {
 	public String price;
 	@XmlElement
 	public String category;
+	
+	public String reducedPrice;
 
 	public BookBean() {
 	}
@@ -29,6 +31,16 @@ public class BookBean {
 		this.price = price;
 		this.category = category;
 		this.author = author;
+	}
+	
+	public BookBean(String bid, String title,String author, String price, String category, String reducedPrice) {
+		super();
+		this.bid = bid;
+		this.title = title;
+		this.price = price;
+		this.category = category;
+		this.author = author;
+		this.reducedPrice = reducedPrice;
 	}
 
 	/**
@@ -67,6 +79,14 @@ public class BookBean {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+	
+	public String getReducedPrice() {
+		return reducedPrice;
+	}
+	
+	public void setReducedPrice(String price) {
+		this.reducedPrice = price;
 	}
 
 	public String getCategory() {

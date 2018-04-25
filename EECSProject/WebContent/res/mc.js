@@ -217,9 +217,9 @@ function doSimpleAjax(address) {
 
 	data += "searchBar=" + searchBar;
 	
-	alert(address);
+	//alert(address);
 	//alert((address + "?" + data));
-	alert(address + "?" + data);
+	//alert(address + "?" + data);
 	request.open("GET", address + "?" + data, true);
 	request.onreadystatechange = function() {
 		handler(request);
@@ -231,12 +231,12 @@ function doSimpleAjax(address) {
 function handler(request) {
 	if ((request.readyState == 4) && (request.status == 200)) {
 		var target = document.getElementById("demo");
-		alert(request.responseText);
+		//alert(request.responseText);
 		target.innerHTML = request.responseText;
 	}
 	
 	if (request.status == 200){
-		alert("status?");
+		//alert("status?");
 	}
 	
 	if (request.readyState == 4){
@@ -260,7 +260,7 @@ function loadSearch(){
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
 	     document.getElementById("page").innerHTML = this.responseText;
-	     	alert(this.responseText)
+	     	//alert(this.responseText)
 	    }
 	        
 	  };
@@ -287,7 +287,26 @@ function loadSearchFilter(){
 	  };
 	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
 	  xhttp.open("GET", 'SearchFilter?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
-	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  xhttp.send(null);
+	
+}
+
+function loadAuthorSearchFilter(author){
+	
+	//var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
+	alert(author);
+	
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("page").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }
+	        
+	  };
+	  xhttp.open("GET", 'Search?author=' + "&searchBar=" + author, true);
 	  xhttp.send(null);
 	
 }
@@ -301,7 +320,7 @@ function loadCategorySearch(category){
 	    }      
 	  };
 	  
-	  alert('Search?searchBar=' +searchBar + "&" + category + "=");
+	  //alert('Search?searchBar=' +searchBar + "&" + category + "=");
 	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&" + category + "=", true);
 	  xhttp.send(null);
 }
@@ -330,7 +349,7 @@ function filterSearchByPrice(filterType){
 	
 	var searchBar = document.getElementById("searchBar").value;
 	var searchBtn = document.getElementById("searchButton").value;
-	alert(query);
+	//alert(query);
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
