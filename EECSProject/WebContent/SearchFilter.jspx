@@ -21,7 +21,7 @@
 </script>
 </head>
 <body>
-		<!-- 
+
 		<form action="" method="GET">
 			<div class="filterBar">
 
@@ -29,24 +29,32 @@
 				
 				<hr></hr>
 				CATEGORIES
-					
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Fiction ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science Fiction and Fantasy ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Engineering ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
 				
+				<label class="CBcontainer">
+					<input id="crime" type="checkbox" onclick="loadCategorySearch('crime');"
+					> Crime (${crime})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				<label class="CBcontainer">
+					<input id="eng" type="checkbox" onclick="loadCategorySearch('eng');"
+					> Engineering (${eng})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="fantasy" type="checkbox" onclick="loadCategorySearch('fantasy');"
+					> Fantasy (${fantasy})</input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="kids" type="checkbox" onclick="loadCategorySearch('kids');"
+					> Kids (${kids}) </input>
+					<span class="checkmark"></span>			
+				 </label>
+				 <label class="CBcontainer">
+					<input id="sciFi" type="checkbox" onclick="loadCategorySearch('sciFi');"
+					> Science Fiction (${sciFi})</input>
+					<span class="checkmark"></span>			
+				 </label>
 
 				<hr></hr>
 				PRICE RANGE <br> </br>
@@ -58,46 +66,24 @@
 					<span class="checkmark"></span>			
 				 </label>
 				 <label class="CBcontainer">
-					<input id="r15_25" type="checkbox"
+					<input id="r15_25" type="checkbox" onclick="filterSearchByPrice('r15_r25');"
 					> $15 - $25 (${r15_r25})</input>
 					<span class="checkmark"></span>			
 				 </label>
 				 <label class="CBcontainer">
-					<input id="r25_50" type="checkbox"> $25 - $50 (${r25_r50})</input>
+					<input id="r25_50" type="checkbox" onclick="filterSearchByPrice('r25_r50');"
+					> $25 - $50 (${r25_r50})</input>
 					<span class="checkmark"></span>				
 				 </label>
 				 <label class="CBcontainer">
-					<input id="o50" type="checkbox"> Over $50 (${o50})</input>
+					<input id="o50" type="checkbox" onclick="filterSearchByPrice('o50');"
+					> Over $50 (${o50})</input>
 					<span class="checkmark"></span>			
 				 </label>
 
 			</div>
 		</form>
-		-->
 		
-		<form action="" method="POST">
-		<c:forEach var="book" items="${results}">
-		
-					<div class="bookResult">
-					<a href = "http://localhost:8080/EECSProject/Home?bookID=${book.bid}"> 
-					 <img src="images/${book.bid}.jpg" alt="no image"> </img> </a>
-					 <p> <span class="titles"> ${book.title} </span> <br> </br> 
-					 by <span class="authors"> ${book.author} </span> <br> </br> </p>
-					 <p class="priceContainer"> <span class="bookPrice"> $${book.price} </span>
-					  
-					 <button name="addCart" id="addCart" class="addCart"
-								action="submit" value="${book.bid}" onclick="addCartToast();" >ADD TO CART</button> </p>
-					
-					</div>
-					<div class="searchSeparator"><hr> </hr> </div>
-				
-		</c:forEach>
-		</form>
-		
-		
-		<div id="snackbar">Added to cart</div>
-		
-
 </body>
-</html>
+	</html>
 </jsp:root>

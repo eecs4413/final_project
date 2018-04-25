@@ -70,13 +70,13 @@ public class Start extends HttpServlet {
 
 		if (request.getParameter("searchButton") != null) {
 			System.out.println("WHY NO SEARCH");
-//			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
+			request.setAttribute("results", SearchUtil.search(request.getParameter("searchBar")));
 			
-//			request.setAttribute("isSearchFilter", true);
-//			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0));
-//			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1));
-//			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2));
-//			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3));
+			request.setAttribute("isSearchFilter", true);
+			request.setAttribute("u15", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(0).size());
+			request.setAttribute("r15_r25", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(1).size());
+			request.setAttribute("r25_r50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(2).size());
+			request.setAttribute("o50", SearchUtil.searchByPrice(request.getParameter("searchBar")).get(3).size());
 		}
 
 		if (request.getParameter("headerButton") != null) {
@@ -97,6 +97,7 @@ public class Start extends HttpServlet {
 		 * SearchUtil.search(request.getParameter("searchBar"))); String search =
 		 * request.getParameter("searchBar"); System.out.println(search); }
 		 */
+		
 		
 		if(request.getParameter("deals") != null) {
 			//request.setAttribute("item", SearchUtil.searchID(request.getParameter("bookID")));

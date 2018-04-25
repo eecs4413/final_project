@@ -250,7 +250,7 @@ function addCartToast(){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-function loadFilterViaPrice(){
+function loadSearch(){
 	
 	var searchBar = document.getElementById("searchBar").value;
 	var searchBtn = document.getElementById("searchButton").value;
@@ -259,7 +259,7 @@ function loadFilterViaPrice(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {
-	     document.getElementById("demo").innerHTML = this.responseText;
+	     document.getElementById("page").innerHTML = this.responseText;
 	     	alert(this.responseText)
 	    }
 	        
@@ -267,6 +267,79 @@ function loadFilterViaPrice(){
 	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
 	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
 	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  xhttp.send(null);
+	
+}
+
+function loadSearchFilter(){
+	
+	var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
+	//alert(searchBar);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("filter").innerHTML = this.responseText;
+	     	alert(this.responseText)
+	    }
+	        
+	  };
+	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
+	  xhttp.open("GET", 'SearchFilter?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  xhttp.send(null);
+	
+}
+
+function loadCategorySearch(category){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("page").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }      
+	  };
+
+	  xhttp.open("GET", 'Search?searchBar=' +searchBar + "&" + category + "=", true);
+	  xhttp.send(null);
+}
+
+function filterSearchByPrice(filterType){
+	
+	var query = "";
+	
+	if(filterType == "u15"){
+		
+		query += "&u15=true"
+		
+	} else if(filterType == "r15_r25"){
+		
+		query += "&r15_r25=true"
+		
+	} else if(filterType == "r25_r50"){
+		
+		query += "&r25_r50=true"
+		
+	} else if(filterType == "o50"){
+		
+		query += "&o50=true"
+		
+	}
+	
+	var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
+	alert(query);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("page").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }      
+	  };
+
+	  xhttp.open("GET", 'Search?searchBar=' +searchBar + query, true);
 	  xhttp.send(null);
 	
 }

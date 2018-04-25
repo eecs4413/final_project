@@ -126,8 +126,12 @@
 </TABLE>
 </c:if>
 
+<!-- A deals of the week add-on for admins -->
+DEALS OF THE WEEK Add-on
 
-
+<input type="text" class="searchBar" id="dotw"
+		placeholder="Item ..." name="searchBar" value="${search}"></input>
+<button id=""> ADD </button> <button id=""> REMOVE </button> 
 
 
 

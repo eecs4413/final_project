@@ -17,21 +17,21 @@ bid VARCHAR(20) NOT NULL,
 title VARCHAR(60) NOT NULL,
 author VARCHAR(60) NOT NULL,
 price INT NOT NULL,
-category ENUM('Science','Fiction','Engineering','Other','Fantasy') NOT NULL,
+category ENUM('Science Fiction','Crime','Engineering','Kids','Fantasy') NOT NULL,
 PRIMARY KEY(bid)
 );
 #
 # Adding data for table 'Book'
 #
-INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Fiction');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b001', 'Little Prince','Antoine de Saint-Exupéry', 20, 'Kids');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b002','The Name of the Wind','Patrick Rothfuss', 13, 'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b003','A Game of Thrones','George R.R. Martin' ,13,'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b004','The Way of Kings','Brandon Sanderson' ,11,'Fantasy');
-INSERT INTO Book (bid, title, author, price, category) VALUES ('b005','Engineering 101','Munaf Moktar',119,'Other');
-INSERT INTO Book (bid, title, author, price, category) VALUES ('b006','Engineering 102','Munaf Moktar',119,'Other');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b005','Engineering 101','Munaf Moktar',119,'Engineering');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b006','Engineering 102','Munaf Moktar',119,'Engineering');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b007','Mistborn','Brandon Sanderson', 13,'Fantasy');
-INSERT INTO Book (bid, title, author, price, category) VALUES ('b008','Rita Hayworth and Shawshank Redemption','Stephen King', 20,'Fiction');
-INSERT INTO Book (bid, title, author, price, category) VALUES ('b009','Dune','Frank Herbert', 13,'Fiction');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b008','Rita Hayworth and Shawshank Redemption','Stephen King', 20,'Crime');
+INSERT INTO Book (bid, title, author, price, category) VALUES ('b009','Dune','Frank Herbert', 13,'Science Fiction');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b010','The Fellowship of the Ring','J.R.R. Tolkien', 10, 'Fantasy');
 INSERT INTO Book (bid, title, author, price, category) VALUES ('b011','The Alloy of Law','Brandon Sanderson', 13, 'Fantasy');
 

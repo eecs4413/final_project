@@ -17,38 +17,45 @@
 	title="StyleSheet" media="screen, print" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
-	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous"/>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+	crossorigin="anonymous" />
 
-<script type="text/javascript" src="res/mc.js">;</script>
-<script type="text/javascript" src="res/imageGallery.js">;</script>
+<script type="text/javascript" src="res/mc.js">
+	;
+</script>
+<script type="text/javascript" src="res/imageGallery.js">
+	;
+</script>
 </head>
 <body>
 	<div class="top_bg">
 		<div class="container">
 			<div class="header_top">
 				<div class="top_right">
-				<form action="" method="post">
-				<c:choose>
-				<c:when test="${sessionScope['account'] eq null}">
-					<ul>
-								<li><a href="${pageContext.request.contextPath}/Login">Login</a>
-								</li> |
-								<li class="reg"><a
-									href="${pageContext.request.contextPath}/Register">Register</a></li>
-							</ul>
-				
-				</c:when>
-				<c:otherwise>
-				
-				<button name="signOut" id="signOut" class="signOutButton"
-								action="submit" value="1" href="${pageContext.request.contextPath}/Home">Sign
-								Out</button>
-				
-				</c:otherwise>
-				</c:choose>
-				</form>
-		
+					<form action="" method="post">
+						<c:choose>
+							<c:when test="${sessionScope['account'] eq null}">
+								<ul>
+									<li><a href="${pageContext.request.contextPath}/Login">Login</a>
+									</li> |
+									<li class="reg"><a
+										href="${pageContext.request.contextPath}/Register">Register</a></li>
+								</ul>
+
+							</c:when>
+							<c:otherwise>
+
+								<button name="signOut" id="signOut" class="signOutButton"
+									action="submit" value="1"
+									href="${pageContext.request.contextPath}/Home">Sign
+									Out</button>
+
+							</c:otherwise>
+						</c:choose>
+					</form>
+
 					<!--
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/Login">Login</a>
@@ -72,28 +79,29 @@
 						<div class="rgt-bottom">
 
 							<div class="cart">
-							
 
-							
-								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
+
+
+								<a id="cart_anchor" class="cart"
+									href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
 							</div>
-							
+
 						</div>
 						<div class="search">
 							<form action="" method="POST" class="searchBox">
-							<table>
-								<td>
-									<input type="text" class="searchBar" id="searchBar"
+								<table>
+									<td><input type="text" class="searchBar" id="searchBar"
 										placeholder="Search..." name="searchBar" value="${search}"></input>
-										</td>
-										<td>
-									<button class="searchButton" id="searchButton"
-										name="searchButton" action="submit"
-										onclick="loadFilterViaPrice(); return false;"><i class="fas fa-search"></i>
+									</td>
+									<td>
+										<button class="searchButton" id="searchButton"
+											name="searchButton" action="submit"
+											onclick="loadSearch(); loadSearchFilter(); return false;">
+											<i class="fas fa-search"></i>
 										</button>
-										</td>
-								
-							</table>
+									</td>
+
+								</table>
 							</form>
 							<!--<form>
 							<input type="text" placeholder="Search..."></input>
@@ -110,109 +118,93 @@
   					<a href="#about">About</a>
 				</div>
 				-->
-				
+
 			</div>
 		</div>
 	</div>
-		<!-- <td id="ajaxResult"></td> -->
+	<!-- <td id="ajaxResult"></td> -->
+
+	<div class="menu">
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#news">About</a></li>
+			<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">Books</a>
+				<div class="dropdown-content">
+					<form>
+						<c:forEach var="data" items="${catagorylist}">
+
+							<button class="searchButton" id="headerButton"
+								name="headerButton" value="${data}" action="submit">
+								<c:out value="${data}" />
+							</button>
+
+						</c:forEach>
+
+					</form>
+
+
+
+				</div></li>
+		</ul>
+	</div>
+	
+	<p id="filter"></p>
+	
+	<div id="page">
 		
-		<div class="menu">
-					<ul>
-						<li><a href="#home">Home</a></li>
-						<li><a href="#news">About</a></li>
-						<li class="dropdown"><a href="javascript:void(0)"
-							class="dropbtn">Books</a>
-							<div class="dropdown-content">
-							<form>
-							<c:forEach var="data" items="${catagorylist}">
-							
-							<button class="searchButton" id="headerButton" name="headerButton" value="${data}" action="submit"><c:out value="${data}" /></button>
-										
-							</c:forEach>
-							
-							</form>
-							
-							
-							
-							</div></li>
-					</ul>
-				</div>
-	
-	<p>
-	<div class="gallery">
-		<a target="_blank" href="http://localhost:8080/EECSProject/Home?deals=">
-		 <img id="" src="images/deals.png" alt="deals of the week"/></a>
-	</div>
+		<p>
+		<div class="gallery">
+			<a href="http://localhost:8080/EECSProject/Home?deals="> <img
+				id="" src="images/deals.png" alt="deals of the week" /></a>
+		</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/picks.png"> 
-			<img src="images/picks.png" alt="staff picks"/></a>
-	</div>
+		<div class="gallery">
+			<a target="_blank" href="images/picks.png"> <img
+				src="images/picks.png" alt="staff picks" /></a>
+		</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/arrivals.png"> <img
-			src="images/arrivals.png" alt="new releases"/></a>
-	</div>
+		<div class="gallery">
+			<a target="_blank" href="images/arrivals.png"> <img
+				src="images/arrivals.png" alt="new releases" /></a>
+		</div>
 
-	<div class="gallery">
-		<a target="_blank" href="images/clearance.png"> <img
-			src="images/clearance.png" alt="clearance"/></a>
-	</div>
-	</p>
+		<div class="gallery">
+			<a target="_blank" href="images/clearance.png"> <img
+				src="images/clearance.png" alt="clearance" /></a>
+		</div>
+		</p>
 
-	<div class="hp_headers">TOP SELLERS
-		<hr> </hr>
-	
-	</div>
-
-	<div class="w3-content w3-display-container">
-	<div class="topSells">
-	  <img class="mySlides" src="images/b001.jpg"/>
-	  <img class="mySlides" src="images/b002.jpg"/>
-	  <img class="mySlides" src="images/b003.jpg"/>
-	  <img class="mySlides" src="images/b004.jpg"/>
-	  <img class="mySlides" src="images/b007.jpg"/>
-	  <img class="mySlides" src="images/b008.jpg"/>
-	  <img class="mySlides" src="images/b009.jpg"/>
-	  <img class="mySlides" src="images/b010.jpg"/>
-	  <img class="mySlides" src="images/b011.jpg"/>
-	  
-  <script> showDivs(slideIndex); </script>
-  
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-  </div>
-</div>
-
-	<!-- need to implement top seller code -->
-	<!--
-	<div class="topSellContainer">
-		<div id="arrow-left" class="arrow"></div>
-		<div class="slider">
-			<div class="slide slide1">
-				<img src="images/b001.jpg"></img>
-			</div>
-			<div class="slide slide2">
-				<img src="images/b002.jpg"></img>
-			</div>
-			<div class="slide slide3">
-				<img src="images/b003.jpg"></img>
-			</div>
-			<div class="slide slide4">
-				<img src="images/b004.jpg"></img>
-			</div>
+		<div class="hp_headers">
+			TOP SELLERS
+			<hr></hr>
 
 		</div>
-		<div id="arrow-right" class="arrow"></div>
+
+		<div class="w3-content w3-display-container">
+			<div class="topSells">
+				<img class="mySlides" src="images/b001.jpg" /> <img class="mySlides"
+					src="images/b002.jpg" /> <img class="mySlides"
+					src="images/b003.jpg" /> <img class="mySlides"
+					src="images/b004.jpg" /> <img class="mySlides"
+					src="images/b007.jpg" /> <img class="mySlides"
+					src="images/b008.jpg" /> <img class="mySlides"
+					src="images/b009.jpg" /> <img class="mySlides"
+					src="images/b010.jpg" /> <img class="mySlides"
+					src="images/b011.jpg" />
+
+				<script>
+					showDivs(slideIndex);
+				</script>
+
+				<button class="w3-button w3-black w3-display-left"
+					onclick="plusDivs(-1)">&#10094;</button>
+				<button class="w3-button w3-black w3-display-right"
+					onclick="plusDivs(1)">&#10095;</button>
+			</div>
+		</div>
 
 	</div>
-	 -->
-	
-
-
-	
-		<p id="demo"> </p>
-		
 </body>
 	</html>
 </jsp:root>

@@ -150,27 +150,6 @@
 				<b>FILTERS:</b>
 				
 				<hr></hr>
-				CATEGORIES
-					
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Fiction ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science Fiction and Fantasy ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Science ()</input>
-					<span class="checkmark"></span>			
-				 </label>
-				 <label class="CBcontainer">
-					<input id="" type="checkbox"> Engineering ()	</input>
-					<span class="checkmark"></span>			
-				 </label>
-				
-
-				<hr></hr>
 				PRICE RANGE <br> </br>
 				
 				<label class="CBcontainer">
@@ -197,6 +176,29 @@
 			<span class="deals"> DEALS OF THE WEEK </span>
 			
 			<hr> </hr>
+			
+			<p>
+	<div class="gallery">
+		<a href="http://localhost:8080/EECSProject/Home?deals=">
+		 <img id="" src="images/deals.png" alt="deals of the week"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/picks.png"> 
+			<img src="images/picks.png" alt="staff picks"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/arrivals.png"> <img
+			src="images/arrivals.png" alt="new releases"/></a>
+	</div>
+
+	<div class="gallery">
+		<a target="_blank" href="images/clearance.png"> <img
+			src="images/clearance.png" alt="clearance"/></a>
+	</div>
+	</p>
+			
 	
 	
 </body>
