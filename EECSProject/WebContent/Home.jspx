@@ -75,7 +75,7 @@
 							
 
 							
-								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">Cart(${cartcount})</a>
+								<a id="cart_anchor" class="cart" href="${pageContext.request.contextPath}/Cart">CART(${cartcount})</a>
 							</div>
 							
 						</div>
