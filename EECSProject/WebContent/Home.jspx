@@ -127,8 +127,7 @@
 
 	<div class="menu">
 		<ul>
-			<li><a href="#home">Home</a></li>
-			<li><a href="#news">About</a></li>
+			<li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">Books</a>
 				<div class="dropdown-content">
