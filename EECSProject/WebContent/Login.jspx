@@ -91,27 +91,29 @@
 	</div>
 		<!-- <td id="ajaxResult"></td> -->
 		
-		<div class="menu">
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li class="dropdown"><a href="javascript:void(0)"
-							class="dropbtn">Books</a>
-							<div class="dropdown-content">
-							<form>
-							<c:forEach var="data" items="${catagorylist}">
-							
-							<button class="options" id="headerButton" name="headerButton" value="${data}" action="submit"><c:out value="${data}" /></button>
-										
-							</c:forEach>
-							
-							</form>
-							
-							
-							
-							</div></li>
-					</ul>
-				</div>
+	<div class="menu">
+		<ul>
+			<li><a href="${pageContext.request.contextPath}/Home">Home</a></li>
+			<li class="dropdown"><a href="javascript:void(0)"
+				class="dropbtn">Books</a>
+				<div class="dropdown-content">
+					<form>
+						<c:forEach var="data" items="${catagorylist}">
+
+							<button class="searchButton" id="headerButton"
+								name="headerButton" value="${data}" action="submit">
+								<c:out value="${data}" />
+							</button>
+
+						</c:forEach>
+
+					</form>
+
+
+
+				</div></li>
+		</ul>
+	</div>
 	<div class="wrapper">
 		<div class="content">
 			<form action="" method="post" onsubmit="validateLogin()"
