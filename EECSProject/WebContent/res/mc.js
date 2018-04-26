@@ -1,7 +1,7 @@
 function validateLogin() {
 	var ok = true;
 	var p = document.getElementById("username").value;
-	if (p == "") {
+	if (p == "" || notValidSting(p)) {
 		alert("Invalid username!");
 		document.getElementById("usernameErr").innerHTML = "*";
 		ok = false;
@@ -9,7 +9,7 @@ function validateLogin() {
 	if (!ok)
 		return false;
 	p = document.getElementById("password").value;
-	if (p == "") {
+	if (p == "" || notValidSting(p)) {
 		alert("Incorrect password!");
 		document.getElementById("passwordErr").innerHTML = "*";
 		ok = false;
@@ -22,13 +22,13 @@ function validateRegisterAccount() {
 	var error = "";
 
 	var p = document.getElementById("fname").value;
-	if (p == null || p == "") {
+	if (p == null || p == ""|| notValidSting(p)) {
 		error = error + "First Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("lname").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nLast Name Cannot Be Empty";
 		ok = false;
 	}
@@ -40,7 +40,7 @@ function validateRegisterAccount() {
 	}
 
 	p = document.getElementById("password").value;
-	if (p == null || p == "") {
+	if (p == null || p == ""|| notValidSting(p)) {
 		error = error + "\nPassword Cannot Be Empty";
 		ok = false;
 	}
@@ -48,7 +48,7 @@ function validateRegisterAccount() {
 	var x = p;
 
 	p = document.getElementById("repassword").value;
-	if (p == null || p == "" || p != x) {
+	if (p == null || p == "" || p != x || notValidSting(p)) {
 		error = error + "\nPassword Missmatch";
 		ok = false;
 	}
@@ -67,34 +67,39 @@ function validateEmail(email) {
 
 }
 
+function notValidSting(x){
+	var re = /^[a-z0-9]+$/i;
+	return !re.test(x);
+}
+
 function validateRegisterAccountAddress() {
 	var ok = true;
 	var error = "";
 
 	var p = document.getElementById("street").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "Street Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("city").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCity Name Cannot Be Empty";
 		ok = false;
 	}
 	p = document.getElementById("city").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCity Name Cannot Be Empty";
 		ok = false;
 	}
 	p = document.getElementById("province").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nProvince Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("country").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCountry Name Cannot Be Empty";
 		ok = false;
 	}
@@ -122,35 +127,35 @@ function validatePurchaseForm() {
 	var error = "";
 
 	var p = document.getElementById("street").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "Street Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("city").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCity Name Cannot Be Empty";
 		ok = false;
 	}
 	p = document.getElementById("city").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCity Name Cannot Be Empty";
 		ok = false;
 	}
 	p = document.getElementById("province").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nProvince Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("country").value;
-	if (p == null || p == "") {
+	if (p == null || p == "" || notValidSting(p)) {
 		error = error + "\nCountry Name Cannot Be Empty";
 		ok = false;
 	}
 
 	p = document.getElementById("zip").value;
-	if (p == null || p == "") {
+	if (!validateZip(p)) {
 		error = error + "\nInvalid Zip";
 		ok = false;
 	}
