@@ -77,7 +77,7 @@ function validateRegisterAccountAddress() {
 	var error = "";
 
 	var p = document.getElementById("street").value;
-	if (p == null || p == "" || notValidSting(p)) {
+	if (p == null || p == "" ) {
 		error = error + "Street Name Cannot Be Empty";
 		ok = false;
 	}
@@ -127,7 +127,7 @@ function validatePurchaseForm() {
 	var error = "";
 
 	var p = document.getElementById("street").value;
-	if (p == null || p == "" || notValidSting(p)) {
+	if (p == null || p == ""  ) {
 		error = error + "Street Name Cannot Be Empty";
 		ok = false;
 	}
