@@ -96,7 +96,7 @@ public class Purchase extends HttpServlet {
 			POBean poBean = (POBean) request.getSession().getAttribute("PoBean");
 			
 			 if(poBean.getStatus().equals("PROCESSED")) {
-				target = "/Home";
+				target = "/OrderProcess.jspx";
 			 }else {
 				 target = "/Purchase/";
 				 request.setAttribute("error", "Could not process");

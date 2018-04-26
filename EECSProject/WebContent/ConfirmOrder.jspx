@@ -22,41 +22,71 @@
 </head>
 <body>
 
-		<div class="home" style="font-size: 50px; text-align: center;">
-			<a href="${pageContext.request.contextPath}/Home">PAGES</a>
-		</div>
+	<div class="home" style="font-size: 50px; text-align: center;">
+		<a href="${pageContext.request.contextPath}/Home">PAGES</a>
+	</div>
 	<table>
 
 		<form>
-			<fieldset>
-			
 			<p style="text-align: center">Order Information</p>
-			<p>You just purchased these items: </p>
-	
-			<c:forEach items="${cart}" var="part">
-				<TR>
-
-					<td><c:out value="${part.price}" /></td>
-					<td><c:out value="${part.quantity}" /></td>
-					<td><c:out value="${part.comment}" /></td>
-					<td><c:out value="${part.day}" /></td>
-					<td><c:out value="${part.title}" /></td>
-					<td><c:out value="${part.author}" /></td>
-					<td><c:out value="${part.category}" /></td>
-					<td><c:out value="${part.comment}" /></td>
-				</TR>
-			</c:forEach>
-
-				<p>Items will be shipped to:</p>
-				<td>${billTo}</td>
+			<tr>
+				<tr>
+					<td>
+						<p style="font-size: 20px;">You just purchased these items: </p>
+					</td>
+				</tr>
+				<c:forEach items="${cart}" var="part">
+					<tr>
+						<td><c:out value="${part.price}" /></td>
+						<td><c:out value="${part.quantity}" /></td>
+						<td><c:out value="${part.comment}" /></td>
+						<td><c:out value="${part.day}" /></td>
+						<td><c:out value="${part.title}" /></td>
+						<td><c:out value="${part.author}" /></td>
+						<td><c:out value="${part.category}" /></td>
+						<td><c:out value="${part.comment}" /></td>
+					</tr>
+				</c:forEach>
+			</tr>
 			
+			<tr>
+				<td style="font-size: 20px;">Items will be shipped to:</td>
+			</tr>
+			<tr>
 			
-			<p>Is the shipping address incorrect? Click <a href="${pageContext.request.contextPath}/Purchase" style="color:blue">here</a>
-			to change address.</p>
-			</fieldset>
-			
-			<button id="ConfirmOrderButton" name="ConfirmOrderButton"
-				action="submit" value="1">Confirm Order</button>
+			<tr>
+				<td>${billTo.street}</td>
+			</tr>
+			<tr>
+				<td>${billTo.city}</td>
+			</tr>
+			<tr>
+				<td>${billTo.province}</td>
+			</tr>
+			<tr>
+				<td>${billTo.country}</td>
+			</tr>
+			<tr>
+				<td>${billTo.zip}</td>
+			</tr>
+			<tr>
+				<td>${billTo.phone}</td>
+			</tr>
+			</tr>
+			<tr>
+				<td><p>
+						Is the shipping address incorrect? Click <a
+							href="${pageContext.request.contextPath}/Purchase"
+							style="color: blue">here</a> to change address.
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button id="ConfirmOrderButton" name="ConfirmOrderButton"
+						action="submit" value="1">Confirm Order</button>
+				</td>
+			</tr>
 
 		</form>
 	</table>

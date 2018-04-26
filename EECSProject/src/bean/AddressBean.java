@@ -15,18 +15,18 @@ public class AddressBean {
 	@XmlElement
 	private String id;
 	@XmlElement
-	private String street;
+	public String street;
 	@XmlElement
-	private String province;
+	public String province;
 	@XmlElement
-	private String country;
+	public String country;
 	//TODO add this to table chart
 	@XmlElement
-	private String city;
+	public String city;
 	@XmlElement
-	private String zip;
+	public String zip;
 	@XmlElement
-	private String phone;
+	public String phone;
 
 	public AddressBean() {
 
