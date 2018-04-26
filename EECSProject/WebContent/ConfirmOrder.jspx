@@ -26,12 +26,11 @@
 		<a href="${pageContext.request.contextPath}/Home">PAGES</a>
 	</div>
 	<table>
-
 		<form>
-			<p style="text-align: center">Order Information</p>
+		<p style="text-align: center">Order Information</p>
 			<tr>
-				<tr>
-					<td>
+			<tr>
+				<td>
 						<p style="font-size: 20px;">You just purchased these items: </p>
 					</td>
 				</tr>
@@ -49,12 +48,14 @@
 				</c:forEach>
 			</tr>
 			
-			<tr>
+			
+		<tr>
 				<td style="font-size: 20px;">Items will be shipped to:</td>
 			</tr>
 			<tr>
 			
-			<tr>
+			
+		<tr>
 				<td>${billTo.street}</td>
 			</tr>
 			<tr>
@@ -76,18 +77,17 @@
 			<tr>
 				<td><p>
 						Is the shipping address incorrect? Click <a
-							href="${pageContext.request.contextPath}/Purchase"
-							style="color: blue">here</a> to change address.
+						href="${pageContext.request.contextPath}/Purchase"
+						style="color: blue">here</a> to change address.
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<button id="ConfirmOrderButton" name="ConfirmOrderButton"
-						action="submit" value="1">Confirm Order</button>
+					action="submit" value="1">Confirm Order</button>
 				</td>
 			</tr>
-
 		</form>
 	</table>
 
