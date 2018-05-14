@@ -1,9 +1,6 @@
 drop database Store_DB;
 create database Store_DB;
 use Store_DB;
-select * from POItem;
-select * from PO;
-
 
 /** bid: unique identifier of Book (like ISBN)
 * title: title of Book
