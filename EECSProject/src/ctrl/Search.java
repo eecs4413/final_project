@@ -429,24 +429,24 @@ public class Search extends HttpServlet {
 
 		}
 		
-		if (request.getParameter("addCart") != null) {
-			System.out.println("CART ?!");
-			String bookID = request.getParameter("addCart");
-			BookBean book = SearchUtil.searchID(bookID);
-			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");
-
-			if (cart == null) {
-				cart = new ArrayList<POItemBean>();
-			}
-			CartUtil.setCart(cart);
-			
-			CartUtil.addItem(book, 1, null);
-			cart = CartUtil.getCart();
-			
-			request.getSession().setAttribute("cart", cart);
-			request.getSession().setAttribute("cartcount", cart.size());
-
-		}
+//		if (request.getParameter("addCart") != null) {
+//			System.out.println("CART ?!");
+//			String bookID = request.getParameter("addCart");
+//			BookBean book = SearchUtil.searchID(bookID);
+//			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");
+//
+//			if (cart == null) {
+//				cart = new ArrayList<POItemBean>();
+//			}
+//			CartUtil.setCart(cart);
+//			
+//			CartUtil.addItem(book, 1, null);
+//			cart = CartUtil.getCart();
+//			
+//			request.getSession().setAttribute("cart", cart);
+//			request.getSession().setAttribute("cartcount", cart.size());
+//
+//		}
 		
 		request.getRequestDispatcher(target).forward(request, response);
 

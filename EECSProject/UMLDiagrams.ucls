@@ -1,344 +1,556 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <package id="1" language="java" name="bean" project="EECSProject" file="/EECSProject/src/bean" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="1817" width="2656" x="32" y="14"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
+  <class id="1" language="java" name="model.Store" project="EECSProject" file="/EECSProject/src/model/Store.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9369" y="127"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <class id="2" language="java" name="bean.PurchaseOrderItemBean" project="EECSProject" 
     file="/EECSProject/src/bean/PurchaseOrderItemBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="998" y="1556"/>    
+    <position height="496" width="437" x="6757" y="1825"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="bean.PurchaseOrderShipTo" project="EECSProject" 
-    file="/EECSProject/src/bean/PurchaseOrderShipTo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1615" y="1554"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="bean.ReviewBean" project="EECSProject" 
-    file="/EECSProject/src/bean/ReviewBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="199" y="273"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="bean.POBean" project="EECSProject" file="/EECSProject/src/bean/POBean.java" 
+  <class id="3" language="java" name="dao.AccountDAO" project="EECSProject" file="/EECSProject/src/dao/AccountDAO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="610" y="372"/>    
+    <position height="-1" width="-1" x="8880" y="631"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="bean.POXMLWrapper" project="EECSProject" 
-    file="/EECSProject/src/bean/POXMLWrapper.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2007" y="172"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="bean.AccountBean" project="EECSProject" 
-    file="/EECSProject/src/bean/AccountBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1500" y="332"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="bean.AddressBean" project="EECSProject" 
-    file="/EECSProject/src/bean/AddressBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1009" y="978"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="bean.BookBean" project="EECSProject" file="/EECSProject/src/bean/BookBean.java" 
+  <class id="4" language="java" name="dao.PODAO" project="EECSProject" file="/EECSProject/src/dao/PODAO.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2381" y="898"/>    
+    <position height="-1" width="-1" x="9593" y="627"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="bean.POItemBean" project="EECSProject" 
+  <class id="5" language="java" name="dao.BookDAO" project="EECSProject" file="/EECSProject/src/dao/BookDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9878" y="637"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="bean.BuyerStat" project="EECSProject" file="/EECSProject/src/bean/BuyerStat.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6157" y="1465"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="dao.POItemDAO" project="EECSProject" file="/EECSProject/src/dao/POItemDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9887" y="383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="dao.DOTWDAO" project="EECSProject" file="/EECSProject/src/dao/DOTWDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6724" y="351"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="ctrl.Login" project="EECSProject" file="/EECSProject/src/ctrl/Login.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7136" y="343"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="ctrl.Search" project="EECSProject" file="/EECSProject/src/ctrl/Search.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="336" width="404" x="7414" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="bean.POBean" project="EECSProject" file="/EECSProject/src/bean/POBean.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8354" y="1495"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="model.CartUtil" project="EECSProject" file="/EECSProject/src/model/CartUtil.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6667" y="611"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="dao.AddressDAO" project="EECSProject" file="/EECSProject/src/dao/AddressDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="9289" y="613"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ctrl.Register" project="EECSProject" file="/EECSProject/src/ctrl/Register.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5891" y="103"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="bean.BookBean" project="EECSProject" file="/EECSProject/src/bean/BookBean.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="496" width="376" x="7414" y="493"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="bean.POItemBean" project="EECSProject" 
     file="/EECSProject/src/bean/POItemBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2411" y="342"/>    
+    <position height="676" width="481" x="6893" y="493"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="bean.PurchaseOrderBillTo" project="EECSProject" 
+  <class id="17" language="java" name="bean.PurchaseOrderBillTo" project="EECSProject" 
     file="/EECSProject/src/bean/PurchaseOrderBillTo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2117" y="1554"/>    
+    <position height="-1" width="-1" x="6498" y="1933"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="bean.VisitEventBean" project="EECSProject" 
+  <class id="18" language="java" name="bean.VisitEventBean" project="EECSProject" 
     file="/EECSProject/src/bean/VisitEventBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1026" y="232"/>    
+    <position height="-1" width="-1" x="5957" y="511"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="bean.PurchaseOrderBean" project="EECSProject" 
-    file="/EECSProject/src/bean/PurchaseOrderBean.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1781" y="868"/>    
+  <class id="19" language="java" name="model.SearchUtil" project="EECSProject" 
+    file="/EECSProject/src/model/SearchUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8290" y="391"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="14" language="java" name="dao" project="EECSProject" file="/EECSProject/src/dao" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="354" width="3010" x="2859" y="49"/>    
-    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
-  </package>  
-  <class id="15" language="java" name="dao.AccountDAO" project="EECSProject" file="/EECSProject/src/dao/AccountDAO.java" 
+  <class id="20" language="java" name="ctrl.Cart" project="EECSProject" file="/EECSProject/src/ctrl/Cart.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3085" y="232"/>    
+    <position height="-1" width="-1" x="6734" y="135"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="dao.PODAO" project="EECSProject" file="/EECSProject/src/dao/PODAO.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3412" y="212"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="17" language="java" name="dao.PurchaseOrderDAO" project="EECSProject" 
+  <class id="21" language="java" name="dao.PurchaseOrderDAO" project="EECSProject" 
     file="/EECSProject/src/dao/PurchaseOrderDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3739" y="202"/>    
+    <position height="-1" width="-1" x="6300" y="573"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="dao.VisitEventDAO" project="EECSProject" 
+  <class id="22" language="java" name="model.CreditCard" project="EECSProject" 
+    file="/EECSProject/src/model/CreditCard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6307" y="269"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="model.AccountUtil" project="EECSProject" 
+    file="/EECSProject/src/model/AccountUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8872" y="869"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="bean.ReviewBean" project="EECSProject" 
+    file="/EECSProject/src/bean/ReviewBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6182" y="1087"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="dao.ReviewDAO" project="EECSProject" file="/EECSProject/src/dao/ReviewDAO.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5783" y="997"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="bean.AddressBean" project="EECSProject" 
+    file="/EECSProject/src/bean/AddressBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="7819" y="1501"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="model.PurchaseUtil" project="EECSProject" 
+    file="/EECSProject/src/model/PurchaseUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8875" y="127"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="bean.PurchaseOrderBean" project="EECSProject" 
+    file="/EECSProject/src/bean/PurchaseOrderBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="356" width="789" x="6757" y="1209"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="ctrl.Purchase" project="EECSProject" file="/EECSProject/src/ctrl/Purchase.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6162" y="769"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="bean.PurchaseOrderShipTo" project="EECSProject" 
+    file="/EECSProject/src/bean/PurchaseOrderShipTo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="496" width="456" x="7234" y="1825"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="dao.VisitEventDAO" project="EECSProject" 
     file="/EECSProject/src/dao/VisitEventDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4090" y="212"/>    
+    <position height="-1" width="-1" x="9062" y="403"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="dao.BookDAO" project="EECSProject" file="/EECSProject/src/dao/BookDAO.java" 
+  <class id="32" language="java" name="bean.POXMLWrapper" project="EECSProject" 
+    file="/EECSProject/src/bean/POXMLWrapper.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6531" y="1323"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="ctrl.Admin" project="EECSProject" file="/EECSProject/src/ctrl/Admin.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4407" y="202"/>    
+    <position height="-1" width="-1" x="6511" y="1535"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="dao.ReviewDAO" project="EECSProject" file="/EECSProject/src/dao/ReviewDAO.java" 
+  <class id="34" language="java" name="bean.AccountBean" project="EECSProject" 
+    file="/EECSProject/src/bean/AccountBean.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8274" y="803"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="ctrl.SearchFilter" project="EECSProject" 
+    file="/EECSProject/src/ctrl/SearchFilter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="8036" y="115"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="ctrl.Start" project="EECSProject" file="/EECSProject/src/ctrl/Start.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4792" y="222"/>    
+    <position height="-1" width="-1" x="7181" y="129"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="dao.POItemDAO" project="EECSProject" file="/EECSProject/src/dao/POItemDAO.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="5201" y="212"/>    
+  <class id="37" language="java" name="filter.PurchaseLogin" project="EECSProject" 
+    file="/EECSProject/src/filter/PurchaseLogin.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6614" y="855"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="dao.AddressDAO" project="EECSProject" file="/EECSProject/src/dao/AddressDAO.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="5537" y="222"/>    
+  <class id="38" language="java" name="filter.PuchaseSpamFilter" project="EECSProject" 
+    file="/EECSProject/src/filter/PuchaseSpamFilter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6616" y="1039"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="23">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="24" name="shipTo"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+  <class id="39" language="java" name="filter.BounceToHome" project="EECSProject" 
+    file="/EECSProject/src/filter/BounceToHome.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5780" y="1195"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="filter.VisitEvent" project="EECSProject" 
+    file="/EECSProject/src/filter/VisitEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5884" y="279"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="41">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="42" name="account"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="34" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <association id="27">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="28" name="items"/>      
-      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
+  <association id="44">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="45" name="address"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="48" name="poItemDAO"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="51" name="temp"/>      
+      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="54" name="account"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="57" name="bookDAO"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="60" name="items"/>      
+      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="30">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="31">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="32">    
-    <bendpoint x="659" y="1247"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="34">    
-    <bendpoint x="1327" y="1229"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="37">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <association id="41">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="42" name="orders"/>      
-      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+  <association id="62">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="63" name="billTo"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="66" name="visitEventDAO"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="69" name="addressDAO"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="44">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="46">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <association id="47">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="48" name="address"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
+  <association id="71">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="72" name="o50"/>      
+      <multiplicity id="73" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="50">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <association id="51">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="52" name="address"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
+  <association id="74">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="75" name="booksByFilter"/>      
+      <multiplicity id="76" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="55" name="billTo"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+  <association id="77">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="78" name="acc_dao"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="57">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="58">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="59">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="60">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="61">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="62">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="63">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <association id="64">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="65" name="purchaseOrder"/>      
-      <multiplicity id="66" minimum="0" maximum="2147483647"/>    
+  <association id="80">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="81" name="shipTo"/>      
+      <multiplicity id="82" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="84" name="podao"/>      
+      <multiplicity id="85" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="87" name="u15"/>      
+      <multiplicity id="88" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="90" name="r15_r25"/>      
+      <multiplicity id="91" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="93" name="orders"/>      
+      <multiplicity id="94" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="95">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="96" name="address"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="98">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="99" name="r25_r50"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="102" name="cart"/>      
+      <multiplicity id="103" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="104">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="105" name="temp"/>      
+      <multiplicity id="106" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="107">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="108" name="purchaseOrder"/>      
+      <multiplicity id="109" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="111" name="library"/>      
+      <multiplicity id="112" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

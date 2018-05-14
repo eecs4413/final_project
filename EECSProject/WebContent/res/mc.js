@@ -255,12 +255,30 @@ function addCartToast(){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
+function updateCart(){
+	
+//	var searchBar = document.getElementById("searchBar").value;
+//	var searchBtn = document.getElementById("searchButton").value;
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("body").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }
+	        
+	  };
+	  xhttp.open("GET", 'Home', true);
+	  xhttp.send(null);
+	
+}
+
+
+
 function clickCart(){
 	
 	var searchBar = document.getElementById("searchBar").value;
 	var searchBtn = document.getElementById("searchButton").value;
-	alert(searchBar);
-	alert('Search?searchBar=' +searchBar + "&searchButton=" + searchBtn +"&addCart=");
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -274,6 +292,29 @@ function clickCart(){
 	  xhttp.send(null);
 	
 }
+
+function loadHeaderSearch(category){
+	
+	var searchBar = document.getElementById("searchBar").value;
+	var searchBtn = document.getElementById("searchButton").value;
+	var headerBtn = document.getElementById("headerButton").value;
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	     document.getElementById("page").innerHTML = this.responseText;
+	     	//alert(this.responseText)
+	    }
+	        
+	  };
+	  //alert('SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn);
+	  xhttp.open("GET", 'Search?searchBar=' + category + "&searchButton=" + searchBtn
+			  , true);
+	  //xhttp.open("GET", 'SearchResults.jspx?searchBar=' +searchBar + "&searchButton=" + searchBtn, true);
+	  xhttp.send(null);
+	
+}
+
 
 function loadSearch(){
 	

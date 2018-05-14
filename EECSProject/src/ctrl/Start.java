@@ -145,6 +145,8 @@ public class Start extends HttpServlet {
 		
 		if (request.getParameter("addCart") != null) {
 			
+			System.out.println("TESTING?");
+			
 			String bookID = request.getParameter("addCart");
 			BookBean book = SearchUtil.searchID(bookID);
 			ArrayList<POItemBean> cart = (ArrayList<POItemBean>) request.getSession().getAttribute("cart");
@@ -152,15 +154,24 @@ public class Start extends HttpServlet {
 			if (cart == null) {
 				cart = new ArrayList<POItemBean>();
 			}
+			
 			CartUtil.setCart(cart);
 			
 			CartUtil.addItem(book, 1, null);
+			
+			int totalBooks = 0;
+			
+			for(int i = 0; i < cart.size(); i++) {
+				totalBooks += Integer.parseInt(CartUtil.getCart().get(i).quantity);
+			}
+			
 			cart = CartUtil.getCart();
 			
 			request.getSession().setAttribute("cart", cart);
-			request.getSession().setAttribute("cartcount", cart.size());
-
+			request.getSession().setAttribute("cartcount", totalBooks);
 		}
+
+
 
 		// SearchUtil.searchID(request.getParameter("book"));
 		// ReviewDAO dao = new ReviewDAO();

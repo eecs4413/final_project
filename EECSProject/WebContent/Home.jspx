@@ -131,17 +131,18 @@
 			<li class="dropdown"><a href="javascript:void(0)"
 				class="dropbtn">Books</a>
 				<div class="dropdown-content">
-					<form>
+					<form action="" method="GET">
 						<c:forEach var="data" items="${catagorylist}">
 
-							<button class="searchButton" id="headerButton"
-								name="headerButton" value="${data}" action="submit">
-								<c:out value="${data}" />
+							<button id="headerButton" class="searchButton"
+								name="headerButton" value="${data}" action="submit" onclick="loadHeaderSearch('${data}'); loadSearchFilter(); return false;">
+								<p>${data} </p>
 							</button>
 
 						</c:forEach>
 
 					</form>
+
 
 
 

@@ -50,7 +50,7 @@ public class SearchFilter extends HttpServlet {
 			request.setAttribute("crime", SearchUtil.searchCategory("Crime").size());
 			request.setAttribute("eng", SearchUtil.searchCategory("Engineering").size());
 			request.setAttribute("fantasy", SearchUtil.searchCategory("Fantasy").size());
-			request.setAttribute("kids", SearchUtil.searchCategory("Kids", temp).size());
+			request.setAttribute("kids", SearchUtil.searchCategory("Kids").size());
 			request.setAttribute("sciFi", SearchUtil.searchCategory("Science Fiction").size());
 		}
 		
